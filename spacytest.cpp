@@ -2,20 +2,29 @@
 #include "spacy/spacy"
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <filesystem>
-#include <stdio.h>
+#include <map>
 
 using namespace std;
 
-namespace fs = std::filesystem; 
+namespace fs = std::filesystem;
 bool hasUnsavedChanges = false;
 bool uploadFromFile = false;
+
+struct WordInfo {
+    std::string word;
+    int count;
+
+    WordInfo() : count(0) {}
+};
+
 void printMenu()
 {
     cout << "Выберите операцию: " << endl
-        << "1: загрузить текст файла" << endl
+        << "1: загрузить текст из файла" << endl
         << "2: сохранить результаты в файл" << endl
-        << "3: вывести результат на консоль"
+        << "3: вывести результат на консоль" << endl
         << "4: выйти" << endl;
 }
 
@@ -30,7 +39,10 @@ string checkingFileName(int mode)
     bool flag;
     do
     {
+        cin.ignore(1000, '\n');
+        cin.clear();
         flag = true;
+        system("clear");
         if (mode == 1)
             cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия входного файла и вернуться в главное меню." << endl;
         else
@@ -45,13 +57,13 @@ string checkingFileName(int mode)
         for (int i = 0; i < fileName.size(); i++) // Проверить название файла на запрещенные символы
         {
             if ((fileName[i] == '\\') ||
-                 (fileName[i] == '/') ||
-                 (fileName[i] == ':') ||
-                 (fileName[i] == '*') ||
-                 (fileName[i] == '?') ||
-                 (fileName[i] == '"') ||
-                 (fileName[i] == '<') ||
-                 (fileName[i] == '|')
+                (fileName[i] == '/') ||
+                (fileName[i] == ':') ||
+                (fileName[i] == '*') ||
+                (fileName[i] == '?') ||
+                (fileName[i] == '"') ||
+                (fileName[i] == '<') ||
+                (fileName[i] == '|')
                 )
             {
                 cout << "Не корректный ввод, повторите попытку, не используя специальные символы!" << '\n';
@@ -119,101 +131,106 @@ string checkingFileName(int mode)
 
     return fileName;
 }
-bool isNounOrPron(string tokenpos){
-    if(tokenpos == "NOUN" || tokenpos == "PRON" || tokenpos == "PROPN" ){
+
+bool isNounOrPron(string tokenpos) {
+    if (tokenpos == "NOUN" || tokenpos == "PRON" || tokenpos == "PROPN") {
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
-void spacy()
+
+void spacy(std::map<std::string, WordInfo>& wordMap)
 {
     string str, text;
     string fileName;
     fileName = checkingFileName(1); // Получить название входного файла
+    if (fileName == "=")
+    {
+        return;
+    }
     ifstream input(fileName);
     Spacy::Spacy spacy;
     auto nlp = spacy.load("ru_core_news_lg");
-    if(input.is_open()){
-        int i = 1;
+    bool flagObjectiv = false;
+    if (input.is_open()) {
+        cout << "Файл успешно открыт!" << endl;
         uploadFromFile = true;
 
-        while(getline(input,str)){
-
+        while (getline(input, str))
+        {
             auto doc = nlp.parse(str);
 
             for (auto& token : doc.tokens())
             {
-            auto head = token.head();
-            auto children = token.children();
-            if(isNounOrPron(token.pos_()) && 
-            (token.dep_() == "obl" || token.dep_() == "obj" || token.dep_() == "nmod" || token.dep_() == "iobj" || token.dep_() == "conj") && 
-            !(token.dep_() == "obj" && head.dep_() == "xcomp") && !(token.dep_() == "obl" && head.dep_() == "xcomp") &&
-            !(token.dep_() == "obl" && head.dep_() == "acl") && !(token.dep_() == "obl" && head.dep_() == "advcl") &&
-            !(token.dep_() == "conj" && head.dep_() == "obl") && !(token.dep_() == "obl" && head.dep_() == "ROOT") &&
-            !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
-            !(token.dep_() == "conj" && head.dep_() == "obj")) {
-                cout << i << " " << token.text() << " [" << token.pos_() << "] " << token.dep_() << " " << head.text() << " " << head.dep_() << " " << endl;
-                i++;
+                auto head = token.head();
+                auto children = token.children();
+                if (isNounOrPron(token.pos_()) &&
+                    (token.dep_() == "obl" || token.dep_() == "obj" || token.dep_() == "nmod" || token.dep_() == "iobj" || token.dep_() == "conj") &&
+                    !(token.dep_() == "obj" && head.dep_() == "xcomp") && !(token.dep_() == "obl" && head.dep_() == "xcomp") &&
+                    !(token.dep_() == "obl" && head.dep_() == "acl") && !(token.dep_() == "obl" && head.dep_() == "advcl") &&
+                    !(token.dep_() == "conj" && head.dep_() == "obl") && !(token.dep_() == "obl" && head.dep_() == "ROOT") &&
+                    !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
+                    !(token.dep_() == "conj" && head.dep_() == "obj")) 
+                {
+                    std::string word = token.text();
+                    //cout << i << " " << word << " [" << token.pos_() << "] " << token.dep_() << " " << head.text() << " " << head.dep_() << " " << endl;
+                    //i++;
+                    flagObjectiv = true;
+                    // Поиск слова в map и обновление счетчика
+                    wordMap[word].count++;
+                }
             }
-            } 
         }
+    }
+    if (flagObjectiv == true)
+    {
+        cout << "Дополнения обнаружены в файле!" << endl;
+        hasUnsavedChanges = true;
+    }
+    else
+    {
+        cout << "Дополнения не обнаружены в файле!" << endl;
     }
 
     input.close();
 }
 
+void printWordInfo(const std::map<std::string, WordInfo>& wordMap)
+{
+    cout << "Слова и их количество:" << endl;
+
+    for (const auto& pair : wordMap)
+    {
+        cout << pair.first << ": " << pair.second.count << endl;
+    }
+    cin.get();
+}
 
 // Функция, которая отвечает за сохранение данных из структуры во внешний текстовый файл
-bool saveToFile(Book*& bookList)
+bool saveToFile(const std::map<std::string, WordInfo>& wordMap, const std::string& fileName)
 {
-    system("cls");
-    if (bookList == nullptr)
+    system("clear");
+    ofstream output(fileName);
+    if (!output.is_open())
     {
-        cout << "Сохранение в файл невозможно. В списке нет ни одной книги." << endl;
-        return 1;
-    }
-    string fileName = checkingFileName(2); // Получить название выходного файла
-    if (fileName == "=")
-    {
-        return 0;
+        cout << "Ошибка при открытии файла для записи." << endl;
+        return false;
     }
 
-    ofstream fOut(fileName);
-    if (!fOut.is_open())
+    for (const auto& pair : wordMap)
     {
-        cout << "Не удалось открыть файл." << endl;
-        return 1;
+        output << pair.first << ": " << pair.second.count << endl;
     }
 
-    Book* currBook = bookList; // Обновление указателя на текущий список книг
-    // Запись всех книг в выходной текстовый файл
-    while (currBook != nullptr)
-    {
-        fOut << '[' << currBook->title << ']';
-        if (currBook->authors == nullptr) // Если у книги нет авторов
-        {
-            fOut << " Нет авторов для этой книги" << endl;
-        }
-        else
-        {
-            // Запись всех авторов книги в выходной файл
-            Author* currAuthor = currBook->authors;
-            while (currAuthor != nullptr)
-            {
-                fOut << " " << currAuthor->name;
-                currAuthor = currAuthor->next;
-            }
-            fOut << endl;
-        }
-        currBook = currBook->next;
-    }
-    hasUnsavedChanges = false; // Сброс флага несохраненных изменений
-    fOut.close();
+    cout << "Результаты сохранены в файл: " << fileName << endl;
+    output.close();
+    return true;
 }
 
 // Функция, которая отвечает за сохранение данных перед выходом из функции
-bool exitSave()
+bool exitSave(const std::map<std::string, WordInfo>& wordMap)
 {
     bool validInput = false;
     char input;
@@ -224,16 +241,21 @@ bool exitSave()
     {
         input = getchar(); // Получить выбор пользователя
 
-        if (input == 'y' || input == 'Y' || input == 'Н' || input == 'н')
+        if (input == 'y' || input == 'Y')
         {
-            bool exit = saveToFile(bookList);
+            string saveFileName = checkingFileName(2);
+            if(saveFileName == "=")
+            {
+                return 0;
+            }
+            bool exit = saveToFile(wordMap, saveFileName);
             if (exit == 0)
             {
                 return 0;
             }
             break;
         }
-        else if (input == 'n' || input == 'N' || input == 'Т' || input == 'т')
+        else if (input == 'n' || input == 'N')
         {
             break;
         }
@@ -245,37 +267,53 @@ bool exitSave()
     return 1;
 }
 
-
 int main()
 {
+    std::map<std::string, WordInfo> wordMap;
     // Цикл меню
     bool validInput = false;
     char input;
-    system("cls");
+    system("clear");
     printMenu(); // Вывод главного меню
+
     while (!validInput)
     {
-        input = getchar();  // Считать символ с клавиатуры и игнорировать все клавиши кроме 1-8
-
+        input = getchar();
         if (input == '1')
         {
-            spacy(); // Добавить книгу в структуру
-            system("pause");
-            system("cls");
+            spacy(wordMap); // Добавить книгу в структуру
+            cout << "Нажмите клавишу Enter для продолжения." << endl;
+            cin.get();
+            system("clear");
             printMenu();
             continue;
         }
         if (input == '2')
         {
-            system("pause");
-            system("cls");
+            string saveFileName = checkingFileName(2);
+            if(saveFileName == "=")
+            {
+                system("clear");
+                printMenu();
+                continue;
+            }
+            bool success = saveToFile(wordMap, saveFileName);
+            if (success)
+            {
+                hasUnsavedChanges = false;
+            }
+            cout << "Нажмите клавишу Enter для продолжения." << endl;
+            cin.get();
+            system("clear");
             printMenu();
             continue;
         }
         if (input == '3')
         {
-            system("pause");
-            system("cls");
+            printWordInfo(wordMap);
+            cout << "Нажмите клавишу Enter для продолжения." << endl;
+            cin.get();
+            system("clear");
             printMenu();
             continue;
         }
@@ -289,8 +327,8 @@ int main()
             {
                 if (hasUnsavedChanges == true) // Если есть несохранные изменения в структуре
                 {
-                    system("cls");
-                    bool exit = exitSave(bookList); // Сохранить список книг перед выходом из программы
+                    system("clear");
+                    bool exit = exitSave(wordMap); // Сохранить список перед выходом из программы
                     if (exit)
                     {
                         validInput = true;
@@ -298,7 +336,7 @@ int main()
                     }
                     else
                     {
-                        system("cls");
+                        system("clear");
                         printMenu();
                         continue;
                     }
