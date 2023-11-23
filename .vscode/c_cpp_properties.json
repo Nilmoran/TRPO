@@ -7,7 +7,8 @@
                 "/usr/include/python3.10/internal",
                 "/usr/include/python3.10/cpython",
                 "/usr/include/python3.10/",
-                "/usr/include/c++/11/"
+                "/usr/include/c++/11/",
+                "/home/lopeto/Desktop/Spacy-cpp/"
             ],
             "defines": [],
             "cStandard": "c17",

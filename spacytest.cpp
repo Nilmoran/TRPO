@@ -132,8 +132,8 @@ string checkingFileName(int mode)
     return fileName;
 }
 
-bool isNounOrPron(string tokenpos) {
-    if (tokenpos == "NOUN" || tokenpos == "PRON" || tokenpos == "PROPN") {
+bool isNounOrPron(string tokenPos) { // Функция проверяющая является ли слово существительным или местоимением
+    if (tokenPos == "NOUN" || tokenPos == "PRON" || tokenPos == "PROPN") {
         return true;
     }
     else {
@@ -175,8 +175,6 @@ void spacy(std::map<std::string, WordInfo>& wordMap)
                     !(token.dep_() == "conj" && head.dep_() == "obj")) 
                 {
                     std::string word = token.text();
-                    //cout << i << " " << word << " [" << token.pos_() << "] " << token.dep_() << " " << head.text() << " " << head.dep_() << " " << endl;
-                    //i++;
                     flagObjectiv = true;
                     // Поиск слова в map и обновление счетчика
                     wordMap[word].count++;
@@ -281,14 +279,14 @@ int main()
         input = getchar();
         if (input == '1')
         {
-            spacy(wordMap); // Добавить книгу в структуру
+            spacy(wordMap); // Вызвать функцию парсинга текста
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
             system("clear");
             printMenu();
             continue;
         }
-        if (input == '2')
+        if (input == '2') 
         {
             string saveFileName = checkingFileName(2);
             if(saveFileName == "=")
@@ -297,27 +295,27 @@ int main()
                 printMenu();
                 continue;
             }
-            bool success = saveToFile(wordMap, saveFileName);
-            if (success)
+            
+            if (saveToFile(wordMap, saveFileName)) // Вызвать функцию вывода найденных слов в файл
             {
                 hasUnsavedChanges = false;
             }
             cout << "Нажмите клавишу Enter для продолжения." << endl;
-            cin.get();
+            cin.get(); 
             system("clear");
             printMenu();
             continue;
         }
-        if (input == '3')
+        if (input == '3') 
         {
-            printWordInfo(wordMap);
+            printWordInfo(wordMap); // Вывод найденных слов в консоль
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
             system("clear");
             printMenu();
             continue;
         }
-        if (input == '4')
+        if (input == '4') // Выход их программы 
         {
             if (uploadFromFile == false)
             {
@@ -325,10 +323,10 @@ int main()
             }
             else
             {
-                if (hasUnsavedChanges == true) // Если есть несохранные изменения в структуре
+                if (hasUnsavedChanges == true) // Если есть несохранные изменения в программе 
                 {
                     system("clear");
-                    bool exit = exitSave(wordMap); // Сохранить список перед выходом из программы
+                    bool exit = exitSave(wordMap); // Сохранить список слов перед выходом из программы
                     if (exit)
                     {
                         validInput = true;
