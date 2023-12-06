@@ -175,15 +175,14 @@ void spacy(vector<Word>& words) {
                         int index = findWordIndex(words, word);
                         if (index != -1) {
                             // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
-                            cout << index << endl;
+                            //cout << index << endl;
                             words[index].count++;
                             if (sentence != words[index].sentence) {
-                                words[index].sentence = sentence;
+                                words[index].sentence += " " + sentence;
                             }
-                            words.push_back(Word(word, sentence));
                         } else {
                             // Слово встречается впервые, добавить его в массив
-                            cout << index << endl;
+                            //cout << index << endl;
                             words.push_back(Word(word, sentence));
                         }
                         flagObjectiv = true;
@@ -222,10 +221,10 @@ bool saveToFile(vector<Word>& words, std::string& fileName) {
     }
 
     for (const auto& word : words) {
-        cout << "Слово: " << word.word << endl;
-        cout << "Предложение: " << word.sentence << endl;
-        cout << "Количество: " << word.count << endl;
-        cout << "---------------------" << endl;
+        output << "Слово: " << word.word << endl;
+        output << "Предложение: " << word.sentence << endl;
+        output << "Количество: " << word.count << endl;
+        output << "---------------------" << endl;
     }
 
     cout << "Результаты сохранены в файл: " << fileName << endl;
