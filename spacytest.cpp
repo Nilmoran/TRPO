@@ -4,10 +4,10 @@
 #include <fstream>
 #include <string>
 #include <filesystem>
-#include <map>
 #include <sstream>
-#include <cctype>
-#include <regex>
+#include <algorithm>
+#include <locale>
+#include <functional>
 
 using namespace std;
 
@@ -49,6 +49,7 @@ int findWordIndex(const vector<Word>& words, const string& word) {
     }
     return -1;
 }
+
 
 string checkingFileName(int mode) {
     string path;
@@ -138,6 +139,41 @@ bool isNounOrPron(string tokenPos) {
     }
 }
 
+// Функция для разделения текста на предложения
+std::vector<std::string> splitSentences(const std::string& text) {
+    std::vector<std::string> sentences;
+    std::istringstream sentenceStream(text);
+    std::string sentence;
+
+    while (std::getline(sentenceStream, sentence, '.')) {
+        if (!sentence.empty()) {
+            sentences.push_back(sentence);
+        }
+    }
+
+    return sentences;
+}
+
+// Функция для обработки файла
+string processFile(std::string& inputFileName) {
+    std::ifstream inputFile(inputFileName);
+    std::string outputFileName = "buf_" + inputFileName;
+    std::ofstream outputFile(outputFileName);
+
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        // Разделение строки на предложения
+        std::vector<std::string> sentences = splitSentences(line);
+
+        // Запись каждого предложения на отдельной строке в выходной файл
+        for (const std::string& sentence : sentences) {
+            outputFile << sentence + "." << std::endl;
+        }
+    }
+
+    return outputFileName;
+}
+
 void spacy(vector<Word>& words) {
     string str, text;
     string fileName;
@@ -146,6 +182,7 @@ void spacy(vector<Word>& words) {
     if (fileName == "=") {
         return;
     }
+    fileName = processFile(fileName);
     ifstream input(fileName);
     Spacy::Spacy spacy;
     auto nlp = spacy.load("ru_core_news_lg");
@@ -156,37 +193,35 @@ void spacy(vector<Word>& words) {
 
         while (getline(input, str)) {
             auto doc = nlp.parse(str);
-            for (auto& sent : doc.sents()) 
+            for (auto& token : doc.tokens()) 
             {
-                for (auto& token : doc.tokens()) 
+                auto head = token.head();
+                if (isNounOrPron(token.pos_()) &&
+                (token.dep_() == "obl" || token.dep_() == "obj" || token.dep_() == "nmod" || token.dep_() == "iobj" || token.dep_() == "conj") &&
+                !(token.dep_() == "obj" && head.dep_() == "xcomp") && !(token.dep_() == "obl" && head.dep_() == "xcomp") &&
+                !(token.dep_() == "obl" && head.dep_() == "acl") && !(token.dep_() == "obl" && head.dep_() == "advcl") &&
+                !(token.dep_() == "conj" && head.dep_() == "obl") && !(token.dep_() == "obl" && head.dep_() == "ROOT") &&
+                !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
+                !(token.dep_() == "conj" && head.dep_() == "obj")) 
                 {
-                    auto head = token.head();
-                    if (isNounOrPron(token.pos_()) &&
-                    (token.dep_() == "obl" || token.dep_() == "obj" || token.dep_() == "nmod" || token.dep_() == "iobj" || token.dep_() == "conj") &&
-                    !(token.dep_() == "obj" && head.dep_() == "xcomp") && !(token.dep_() == "obl" && head.dep_() == "xcomp") &&
-                    !(token.dep_() == "obl" && head.dep_() == "acl") && !(token.dep_() == "obl" && head.dep_() == "advcl") &&
-                    !(token.dep_() == "conj" && head.dep_() == "obl") && !(token.dep_() == "obl" && head.dep_() == "ROOT") &&
-                    !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
-                    !(token.dep_() == "conj" && head.dep_() == "obj")) 
-
+                    std::string word = token.text();
+                    std::string sentence = toUpperCyrillic(str);
+                    int index = findWordIndex(words, word);
+                    if (index != -1) 
                     {
-                        std::string word = token.text();
-                        std::string sentence = sent.text();
-                        int index = findWordIndex(words, word);
-                        if (index != -1) {
-                            // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
-                            //cout << index << endl;
-                            words[index].count++;
-                            if (sentence != words[index].sentence) {
-                                words[index].sentence += " " + sentence;
-                            }
-                        } else {
-                            // Слово встречается впервые, добавить его в массив
-                            //cout << index << endl;
-                            words.push_back(Word(word, sentence));
+                        // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
+                        words[index].count++;
+                        if (sentence != words[index].sentence) 
+                        {
+                            words[index].sentence += sentence;
                         }
-                        flagObjectiv = true;
+                    } 
+                    else 
+                    {
+                        // Слово встречается впервые, добавить его в массив
+                        words.push_back(Word(word, sentence));
                     }
+                    flagObjectiv = true;
                 }
             }
         }
@@ -263,6 +298,7 @@ int main() {
     vector<Word> words;
     bool validInput = false;
     char input;
+    setlocale(LC_ALL, "ru_RU.UTF-8");
     system("clear");
     printMenu();
 
