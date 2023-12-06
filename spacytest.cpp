@@ -205,7 +205,7 @@ void spacy(vector<Word>& words) {
                 !(token.dep_() == "conj" && head.dep_() == "obj")) 
                 {
                     std::string word = token.text();
-                    std::string sentence = toUpperCyrillic(str);
+                    std::string sentence = str;
                     int index = findWordIndex(words, word);
                     if (index != -1) 
                     {
