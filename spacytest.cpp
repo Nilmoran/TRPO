@@ -10,6 +10,7 @@
 using namespace std;
 
 namespace fs = filesystem;
+
 bool hasUnsavedChanges = false;
 bool uploadFromFile = false;
 bool flagFirstOpen = false;
@@ -26,15 +27,24 @@ struct Word {
 };
 
 void printMenu();
+string highlightWord(string&, string&);
 string createNumberedBufferFile(string&);
+int findWordIndex(vector<Word>&, string&);
 string checkingFileName(int);
 bool isNounOrPron(string);
+bool isObject(string);
+bool isNotAdverbial(string, string);
+bool isNotSubject(string, string);
+vector<string> splitSentences(string&);
+string processFile(string&);
+void parceText(vector<Word>&, ifstream&, string);
 void spacyMain(vector<Word>&);
 void printResults(vector<Word>&);
 bool saveToFile(vector<Word>&, string&);
 bool exitSave(vector<Word>& );
 
 void printMenu() {
+    cout << "Данная программа предназначена для поиска дополнений в тексте!" << endl;
     cout << "Выберите операцию: " << endl
          << "1: загрузить из файла текст для анализа " << endl
          << "2: сохранить результаты анализа текста в файл" << endl
@@ -42,14 +52,14 @@ void printMenu() {
          << "4: выйти" << endl;
 }
 
-string getSurroundingSentence(string& fullText, string& targetWord) {
+string highlightWord(string& targetSentence, string& targetWord) {
     // Найти индекс начала и конца слова в тексте
-    size_t wordStart = fullText.find(targetWord);
+    size_t wordStart = targetSentence.find(targetWord);
     size_t wordEnd = wordStart + targetWord.length();
 
     // Определить границы предложения, в котором находится слово
-    size_t sentenceStart = fullText.rfind('.', wordStart);
-    size_t sentenceEnd = fullText.find('.', wordEnd);
+    size_t sentenceStart = targetSentence.rfind('.', wordStart);
+    size_t sentenceEnd = targetSentence.find('.', wordEnd);
 
     // Обработать случай, когда нет точек перед/после слова
     if (sentenceStart == string::npos) {
@@ -59,11 +69,11 @@ string getSurroundingSentence(string& fullText, string& targetWord) {
     }
 
     if (sentenceEnd == string::npos) {
-        sentenceEnd = fullText.length();
+        sentenceEnd = targetSentence.length();
     }
 
     // Выделить предложение с учетом слова в квадратных скобках
-    string sentence = "[" + fullText.substr(sentenceStart, sentenceEnd - sentenceStart) + "]";
+    string sentence = "[" + targetSentence.substr(sentenceStart, sentenceEnd - sentenceStart) + "]";
 
     return sentence;
 }
@@ -160,13 +170,6 @@ string checkingFileName(int mode) {
     return fileName;
 }
 
-bool isNounOrPron(string tokenPos) {
-    if (tokenPos == "NOUN" || tokenPos == "PRON" || tokenPos == "PROPN") {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 // Функция для разделения текста на предложения
 vector<string> splitSentences(string& text) {
@@ -203,6 +206,56 @@ string processFile(string& inputFileName) {
     return outputFileName;
 }
 
+bool isNounOrPron(string tokenPos) {
+    if (tokenPos == "NOUN" || tokenPos == "PRON" || tokenPos == "PROPN") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool isObject(string tokenDep) 
+{
+    if ((tokenDep == "obl" || tokenDep == "obj" || tokenDep == "nmod" || tokenDep == "iobj" || tokenDep == "conj")) 
+    {
+        return true;
+    } 
+
+    else 
+    {
+        return false;
+    }
+}
+
+bool isNotAdverbial(string tokenDep, string headDep) 
+{
+    if (!(tokenDep == "obl" && headDep == "ROOT") && !(tokenDep == "obj" && headDep == "xcomp") &&
+    !(tokenDep == "obl" && headDep == "xcomp") && !(tokenDep == "obl" && headDep == "acl") && 
+    !(tokenDep == "obl" && headDep == "advcl")) 
+    {
+        return true;
+    } 
+
+    else 
+    {
+        return false;
+    }
+}
+
+bool isNotSubject(string tokenDep, string headDep) 
+{
+    if (!(tokenDep == "conj" && headDep == "obl")  && !(tokenDep == "conj" && headDep == "nsubj") && 
+    !(tokenDep== "conj" && headDep == "obl") && !(tokenDep == "conj" && headDep == "obj")) 
+    {
+        return true;
+    } 
+
+    else 
+    {
+        return false;
+    }
+}
+
 void parceText(vector<Word>& words, ifstream& input, string str)
 {
     while (getline(input, str)) 
@@ -211,13 +264,8 @@ void parceText(vector<Word>& words, ifstream& input, string str)
             for (auto& token : doc.tokens()) 
             {
                 auto head = token.head();
-                if (isNounOrPron(token.pos_()) &&
-                (token.dep_() == "obl" || token.dep_() == "obj" || token.dep_() == "nmod" || token.dep_() == "iobj" || token.dep_() == "conj") &&
-                !(token.dep_() == "obj" && head.dep_() == "xcomp") && !(token.dep_() == "obl" && head.dep_() == "xcomp") &&
-                !(token.dep_() == "obl" && head.dep_() == "acl") && !(token.dep_() == "obl" && head.dep_() == "advcl") &&
-                !(token.dep_() == "conj" && head.dep_() == "obl") && !(token.dep_() == "obl" && head.dep_() == "ROOT") &&
-                !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
-                !(token.dep_() == "conj" && head.dep_() == "obj")) 
+                if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.pos_(), head.pos_()) &&
+                isNotSubject(token.pos_(), head.pos_())) 
                 {
                     string word = token.text();
                     // Заменить слово в самой строке, добавив квадратные скобки
