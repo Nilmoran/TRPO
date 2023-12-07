@@ -5,9 +5,7 @@
 #include <string>
 #include <filesystem>
 #include <sstream>
-#include <algorithm>
-#include <locale>
-#include <functional>
+#include <cstdio>
 
 using namespace std;
 
@@ -84,6 +82,7 @@ string checkingFileName(int mode) {
                 (fileName[i] == '<') ||
                 (fileName[i] == '|')) {
                 cout << "Не корректный ввод, повторите попытку, не используя специальные символы!" << '\n';
+                cout << "Нажмите клавишу Enter для продолжения." << endl;
                 flag = false;
                 break;
             }
@@ -98,6 +97,7 @@ string checkingFileName(int mode) {
                 buf.open(path);
                 if (!buf.is_open()) {
                     cout << "Файл не найден проверьте его наличие по пути: " << path << endl;
+                    cout << "Нажмите клавишу Enter для продолжения." << endl;
                     flag = false;
                 }
             }
@@ -124,7 +124,7 @@ string checkingFileName(int mode) {
                     return newFileName;
                 } else {
                     path = fs::current_path().string() + "/" + fileName;
-                    cout << "Текущая структура данных была записана в файл по пути " << path << endl;
+                    cout << "Текущие данные были записаны в файл по пути " << path << endl;
                     return fileName;
                 }
             }
@@ -215,7 +215,7 @@ void parceText(vector<Word>& words, ifstream& input, string str)
         }
 }
 
-void spacyMain(vector<Word>& words, bool flag) {
+void spacyMain(vector<Word>& words) {
     string str, text;
     string fileName;
     int count = 0;
@@ -227,13 +227,11 @@ void spacyMain(vector<Word>& words, bool flag) {
     fileName = processFile(fileName);
     ifstream input(fileName);
     if (input.is_open()) {
-        cout << "Файл успешно открыт!" << endl;
         uploadFromFile = true;
         parceText(words, input, str);
-
-        flagFirstOpen = true;
     }
     input.close();
+    remove(fileName.c_str());
 }
 
 // Функция для вывода результатов
@@ -305,7 +303,8 @@ int main() {
         input = getchar();
         if (input == '1') {
             words.clear();
-            spacyMain(words, flagFirstOpen);
+            spacyMain(words);
+            hasUnsavedChanges = true;
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
             system("clear");
@@ -313,6 +312,20 @@ int main() {
             continue;
         }
         if (input == '2') {
+            if (words.empty() == 1)
+            {
+                system("clear");
+                cout << "Нет данных для сохранения в файл." << endl;
+                cout << "Нажмите клавишу Enter для продолжения." << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cin.get();
+                system("clear");
+                printMenu();
+                continue;
+            }
+            else
+            {
             string saveFileName = checkingFileName(2);
             if (saveFileName == "=") {
                 system("clear");
@@ -328,8 +341,22 @@ int main() {
             system("clear");
             printMenu();
             continue;
+            }
+
         }
         if (input == '3') {
+            if (words.empty() == 1)
+            {
+                system("clear");
+                cout << "Нет данных для отображения." << endl;
+                cout << "Нажмите клавишу Enter для продолжения." << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cin.get();
+                system("clear");
+                printMenu();
+                continue;
+            }
             printResults(words);
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
