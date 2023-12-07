@@ -42,6 +42,32 @@ void printMenu() {
          << "4: выйти" << endl;
 }
 
+string getSurroundingSentence(string& fullText, string& targetWord) {
+    // Найти индекс начала и конца слова в тексте
+    size_t wordStart = fullText.find(targetWord);
+    size_t wordEnd = wordStart + targetWord.length();
+
+    // Определить границы предложения, в котором находится слово
+    size_t sentenceStart = fullText.rfind('.', wordStart);
+    size_t sentenceEnd = fullText.find('.', wordEnd);
+
+    // Обработать случай, когда нет точек перед/после слова
+    if (sentenceStart == string::npos) {
+        sentenceStart = 0;
+    } else {
+        sentenceStart++;
+    }
+
+    if (sentenceEnd == string::npos) {
+        sentenceEnd = fullText.length();
+    }
+
+    // Выделить предложение с учетом слова в квадратных скобках
+    string sentence = "[" + fullText.substr(sentenceStart, sentenceEnd - sentenceStart) + "]";
+
+    return sentence;
+}
+
 // Функция для поиска слова в массиве words
 int findWordIndex(vector<Word>& words, string& word) {
     for (size_t i = 0; i < words.size(); ++i) {
@@ -194,7 +220,11 @@ void parceText(vector<Word>& words, ifstream& input, string str)
                 !(token.dep_() == "conj" && head.dep_() == "obj")) 
                 {
                     string word = token.text();
+                    // Заменить слово в самой строке, добавив квадратные скобки
+                    size_t wordStart = str.find(word);
+                    size_t wordEnd = wordStart + word.length();
                     string sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "[" + word + "]");
                     int index = findWordIndex(words, word);
                     if (index != -1) 
                     {
