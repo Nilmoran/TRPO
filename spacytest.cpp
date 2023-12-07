@@ -11,25 +11,29 @@
 
 using namespace std;
 
-namespace fs = std::filesystem;
+namespace fs = filesystem;
 bool hasUnsavedChanges = false;
 bool uploadFromFile = false;
+bool flagFirstOpen = false;
+
+Spacy::Spacy spacy;
+auto nlp = spacy.load("ru_core_news_lg");
 
 struct Word {
     string word;
     string sentence;
     int count;
 
-    Word(const string& w, const string& s) : word(w), sentence(s), count(1) {}
+    Word(string& w, string& s) : word(w), sentence(s), count(1) {}
 };
 
 void printMenu();
-string createNumberedBufferFile(std::string&);
+string createNumberedBufferFile(string&);
 string checkingFileName(int);
 bool isNounOrPron(string);
-void spacy(vector<Word>& );
-void printResults(const vector<Word>& );
-bool saveToFile(vector<Word>&, std::string&);
+void spacyMain(vector<Word>&);
+void printResults(vector<Word>&);
+bool saveToFile(vector<Word>&, string&);
 bool exitSave(vector<Word>& );
 
 void printMenu() {
@@ -41,7 +45,7 @@ void printMenu() {
 }
 
 // Функция для поиска слова в массиве words
-int findWordIndex(const vector<Word>& words, const string& word) {
+int findWordIndex(vector<Word>& words, string& word) {
     for (size_t i = 0; i < words.size(); ++i) {
         if (words[i].word == word) {
             return static_cast<int>(i);
@@ -49,7 +53,6 @@ int findWordIndex(const vector<Word>& words, const string& word) {
     }
     return -1;
 }
-
 
 string checkingFileName(int mode) {
     string path;
@@ -140,12 +143,12 @@ bool isNounOrPron(string tokenPos) {
 }
 
 // Функция для разделения текста на предложения
-std::vector<std::string> splitSentences(const std::string& text) {
-    std::vector<std::string> sentences;
-    std::istringstream sentenceStream(text);
-    std::string sentence;
+vector<string> splitSentences(string& text) {
+    vector<string> sentences;
+    istringstream sentenceStream(text);
+    string sentence;
 
-    while (std::getline(sentenceStream, sentence, '.')) {
+    while (getline(sentenceStream, sentence, '.')) {
         if (!sentence.empty()) {
             sentences.push_back(sentence);
         }
@@ -155,43 +158,29 @@ std::vector<std::string> splitSentences(const std::string& text) {
 }
 
 // Функция для обработки файла
-string processFile(std::string& inputFileName) {
-    std::ifstream inputFile(inputFileName);
-    std::string outputFileName = "buf_" + inputFileName;
-    std::ofstream outputFile(outputFileName);
+string processFile(string& inputFileName) {
+    ifstream inputFile(inputFileName);
+    string outputFileName = "buf_" + inputFileName;
+    ofstream outputFile(outputFileName);
 
-    std::string line;
-    while (std::getline(inputFile, line)) {
+    string line;
+    while (getline(inputFile, line)) {
         // Разделение строки на предложения
-        std::vector<std::string> sentences = splitSentences(line);
+        vector<string> sentences = splitSentences(line);
 
         // Запись каждого предложения на отдельной строке в выходной файл
-        for (const std::string& sentence : sentences) {
-            outputFile << sentence + "." << std::endl;
+        for (string& sentence : sentences) {
+            outputFile << sentence + "." << endl;
         }
     }
 
     return outputFileName;
 }
 
-void spacy(vector<Word>& words) {
-    string str, text;
-    string fileName;
-    int count = 0;
-    fileName = checkingFileName(1);
-    if (fileName == "=") {
-        return;
-    }
-    fileName = processFile(fileName);
-    ifstream input(fileName);
-    Spacy::Spacy spacy;
-    auto nlp = spacy.load("ru_core_news_lg");
-    bool flagObjectiv = false;
-    if (input.is_open()) {
-        cout << "Файл успешно открыт!" << endl;
-        uploadFromFile = true;
-
-        while (getline(input, str)) {
+void parceText(vector<Word>& words, ifstream& input, string str)
+{
+    while (getline(input, str)) 
+        {
             auto doc = nlp.parse(str);
             for (auto& token : doc.tokens()) 
             {
@@ -204,8 +193,8 @@ void spacy(vector<Word>& words) {
                 !(token.dep_() == "conj" && head.dep_() == "nsubj") && !(token.dep_() == "conj" && head.dep_() == "obl") &&
                 !(token.dep_() == "conj" && head.dep_() == "obj")) 
                 {
-                    std::string word = token.text();
-                    std::string sentence = str;
+                    string word = token.text();
+                    string sentence = str;
                     int index = findWordIndex(words, word);
                     if (index != -1) 
                     {
@@ -221,24 +210,35 @@ void spacy(vector<Word>& words) {
                         // Слово встречается впервые, добавить его в массив
                         words.push_back(Word(word, sentence));
                     }
-                    flagObjectiv = true;
                 }
             }
         }
-    }
-    if (flagObjectiv == true) {
-        cout << "Дополнения обнаружены в файле!" << endl;
-        hasUnsavedChanges = true;
-    } else {
-        cout << "Дополнения не обнаружены в файле!" << endl;
+}
+
+void spacyMain(vector<Word>& words, bool flag) {
+    string str, text;
+    string fileName;
+    int count = 0;
+    fileName = checkingFileName(1);
+    if (fileName == "=") {
+        return;
     }
 
+    fileName = processFile(fileName);
+    ifstream input(fileName);
+    if (input.is_open()) {
+        cout << "Файл успешно открыт!" << endl;
+        uploadFromFile = true;
+        parceText(words, input, str);
+
+        flagFirstOpen = true;
+    }
     input.close();
 }
 
 // Функция для вывода результатов
-void printResults(const vector<Word>& words) {
-    for (const auto& word : words) {
+void printResults(vector<Word>& words) {
+    for (auto& word : words) {
         cout << "Слово: " << word.word << endl;
         cout << "Предложение: " << word.sentence << endl;
         cout << "Количество: " << word.count << endl;
@@ -247,7 +247,7 @@ void printResults(const vector<Word>& words) {
     cin.get();
 }
 
-bool saveToFile(vector<Word>& words, std::string& fileName) {
+bool saveToFile(vector<Word>& words, string& fileName) {
     system("clear");
     ofstream output(fileName);
     if (!output.is_open()) {
@@ -255,7 +255,7 @@ bool saveToFile(vector<Word>& words, std::string& fileName) {
         return false;
     }
 
-    for (const auto& word : words) {
+    for (auto& word : words) {
         output << "Слово: " << word.word << endl;
         output << "Предложение: " << word.sentence << endl;
         output << "Количество: " << word.count << endl;
@@ -301,11 +301,11 @@ int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");
     system("clear");
     printMenu();
-
     while (!validInput) {
         input = getchar();
         if (input == '1') {
-            spacy(words);
+            words.clear();
+            spacyMain(words, flagFirstOpen);
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
             system("clear");
