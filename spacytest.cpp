@@ -360,8 +360,8 @@ void parceText(vector<Word>& words, ifstream& input, string str)
                 auto head = token.head(); // Главное слово в словосочетании
                 
                 // Проверка является ли слово доплнением
-                if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.pos_(), head.pos_()) &&
-                isNotSubject(token.pos_(), head.pos_())) 
+                if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.dep_(), head.dep_()) &&
+                isNotSubject(token.dep_(), head.dep_())) 
                 {
                     string word = token.text(); // Дополнение
                     // Выделение слова в предложении, добавив квадратные скобки
