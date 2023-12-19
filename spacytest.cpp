@@ -53,6 +53,9 @@ bool isNotAdverbial(string, string);
 // Функция, которая проверяет не является ли слово подлежащим
 bool isNotSubject(string, string);
 
+// Функция, которая отвечает за определения символа конца предложения
+bool isSentenceEnd(char ch);
+
 // Функция, которая разделяет текст на предложения
 vector<string> splitSentences(string&);
 
@@ -224,17 +227,41 @@ string checkingFileName(int mode) {
     return fileName;
 }
 
+// Функция, которая отвечает за определения символа конца предложения
+// Возвращает символ конца предложения
+bool isSentenceEnd(char ch) {
+    // Знаки пунктуации, которые могут завершать предложение в русском языке
+    return (ch == '.' || ch == '!' || ch == '?' ||  ch == ';' || ch == '!' );
+}
+
 // Функция для разделения текста на предложения
 // Возвращает вектор предложений
 vector<string> splitSentences(string& text) {
-    vector<string> sentences; // Вектор для хранения предложений
-    istringstream sentenceStream(text); // Представление строки в виде потока
+    vector<string> sentences;
+    istringstream sentenceStream(text);
     string sentence;
-    
-    // Разделение текста на предложения
-    while (getline(sentenceStream, sentence, '.')) {
-        if (!sentence.empty()) {
-            sentences.push_back(sentence);
+
+    while (getline(sentenceStream, sentence)) {
+        size_t startPos = 0;
+        size_t endPos = sentence.find_first_of(".!?;", startPos);
+
+        while (endPos != string::npos) {
+            // Если текущий знак завершает предложение, добавляем его и предложение в вектор
+            if (isSentenceEnd(sentence[endPos])) {
+                sentences.push_back(sentence.substr(startPos, endPos - startPos + 1));
+
+                // Ищем начало следующего предложения
+                startPos = endPos + 1;
+                endPos = sentence.find_first_of(".!?;", startPos);
+            } else {
+                // Ищем следующий знак завершения предложения
+                endPos = sentence.find_first_of(".!?;", endPos + 1);
+            }
+        }
+
+        // Добавляем последнее предложение (если есть)
+        if (startPos < sentence.length()) {
+            sentences.push_back(sentence.substr(startPos));
         }
     }
 
@@ -256,7 +283,7 @@ string processFile(string& inputFileName) {
 
         // Запись каждого предложения на отдельной строке в выходной файл
         for (string& sentence : sentences) {
-            outputFile << sentence + "." << endl;
+            outputFile << sentence << endl;
         }
     }
 
