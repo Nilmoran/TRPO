@@ -8,41 +8,73 @@
 #include <cstdio>
 
 using namespace std;
-
 namespace fs = filesystem;
-
+// Флаг для отслеживания несохраненных изменений 
 bool hasUnsavedChanges = false;
+// Флаг для отслеживания был ли загружен файл
 bool uploadFromFile = false;
+// Флаг для отслеживания первого открытия файла
 bool flagFirstOpen = false;
 
+// Загрузка предобученной модели SpaCy
 Spacy::Spacy spacy;
 auto nlp = spacy.load("ru_core_news_lg");
 
+// Структура для хранения слова и его атрибутов
 struct Word {
-    string word;
-    string sentence;
-    int count;
+    string word; // Слово
+    string sentence; // Предложение в котором встречается слово
+    int count; // Счетчик того сколько раз встретилось слово
 
-    Word(string& w, string& s) : word(w), sentence(s), count(1) {}
+    Word(string& w, string& s) : word(w), sentence(s), count(1) {} // Стандартный конструктор для структуры
 };
 
+// Функция, которая отвечает за вывод меню
 void printMenu();
-string highlightWord(string&, string&);
-string createNumberedBufferFile(string&);
-int findWordIndex(vector<Word>&, string&);
-string checkingFileName(int);
-bool isNounOrPron(string);
-bool isObject(string);
-bool isNotAdverbial(string, string);
-bool isNotSubject(string, string);
-vector<string> splitSentences(string&);
-string processFile(string&);
-void parceText(vector<Word>&, ifstream&, string);
-void spacyMain(vector<Word>&);
-void printResults(vector<Word>&);
-bool saveToFile(vector<Word>&, string&);
-bool exitSave(vector<Word>& );
 
+// Функция, которая выделяет найденное слово в предложении
+string highlightWord(string&, string&);
+
+// Функция, которая выполняет поиска слова в векторе words
+int findWordIndex(vector<Word>&, string&);
+
+// Функция, которая отвечает за проверку названия файла на запрещенные символы
+string checkingFileName(int);
+
+// Функция, которая проверяет является ли слово существительным или местоимением
+bool isNounOrPron(string);
+
+// Функция, которая проверяет является ли слово дополнением
+bool isObject(string);
+
+// Функция, которая проверяет не является ли слово обстоятельством
+bool isNotAdverbial(string, string);
+
+// Функция, которая проверяет не является ли слово подлежащим
+bool isNotSubject(string, string);
+
+// Функция, которая разделяет текст на предложения
+vector<string> splitSentences(string&);
+
+// Функция, которая формирует буферный файл в котором каждое преложение находится на отдельной строке
+string processFile(string&);
+
+// Функция, которая анализирует предложения по словам
+void parceText(vector<Word>&, ifstream&, string);
+
+// Функция, которая обеспечивает взаимодействие с текстовым файлом
+void fileMain(vector<Word>&);
+
+// Функция, которая отвечает за отображение результатов анализа
+void printResults(vector<Word>&);
+
+// Функция, которая отвечает за сохранение данных в текстовый файл
+bool saveToFile(vector<Word>&, string&);
+
+// Функция, которая отвеает за сохранение данных перед выходом из программы
+bool exitSave(vector<Word>&);
+
+// Функция, которая отвечает за вывод меню
 void printMenu() {
     cout << "Данная программа предназначена для поиска дополнений в тексте!" << endl;
     cout << "Выберите операцию: " << endl
@@ -52,6 +84,8 @@ void printMenu() {
          << "4: выйти" << endl;
 }
 
+// Функция, которая выделяет найденное слово в предложении
+// Возвращает предложение с выделенным словом
 string highlightWord(string& targetSentence, string& targetWord) {
     // Найти индекс начала и конца слова в тексте
     size_t wordStart = targetSentence.find(targetWord);
@@ -68,46 +102,55 @@ string highlightWord(string& targetSentence, string& targetWord) {
         sentenceStart++;
     }
 
+    // Если конец предложения не найден, задать его длиной предложения
     if (sentenceEnd == string::npos) {
         sentenceEnd = targetSentence.length();
     }
 
-    // Выделить предложение с учетом слова в квадратных скобках
+    // Предложение с учетом слова в квадратных скобках
     string sentence = "[" + targetSentence.substr(sentenceStart, sentenceEnd - sentenceStart) + "]";
 
     return sentence;
 }
 
-// Функция для поиска слова в массиве words
+// Функция для поиска слова в векторе words
+// Возвращает индекс слова в векторе
 int findWordIndex(vector<Word>& words, string& word) {
+    // Перебор вектора words в поисках нужного слова
     for (size_t i = 0; i < words.size(); ++i) {
         if (words[i].word == word) {
+            // Вернуть индекс слова в векторе, если оно найдено
             return static_cast<int>(i);
         }
     }
+    // Вернуть индекс -1, означающий, что слова нет в векторе
     return -1;
 }
 
+// Функция, которая отвечает за проверку названия файла на запрещенные символы
+// Также функция выполняет проверку на наличие файла с таким же названием
+// Возвращает корректное название файла
 string checkingFileName(int mode) {
-    string path;
-    ifstream buf;
-    string fileName;
-    bool flag;
+    string path; // Динамический путь к файлу
+    ifstream buf; // Буферный поток для проверки открытия
+    string fileName; // Название файла
+    bool flag; // Флаг корректного ввода
     do {
         cin.ignore(1000, '\n');
         cin.clear();
         flag = true;
         system("clear");
-        if (mode == 1)
+        if (mode == 1) // Если проверяется название входного файла
             cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия входного файла и вернуться в главное меню." << endl;
-        else
+        else // Если проверяется название выходного файла
             cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия выходного файла и вернуться в главное меню." << endl;
 
         getline(cin, fileName);
-        if (fileName == "=") {
+        if (fileName == "=") { // Выход в главное меню
             return fileName;
         }
-
+        
+        // Проверка на запрещенные символы
         for (int i = 0; i < fileName.size(); i++) {
             if ((fileName[i] == '\\') ||
                 (fileName[i] == '/') ||
@@ -125,10 +168,12 @@ string checkingFileName(int mode) {
         }
 
         if (flag == true) {
+            // Добавить расширение к названию файла, если оно отсутствует
             if (mode == 1) {
                 if (fileName.find(".txt") == string::npos) {
                     fileName += ".txt";
                 }
+                // Задать динамический путь и проверить возможность открытия текстового файла
                 path = fs::current_path().string() + "/" + fileName;
                 buf.open(path);
                 if (!buf.is_open()) {
@@ -138,27 +183,36 @@ string checkingFileName(int mode) {
                 }
             }
             if (mode == 2) {
+                // Добавить расширение к названию файла, если оно отсутствует
                 if (fileName.find(".txt") == string::npos) {
                     fileName += ".txt";
                 }
+
+                // Если файл с таким названием уже существует добавить к названию индекс
                 if (fs::exists(fileName)) {
                     int count = 1;
                     string baseName, extension, newFileName;
                     size_t dotPos = fileName.find_last_of('.');
+                    
+                    // Разделение названия файла на подстроки
                     if (dotPos != string::npos) {
                         baseName = fileName.substr(0, dotPos);
                         extension = fileName.substr(dotPos);
                     }
 
+                    // Поиск доступного индекса
                     do {
                         newFileName = baseName + "(" + to_string(count) + ")" + extension;
                         count++;
                     } while (fs::exists(newFileName));
+
+                    // Отобразить путь до файла
                     path = fs::current_path().string() + "/" + newFileName;
                     cout << "Файл с таким названием уже существует, поэтому будет создан файл:\n " << path << endl;
 
                     return newFileName;
                 } else {
+                    // Отобразить путь до файла
                     path = fs::current_path().string() + "/" + fileName;
                     cout << "Текущие данные были записаны в файл по пути " << path << endl;
                     return fileName;
@@ -170,13 +224,14 @@ string checkingFileName(int mode) {
     return fileName;
 }
 
-
 // Функция для разделения текста на предложения
+// Возвращает вектор предложений
 vector<string> splitSentences(string& text) {
-    vector<string> sentences;
-    istringstream sentenceStream(text);
+    vector<string> sentences; // Вектор для хранения предложений
+    istringstream sentenceStream(text); // Представление строки в виде потока
     string sentence;
-
+    
+    // Разделение текста на предложения
     while (getline(sentenceStream, sentence, '.')) {
         if (!sentence.empty()) {
             sentences.push_back(sentence);
@@ -186,13 +241,15 @@ vector<string> splitSentences(string& text) {
     return sentences;
 }
 
-// Функция для обработки файла
+// Функция, которая создает буферный файл
+// Возвращает название буферного файла
 string processFile(string& inputFileName) {
     ifstream inputFile(inputFileName);
-    string outputFileName = "buf_" + inputFileName;
+    string outputFileName = "buf_" + inputFileName; // Задаем название буферного файла
     ofstream outputFile(outputFileName);
 
     string line;
+
     while (getline(inputFile, line)) {
         // Разделение строки на предложения
         vector<string> sentences = splitSentences(line);
@@ -206,14 +263,18 @@ string processFile(string& inputFileName) {
     return outputFileName;
 }
 
+// Функция, которая проверяет является ли слово существительным или местоимением
+// Возвращает истину, если ли слово является существительным или местоимением
 bool isNounOrPron(string tokenPos) {
     if (tokenPos == "NOUN" || tokenPos == "PRON" || tokenPos == "PROPN") {
-        return true;
+        return true; // Если слово являет существительным или местоимением
     } else {
         return false;
     }
 }
 
+// Функция, которая проверяет является ли слово дополнением
+// Возвращает истину, если ли слово является дополнением
 bool isObject(string tokenDep) 
 {
     if ((tokenDep == "obl" || tokenDep == "obj" || tokenDep == "nmod" || tokenDep == "iobj" || tokenDep == "conj")) 
@@ -227,6 +288,8 @@ bool isObject(string tokenDep)
     }
 }
 
+// Функция, которая проверяет не является ли слово обстоятельством
+// Возвращает истину, если ли слово не явялется обстоятельством
 bool isNotAdverbial(string tokenDep, string headDep) 
 {
     if (!(tokenDep == "obl" && headDep == "ROOT") && !(tokenDep == "obj" && headDep == "xcomp") &&
@@ -242,6 +305,8 @@ bool isNotAdverbial(string tokenDep, string headDep)
     }
 }
 
+// Функция, которая проверяет не является ли слово подлежащим
+// Возвращает истину, если слово не ялвялется подлежащим
 bool isNotSubject(string tokenDep, string headDep) 
 {
     if (!(tokenDep == "conj" && headDep == "obl")  && !(tokenDep == "conj" && headDep == "nsubj") && 
@@ -256,19 +321,23 @@ bool isNotSubject(string tokenDep, string headDep)
     }
 }
 
+// Функция, которая анализирует предложения по словам
 void parceText(vector<Word>& words, ifstream& input, string str)
 {
+    // Перебор всех предложений из файла
     while (getline(input, str)) 
         {
-            auto doc = nlp.parse(str);
-            for (auto& token : doc.tokens()) 
+            auto doc = nlp.parse(str); // Парсер предобученной модели SpaCy
+            for (auto& token : doc.tokens()) // Перебор предложения по словам
             {
-                auto head = token.head();
+                auto head = token.head(); // Главное слово в словосочетании
+                
+                // Проверка является ли слово доплнением
                 if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.pos_(), head.pos_()) &&
                 isNotSubject(token.pos_(), head.pos_())) 
                 {
-                    string word = token.text();
-                    // Заменить слово в самой строке, добавив квадратные скобки
+                    string word = token.text(); // Дополнение
+                    // Выделение слова в предложении, добавив квадратные скобки
                     size_t wordStart = str.find(word);
                     size_t wordEnd = wordStart + word.length();
                     string sentence = str;
@@ -293,27 +362,30 @@ void parceText(vector<Word>& words, ifstream& input, string str)
         }
 }
 
-void spacyMain(vector<Word>& words) {
+// Функция, которая обеспечивает взаимодействие с текстовым файлом
+void fileMain(vector<Word>& words) {
     string str, text;
     string fileName;
     int count = 0;
-    fileName = checkingFileName(1);
+    fileName = checkingFileName(1); // Проверка введенного названия текстового файла
     if (fileName == "=") {
         return;
     }
 
-    fileName = processFile(fileName);
-    ifstream input(fileName);
+    fileName = processFile(fileName); // Создание буферного файла
+    ifstream input(fileName); // Открытие и дальнейшая работа с буферным файлом
     if (input.is_open()) {
         uploadFromFile = true;
-        parceText(words, input, str);
+        parceText(words, input, str); // Анализирование слов в буферном файле 
     }
     input.close();
-    remove(fileName.c_str());
+    remove(fileName.c_str()); // Удаление буферного файла
 }
 
 // Функция для вывода результатов
 void printResults(vector<Word>& words) {
+
+    // Отобразить информацию о каждом слове в векторе words 
     for (auto& word : words) {
         cout << "Слово: " << word.word << endl;
         cout << "Предложение: " << word.sentence << endl;
@@ -323,6 +395,8 @@ void printResults(vector<Word>& words) {
     cin.get();
 }
 
+// Функция, которая отвечает за сохранение данных в текстовый файл
+// Возвращает истину после сохрананения данных в текстовый файл
 bool saveToFile(vector<Word>& words, string& fileName) {
     system("clear");
     ofstream output(fileName);
@@ -331,6 +405,7 @@ bool saveToFile(vector<Word>& words, string& fileName) {
         return false;
     }
 
+    // Отобразить информацию о каждом слове в векторе words 
     for (auto& word : words) {
         output << "Слово: " << word.word << endl;
         output << "Предложение: " << word.sentence << endl;
@@ -343,118 +418,121 @@ bool saveToFile(vector<Word>& words, string& fileName) {
     return true;
 }
 
+// Функция, которая отвеает за сохранение данных перед выходом из программы
+// Возвращает истину при выходе из программы
 bool exitSave(vector<Word>& words) {
-    bool validInput = false;
+    bool validInput = false; // Флаг корректного ввода 
     char input;
-    cout << "Хотите сохранить список книг перед выходом? (y/n)" << endl;
+    cout << "Хотите сохранить данные перед выходом? (y/n)" << endl;
     cout << "Или введите символ ‘=’, для того чтобы вернуться в главное меню. " << endl;
 
+    // Цикл в котором определяется нужно ли сохранение данных перед выходом из программы
     while (!validInput) {
         input = getchar();
-        if (input == 'y' || input == 'Y') {
-            string saveFileName = checkingFileName(2);
+        if (input == 'y' || input == 'Y') { 
+            string saveFileName = checkingFileName(2); // Проверка названия выходного файла
             if (saveFileName == "=") {
-                return false;
+                return false; // Возврат в главное меню
             }
             bool exit = saveToFile(words, saveFileName);
             if (!exit) {
-                return false;
+                return false; // Возврат в главное меню
             }
             break;
         } else if (input == 'n' || input == 'N') {
             break;
         } else if (input == '=') {
-            return false;
+            return false; // Возврат в главное меню
         }
     }
-    return true;
+    return true; // Завершение программы
 }
 
 int main() {
-    vector<Word> words;
-    bool validInput = false;
+    vector<Word> words; // Вектор в котором хранятся дополнения
+    bool validInput = false; // Флаг корректного ввода
     char input;
-    setlocale(LC_ALL, "ru_RU.UTF-8");
-    system("clear");
-    printMenu();
+    setlocale(LC_ALL, "ru_RU.UTF-8"); // Установка кодировки utf-8 для консоли
+    system("clear"); // Отчистка консоли
+    printMenu(); // Вывод меню
     while (!validInput) {
         input = getchar();
         if (input == '1') {
-            words.clear();
-            spacyMain(words);
-            hasUnsavedChanges = true;
+            words.clear(); // Отчистка ветора дополнений
+            fileMain(words); // Обработка входного текстового файла
+            hasUnsavedChanges = true; // Установить несохранненные изменения
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
-            system("clear");
-            printMenu();
+            system("clear"); // Отчистка консоли
+            printMenu(); // Вывод меню
             continue;
         }
         if (input == '2') {
-            if (words.empty() == 1)
+            if (words.empty() == 1) // Если вектор дополнений пустой
             {
-                system("clear");
+                system("clear"); // Отчистка консоли
                 cout << "Нет данных для сохранения в файл." << endl;
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
-                cin.ignore(1000, '\n');
+                cin.ignore(1000, '\n'); // Отчистка потоко cin
                 cin.get();
                 system("clear");
-                printMenu();
+                printMenu(); // Вывод меню
                 continue;
             }
             else
             {
-            string saveFileName = checkingFileName(2);
-            if (saveFileName == "=") {
-                system("clear");
-                printMenu();
-                continue;
-            }
+                string saveFileName = checkingFileName(2); // Ввод названия выходного файла
+                if (saveFileName == "=") { // Если пользователь ввел хотел вернуться в главное меню
+                    system("clear");
+                    printMenu(); // Вывод меню
+                    continue;
+                }
 
-            if (saveToFile(words, saveFileName)) {
-                hasUnsavedChanges = false;
-            }
-            cout << "Нажмите клавишу Enter для продолжения." << endl;
-            cin.get();
-            system("clear");
-            printMenu();
-            continue;
+                if (saveToFile(words, saveFileName)) {
+                    hasUnsavedChanges = false; // Снимаем флаг несохраненных изменений
+                }
+                cout << "Нажмите клавишу Enter для продолжения." << endl;
+                cin.get();
+                system("clear"); // Отчистка консоли
+                printMenu(); // Вывод меню
+                continue;
             }
 
         }
         if (input == '3') {
-            if (words.empty() == 1)
+            if (words.empty() == 1) // Если вектор дополнений пустой
             {
-                system("clear");
+                system("clear"); // Отчистка консоли
                 cout << "Нет данных для отображения." << endl;
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
-                cin.ignore(1000, '\n');
+                cin.ignore(1000, '\n'); // Отчистка потока cin
                 cin.get();
                 system("clear");
-                printMenu();
+                printMenu(); // Вывод меню
                 continue;
             }
-            printResults(words);
+            printResults(words); // Отобразить дополнения
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
-            system("clear");
-            printMenu();
+            system("clear"); // Отчистка консоли
+            printMenu(); // Вывод меню
             continue;
         }
         if (input == '4') {
-            if (uploadFromFile == false) {
+            if (uploadFromFile == false) { // Если не было загрузки из файла
                 break;
             } else {
-                if (hasUnsavedChanges == true) {
-                    system("clear");
-                    bool exit = exitSave(words);
+                if (hasUnsavedChanges == true) { // Если есть несохраненные изменения
+                    system("clear"); // Отчистка консоли
+                    bool exit = exitSave(words); // Сохранение данных перед выходом из программы
                     if (exit) {
                         validInput = true;
                         break;
                     } else {
                         system("clear");
-                        printMenu();
+                        printMenu(); // Вывод меню
                         continue;
                     }
                 } else {
