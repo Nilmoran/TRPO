@@ -438,6 +438,9 @@ bool saveToFile(vector<Word>& words, string& fileName) {
         return false;
     }
 
+    // Сортировка вектора по полю word.word
+    std::sort(words.begin(), words.end(), compareWords);
+
     // Отобразить информацию о каждом слове в векторе words 
     for (auto& word : words) {
         output << "Слово: " << word.word << endl;
