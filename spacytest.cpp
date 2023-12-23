@@ -231,7 +231,7 @@ string checkingFileName(int mode) {
 // Возвращает символ конца предложения
 bool isSentenceEnd(char ch) {
     // Знаки пунктуации, которые могут завершать предложение в русском языке
-    return (ch == '.' || ch == '!' || ch == '?' ||  ch == ';' || ch == '!' );
+    return (ch == '.' || ch == '!' || ch == '?' ||  ch == ';');
 }
 
 // Функция для разделения текста на предложения
@@ -409,17 +409,23 @@ void fileMain(vector<Word>& words) {
     remove(fileName.c_str()); // Удаление буферного файла
 }
 
-// Функция для вывода результатов
-void printResults(vector<Word>& words) {
+// Функция для сравнения двух объектов Word для сортировки
+bool compareWords(const Word& a, const Word& b) {
+    return a.word < b.word;
+}
 
-    // Отобразить информацию о каждом слове в векторе words 
-    for (auto& word : words) {
-        cout << "Слово: " << word.word << endl;
-        cout << "Предложение: " << word.sentence << endl;
-        cout << "Количество: " << word.count << endl;
-        cout << "---------------------" << endl;
+void printResults(std::vector<Word>& words) {
+    // Сортировка вектора по полю word.word
+    std::sort(words.begin(), words.end(), compareWords);
+
+    // Отобразить информацию о каждом слове в отсортированном векторе words
+    for (const auto& word : words) {
+        std::cout << "Слово: " << word.word << std::endl;
+        std::cout << "Предложение: " << word.sentence << std::endl;
+        std::cout << "Количество: " << word.count << std::endl;
+        std::cout << "---------------------" << std::endl;
     }
-    cin.get();
+    std::cin.get();
 }
 
 // Функция, которая отвечает за сохранение данных в текстовый файл
