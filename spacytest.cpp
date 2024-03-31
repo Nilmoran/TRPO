@@ -406,7 +406,6 @@ void fileMain(vector<Word>& words) {
         parceText(words, input, str); // Анализирование слов в буферном файле 
     }
     input.close();
-    remove(fileName.c_str()); // Удаление буферного файла
 }
 
 // Функция для сравнения двух объектов Word для сортировки
@@ -489,28 +488,28 @@ int main() {
     bool validInput = false; // Флаг корректного ввода
     char input;
     setlocale(LC_ALL, "ru_RU.UTF-8"); // Установка кодировки utf-8 для консоли
-    system("clear"); // Отчистка консоли
+    system("clear"); // Очистка консоли
     printMenu(); // Вывод меню
     while (!validInput) {
         input = getchar();
         if (input == '1') {
-            words.clear(); // Отчистка ветора дополнений
+            words.clear(); // Очистка ветора дополнений
             fileMain(words); // Обработка входного текстового файла
             hasUnsavedChanges = true; // Установить несохранненные изменения
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
-            system("clear"); // Отчистка консоли
+            system("clear"); // Очистка консоли
             printMenu(); // Вывод меню
             continue;
         }
         if (input == '2') {
             if (words.empty() == 1) // Если вектор дополнений пустой
             {
-                system("clear"); // Отчистка консоли
+                system("clear"); // Очистка консоли
                 cout << "Нет данных для сохранения в файл." << endl;
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
-                cin.ignore(1000, '\n'); // Отчистка потоко cin
+                cin.ignore(1000, '\n'); // Очистка потоко cin
                 cin.get();
                 system("clear");
                 printMenu(); // Вывод меню
@@ -530,7 +529,7 @@ int main() {
                 }
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.get();
-                system("clear"); // Отчистка консоли
+                system("clear"); // Очистка консоли
                 printMenu(); // Вывод меню
                 continue;
             }
@@ -539,11 +538,11 @@ int main() {
         if (input == '3') {
             if (words.empty() == 1) // Если вектор дополнений пустой
             {
-                system("clear"); // Отчистка консоли
+                system("clear"); // Очистка консоли
                 cout << "Нет данных для отображения." << endl;
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
-                cin.ignore(1000, '\n'); // Отчистка потока cin
+                cin.ignore(1000, '\n'); // Очистка потока cin
                 cin.get();
                 system("clear");
                 printMenu(); // Вывод меню
@@ -552,7 +551,7 @@ int main() {
             printResults(words); // Отобразить дополнения
             cout << "Нажмите клавишу Enter для продолжения." << endl;
             cin.get();
-            system("clear"); // Отчистка консоли
+            system("clear"); // Очистка консоли
             printMenu(); // Вывод меню
             continue;
         }
@@ -561,7 +560,7 @@ int main() {
                 break;
             } else {
                 if (hasUnsavedChanges == true) { // Если есть несохраненные изменения
-                    system("clear"); // Отчистка консоли
+                    system("clear"); // Очистка консоли
                     bool exit = exitSave(words); // Сохранение данных перед выходом из программы
                     if (exit) {
                         validInput = true;

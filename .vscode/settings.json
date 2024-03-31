@@ -6,7 +6,9 @@
         "ostream": "cpp",
         "fstream": "cpp",
         "iosfwd": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "string": "cpp",
+        "chrono": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
