@@ -18,17 +18,17 @@ auto nlp = spacy.load("ru_core_news_lg");
 // Структура, в которой хранятся все необходимые данные
 struct toolWord 
 {
-    string token;
-    string head;
-    string tokenPos;
-    string headPos;
-    string tokenDep;
-    string headDep;
-    int member;
+    string token; // Текущее слово
+    string head; // Главное слово в слово сочетании по отношению к token
+    string tokenPos; // Тэг, означающий часть речи token
+    string headPos; // Тэг, означающий часть речи head
+    string tokenDep; // Тэг, означающий каким членом предложения может является token
+    string headDep; //  Тэг, означающий каким членом предложения может является head
+    int member; // Цифра, выставленнная в ручную, означающая каким членом предложения является token
 };
 
 // Функция, которая анализирует предложения по словам
-// Первый цикл while нужен для заполнения полей token, head и member
+// Первый цикл while нужен для заполнения поля member
 // для того чтобы сохранить расставленные в ручную цифры
 // Второй цикл while нужен для заполнения остальных полей
 // но при этом анализируются слова без расставленных в ручную цифр, так как они влияют на тэги))))
@@ -46,8 +46,10 @@ void parceText(vector<toolWord>& words, fstream& input, string str)
             auto word = token.text(); // Зависимое слово в словосочетании
 
             words.push_back(toolWord()); // Создаем один элемент вектора words (элементом является структура с пустыми полями)
+            // Безполезные поля?
             words[index].token = word; // Заполняем поля структуры в векторе
             words[index].head = head;
+
             if (word[0] == '1')
             {
                 words[index].member = 1;
@@ -88,13 +90,16 @@ void parceText(vector<toolWord>& words, fstream& input, string str)
         auto doc = nlp.parse(result);
         for (auto& token : doc.tokens())
         {
-            auto head = token.head();
+            auto tokenHead = token.head();
+            auto head = tokenHead.text();
             auto word = token.text();
 
+            words[index].token = word; // Заполняем поля структуры в векторе
+            words[index].head = head;
             words[index].tokenPos = token.pos_();
             words[index].tokenDep = token.dep_();
-            words[index].headPos = head.pos_();
-            words[index].headDep = head.dep_();       
+            words[index].headPos = tokenHead.pos_();
+            words[index].headDep = tokenHead.dep_();       
             index++;
         }
     }
@@ -114,6 +119,11 @@ void fileMain(vector<toolWord>& words) {
     input.close();
 }
 
+// Функция для сравнения двух объектов Word для сортировки
+bool compareWords(const toolWord& a, const toolWord& b) {
+    return a.member < b.member;
+}
+
 // Функция, которая отвечает за сохранение данных в текстовый файл
 void saveToFile(vector<toolWord>& words, string fileName) 
 {
@@ -124,12 +134,23 @@ void saveToFile(vector<toolWord>& words, string fileName)
         cout << "Ошибка при открытии файла для записи." << endl;
     }
 
-    // Отобразить информацию о каждом слове в векторе words 
+    // Выполняем сортировку по полю member
+    sort(words.begin(), words.end(), compareWords);
+
+    // Выводим информацию о каждом слове в векторе words 
     for (auto& word : words) 
     {
-        output << "Token: " << word.token << " Head: " << word.head 
-        << " Token Pos/Dep: " << word.tokenPos << "/" << word.tokenDep
-        << " Head Pos/Dep: " << word.headPos << "/" << word.headDep << " Member of Sentence: " << word.member << endl;
+        // Пропускаем исключительные моменты, когда модель определяет пунктуацию в качестве токена
+        // или когда модель не присваивает никаких зависимостей токену.
+        if (word.member != 0 && word.tokenPos != "PUNCT" && word.tokenPos != "SPACE" 
+        && word.tokenPos != "" && word.tokenDep != "punct") 
+        {
+            output << "Token: " << word.token << " Head: " << word.head 
+            << " Token Pos/Dep: " << word.tokenPos << "/" << word.tokenDep
+            << " Head Pos/Dep: " << word.headPos << "/" << word.headDep 
+            << " MoS: " << word.member << endl;
+        }
+        
     }
 
     cout << "Результаты сохранены в файле: " << fileName << endl;
