@@ -1,685 +1,685 @@
-Token: слабости Head: Водились Token Pos/Dep: NOUN/conj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: он Head: сватался Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: пешком Head: идти Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 1
-Token: избы Head: стоят Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: на Head: воздух Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: не Head: удовольствия Token Pos/Dep: PART/advmod Head Pos/Dep: NOUN/conj MoS: 1
-Token: Она Head: состояла Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: Сидор Head: уехал Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: нескольких Head: срубов Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/obl MoS: 1
-Token: деревня Head: окружена Token Pos/Dep: NOUN/nsubj:pass Head Pos/Dep: VERB/ROOT MoS: 1
-Token: в Head: город Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: ворота Head: запираются Token Pos/Dep: NOUN/nsubj:pass Head Pos/Dep: VERB/conj MoS: 1
-Token: тоненькими Head: столбиками Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 1
-Token: я Head: сошелся Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: плетень Head: разметан Token Pos/Dep: NOUN/nsubj:pass Head Pos/Dep: VERB/conj MoS: 1
-Token: Нас Head: встретил Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: двадцати Head: лет Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/obl MoS: 1
-Token: вдруг Head: сказал Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/parataxis MoS: 1
-Token: Федя Head: подхватил Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: хотите Head: контора Token Pos/Dep: VERB/parataxis Head Pos/Dep: NOUN/ROOT MoS: 1
-Token: изба Head: лепится Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: домик Head: указывая Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/advcl MoS: 1
-Token: за Head: нами Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 1
-Token: не Head: передавать Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/xcomp MoS: 1
-Token: отсюда Head: близехонько Token Pos/Dep: ADV/advmod Head Pos/Dep: ADV/ROOT MoS: 1
-Token: крыши Head: закиданы Token Pos/Dep: NOUN/nsubj:pass Head Pos/Dep: VERB/conj MoS: 1
-Token: моя Head: контора Token Pos/Dep: DET/det Head Pos/Dep: NOUN/ROOT MoS: 1
-Token: нему Head: отправились Token Pos/Dep: PRON/obl Head Pos/Dep: VERB/ROOT MoS: 1
-Token: спросил Head: Дома Token Pos/Dep: VERB/parataxis Head Pos/Dep: ADV/ROOT MoS: 1
-Token: кривой Head: старик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/appos MoS: 1
-Token: употреблять Head: извольте Token Pos/Dep: VERB/csubj Head Pos/Dep: VERB/conj MoS: 1
-Token: пятнадцати Head: лет Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/nmod MoS: 1
-Token: десятины Head: продал Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: морковка Head: попадала Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: дупель Head: водится Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: дома Head: двор Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obj MoS: 1
-Token: макароны Head: отзывалось Token Pos/Dep: NOUN/conj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: Мы Head: вышли Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: рыба Head: отзывалось Token Pos/Dep: NOUN/conj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: засеки Head: тянутся Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: как Head: застучала Token Pos/Dep: SCONJ/mark Head Pos/Dep: VERB/advcl MoS: 1
-Token: мясо Head: отзывалось Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: болота Head: исчезнут Token Pos/Dep: NOUN/conj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: В Head: конторе Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: живет Head: спросил Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/parataxis MoS: 1
-Token: вот Head: отчего Token Pos/Dep: PART/advmod Head Pos/Dep: ADV/ROOT MoS: 1
-Token: тетерев Head: птица Token Pos/Dep: NOUN/appos Head Pos/Dep: NOUN/nsubj MoS: 1
-Token: птица Head: перевелась Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: мужик Head: обитает Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: изба Head: сгорела Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: разница Head: поражала Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: покойному Head: батюшке Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 1
-Token: тайна Head: состояла Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/acl:relcl MoS: 1
-Token: тебе Head: селиться Token Pos/Dep: PRON/iobj Head Pos/Dep: VERB/csubj MoS: 1
-Token: мне Head: позвольте Token Pos/Dep: PRON/iobj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: Ни Head: одна Token Pos/Dep: PART/advmod Head Pos/Dep: NUM/nummod MoS: 1
-Token: мужик Head: невелик Token Pos/Dep: NOUN/nsubj Head Pos/Dep: ADJ/ROOT MoS: 1
-Token: на Head: стол Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: Миняич Head: Здравствуй Token Pos/Dep: PROPN/parataxis Head Pos/Dep: VERB/ROOT MoS: 1
-Token: на Head: ночь Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: леса Head: исчезнут Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: белой Head: кружкой Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 1
-Token: исчез Head: исчез Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 1
-Token: воды Head: бутылкой Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 1
-Token: ряд Head: показывая Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 1
-Token: был Head: выскоблен Token Pos/Dep: AUX/aux:pass Head Pos/Dep: VERB/conj MoS: 1
-Token: стен Head: залепляла Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ROOT MoS: 1
-Token: г-н Head: недостатков Token Pos/Dep: NOUN/appos Head Pos/Dep: NOUN/nmod MoS: 1
-Token: площади Head: леса Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/nsubj MoS: 1
-Token: по Head: стакану Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 1
-Token: мы Head: говорим Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/parataxis MoS: 1
-Token: и Head: прозвали Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/ROOT MoS: 1
-Token: деревня Head: расположена Token Pos/Dep: NOUN/nsubj Head Pos/Dep: ADJ/ROOT MoS: 1
-Token: который Head: смешил Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/acl:relcl MoS: 1
-Token: вымыт Head: выскоблен Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/conj MoS: 1
-Token: кажется Head: можем Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 1
-Token: хлопотунья Head: веселит Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 1
-Token: и Head: краснощекий Token Pos/Dep: CCONJ/cc Head Pos/Dep: ADJ/conj MoS: 1
-Token: крыльцо Head: вышел Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/acl:relcl MoS: 2
-Token: скрывалось Head: залепляла Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Молодой Head: парень Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: не Head: зовет Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: город Head: уехал Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 2
-Token: не Head: скрывалось Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: по Head: косякам Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 2
-Token: вывалился Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: бревнами Head: скиталось Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 2
-Token: между Head: бревнами Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 2
-Token: не Head: вывалился Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: кучеру Head: обращаясь Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/advcl MoS: 2
-Token: случалось Head: случалось Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: недавно Head: выскоблен Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: уже Head: телега Token Pos/Dep: ADV/advmod Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: заметил Head: дети Token Pos/Dep: VERB/parataxis Head Pos/Dep: NOUN/ROOT MoS: 2
-Token: лучше Head: лучше Token Pos/Dep: ADJ/ROOT Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: Хорьки Head: Всё Token Pos/Dep: PROPN/appos Head Pos/Dep: PART/ROOT MoS: 2
-Token: Кругом Head: стояло Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: удерживал Head: сидел Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: исчезнут Head: исчезнут Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: вслед Head: вышел Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/acl:relcl MoS: 2
-Token: вышли Head: вышли Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: парень Head: появился Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: закуски Head: доесть Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 2
-Token: доесть Head: успели Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/ROOT MoS: 2
-Token: поглядывать Head: начал Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/conj MoS: 2
-Token: с Head: улыбкой Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 2
-Token: стол Head: поставил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: нет Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: зовет Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: тянутся Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: высок Head: невелик Token Pos/Dep: ADJ/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: не Head: занимается Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: занимается Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: на Head: болоте Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 2
-Token: ест Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: у Head: вас Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 2
-Token: носит Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: позвольте Head: говорит Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/conj MoS: 2
-Token: говорит Head: сгорела Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: сгорела Head: сгорела Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: обитает Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: отчего Head: отчего Token Pos/Dep: ADV/ROOT Head Pos/Dep: ADV/ROOT MoS: 2
-Token: оброк Head: платить Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 2
-Token: Хорь Head: живет Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: глядит Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: чист Head: невелик Token Pos/Dep: ADJ/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: бел Head: чист Token Pos/Dep: PROPN/nsubj Head Pos/Dep: ADJ/conj MoS: 2
-Token: Мы Head: сели Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: торгует Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: купцу Head: продал Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: конторе Head: продал Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: перебираться Head: случалось Token Pos/Dep: VERB/csubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: болоте Head: поселился Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Вот Head: поселился Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/ROOT MoS: 2
-Token: поражала Head: случалось Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 2
-Token: смотри Head: смотри Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: в Head: год Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 2
-Token: невелик Head: невелик Token Pos/Dep: ADJ/ROOT Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: этой Head: конторе Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obl MoS: 2
-Token: сами Head: знаете Token Pos/Dep: ADJ/acl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: сутуловат Head: невелик Token Pos/Dep: ADJ/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: угрюм Head: невелик Token Pos/Dep: ADJ/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: глядит Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: исподлобья Head: глядит Token Pos/Dep: ADV/iobj Head Pos/Dep: VERB/conj MoS: 2
-Token: живет Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: только Head: вы Token Pos/Dep: PART/advmod Head Pos/Dep: PRON/nsubj MoS: 2
-Token: ходит Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: на Head: болоте Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 2
-Token: на Head: домик Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 2
-Token: лепится Head: увидишь Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Полутыкин Head: г-н Token Pos/Dep: PROPN/appos Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: закиданы Head: увидишь Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: контора Head: контора Token Pos/Dep: NOUN/ROOT Head Pos/Dep: NOUN/ROOT MoS: 2
-Token: дал Head: дал Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: положил Head: поднял Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: окружена Head: окружена Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: торжественно Head: воскликнул Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/parataxis MoS: 2
-Token: увидишь Head: увидишь Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: стоят Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: усмехнулись Head: усмехнулись Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: черево Head: обеспокоишь Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 2
-Token: крыты Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: то Head: попортишь Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: телегу Head: попортишь Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: запираются Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Только Head: толчках Token Pos/Dep: PART/advmod Head Pos/Dep: NOUN/ROOT MoS: 2
-Token: не Head: разметан Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: ходит Head: невелик Token Pos/Dep: VERB/conj Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: мы Head: можем Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: кланялся Head: выпили Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: говорим Head: деревня Token Pos/Dep: VERB/parataxis Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: вода Head: меня Token Pos/Dep: NOUN/nsubj Head Pos/Dep: PRON/parataxis MoS: 2
-Token: хорошая Head: вода Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: расположена Head: расположена Token Pos/Dep: ADJ/ROOT Head Pos/Dep: ADJ/ROOT MoS: 2
-Token: разметан Head: окружена Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: старик Head: Сторож Token Pos/Dep: NOUN/appos Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: комнат Head: состояла Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: стоит Head: упразднена Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 2
-Token: а Head: стоит Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/parataxis MoS: 2
-Token: не Head: увидишь Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/ROOT MoS: 2
-Token: не Head: перевелась Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: сошелся Head: сошелся Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: называл Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: как Head: сказано Token Pos/Dep: SCONJ/mark Head Pos/Dep: VERB/parataxis MoS: 2
-Token: Мы Head: вошли Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: заикался Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: встретил Head: встретил Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: перевелась Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: познакомился Head: сошелся Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: подпертый Head: навес Token Pos/Dep: VERB/acl Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: одна Head: картина Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: сватался Head: слабости Token Pos/Dep: VERB/parataxis Head Pos/Dep: NOUN/conj MoS: 2
-Token: хвалил Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: смешил Head: анекдот Token Pos/Dep: VERB/acl:relcl Head Pos/Dep: NOUN/obj MoS: 2
-Token: сосновых Head: срубов Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 2
-Token: завел Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: состояла Head: кухню Token Pos/Dep: VERB/acl:relcl Head Pos/Dep: NOUN/obj MoS: 2
-Token: показывая Head: улыбаясь Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/advcl MoS: 2
-Token: доверял Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: отзывалось Head: состояла Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/acl:relcl MoS: 2
-Token: уехал Head: уехал Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: веселит Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: пугает Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Полутыкин Head: г-н Token Pos/Dep: PROPN/appos Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: не Head: попадала Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 2
-Token: продолжал Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: попадала Head: отзывалось Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: посылать Head: продолжал Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/conj MoS: 2
-Token: говорил Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: Да Head: брат Token Pos/Dep: PART/parataxis Head Pos/Dep: NOUN/ROOT MoS: 2
-Token: водится Head: исчезнут Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: ночь Head: пригласил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 2
-Token: передавать Head: позволит Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/ROOT MoS: 2
-Token: заиканья Head: передавать Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 2
-Token: Водились Head: Водились Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Хорю Head: зайдемте Token Pos/Dep: PROPN/obl Head Pos/Dep: VERB/conj MoS: 2
-Token: любил Head: сватался Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/parataxis MoS: 2
-Token: зайдемте Head: будет Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: повторять Head: любил Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/conj MoS: 2
-Token: в Head: углу Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 2
-Token: Мы Head: отправились Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 2
-Token: Хоря Head: усадьба Token Pos/Dep: PROPN/appos Head Pos/Dep: NOUN/nsubj MoS: 2
-Token: прибавил Head: будет Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 2
-Token: не Head: смешил Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/acl:relcl MoS: 2
-Token: всякую Head: свинью Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 3
-Token: прохожую Head: свинью Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: дно Head: положил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 3
-Token: телеги Head: дно Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 3
-Token: тот Head: один Token Pos/Dep: DET/det Head Pos/Dep: DET/amod MoS: 3
-Token: Аллилуеву Head: купцу Token Pos/Dep: PROPN/appos Head Pos/Dep: NOUN/iobj MoS: 3
-Token: четыре Head: десятины Token Pos/Dep: NUM/nummod:gov Head Pos/Dep: NOUN/obj MoS: 3
-Token: свое Head: горе Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 3
-Token: полном Head: изменении Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: порывистым Head: взлетом Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/iobj MoS: 3
-Token: меня Head: мужик Token Pos/Dep: PRON/obl Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: Он Head: близехонько Token Pos/Dep: PRON/nsubj Head Pos/Dep: ADV/ROOT MoS: 3
-Token: одна Head: морковка Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: ни Head: одна Token Pos/Dep: PART/advmod Head Pos/Dep: NUM/nummod MoS: 3
-Token: на Head: Федю Token Pos/Dep: ADP/case Head Pos/Dep: PROPN/conj MoS: 3
-Token: у Head: меня Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 3
-Token: естественного Head: вкуса Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 3
-Token: отличным Head: человеком Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: сокрушенным Head: сердцем Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: последние Head: леса Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: гнилой Head: соломой Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: страстным Head: охотником Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: каждою Head: изменении Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 3
-Token: г-н Head: сказал Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/parataxis MoS: 3
-Token: перед Head: избой Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 3
-Token: Мы Head: вошли Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 3
-Token: стаканами Head: бутылкой Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 3
-Token: прибежал Head: прибежал Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 3
-Token: с Head: задворья Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 3
-Token: немногих Head: ракит Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/obl MoS: 3
-Token: главной Head: избой Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: всех Head: невест Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obl MoS: 3
-Token: одним Head: помещиком Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/obl MoS: 3
-Token: Остальные Head: Хорьки Token Pos/Dep: ADJ/amod Head Pos/Dep: PROPN/nsubj MoS: 3
-Token: соединенных Head: срубов Token Pos/Dep: VERB/acl Head Pos/Dep: NOUN/obl MoS: 3
-Token: мелким Head: помещиком Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: Феди Head: выходки Token Pos/Dep: PROPN/nmod Head Pos/Dep: NOUN/obl MoS: 3
-Token: калужским Head: помещиком Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: Орловская Head: деревня Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: богатых Head: невест Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: вошли Head: вошли Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 3
-Token: готовых Head: ракит Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: лет Head: встретил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 3
-Token: некоторые Head: слабости Token Pos/Dep: DET/det Head Pos/Dep: NOUN/conj MoS: 3
-Token: двух Head: берез Token Pos/Dep: NUM/nummod Head Pos/Dep: NOUN/conj MoS: 3
-Token: высокий Head: встретил Token Pos/Dep: ADJ/conj Head Pos/Dep: VERB/ROOT MoS: 3
-Token: и Head: красивый Token Pos/Dep: CCONJ/cc Head Pos/Dep: ADJ/conj MoS: 3
-Token: тощих Head: берез Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: Калужская Head: деревня Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj:pass MoS: 3
-Token: Смотри Head: Смотри Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 3
-Token: причем Head: кланялся Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/conj MoS: 3
-Token: нам Head: кланялся Token Pos/Dep: PRON/iobj Head Pos/Dep: VERB/conj MoS: 3
-Token: хорошим Head: квасом Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/iobj MoS: 3
-Token: краснощекий Head: кудрявый Token Pos/Dep: ADJ/conj Head Pos/Dep: ADJ/conj MoS: 3
-Token: калужской Head: породой Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: задумчивых Head: тараканов Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: кислые Head: персики Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: углу Head: залепляла Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 3
-Token: скоро Head: появился Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/ROOT MoS: 3
-Token: другие Head: произведения Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: телега Head: застучала Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/advcl MoS: 3
-Token: большой Head: кружкой Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 3
-Token: добродушный Head: дупель Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: Орловский Head: мужик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: бревенчатых Head: стен Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: чистых Head: стен Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: благородная Head: птица Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: квасом Head: наполненной Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/acl MoS: 3
-Token: залепляла Head: залепляла Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 3
-Token: свою Head: собаку Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 3
-Token: сырые Head: произведения Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: огромным Head: ломтем Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 3
-Token: ломтем Head: квасом Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/iobj MoS: 3
-Token: пшеничного Head: хлеба Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 3
-Token: с Head: дюжиной Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 3
-Token: соленых Head: огурцов Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 3
-Token: своего Head: сада Token Pos/Dep: DET/det Head Pos/Dep: NOUN/nmod MoS: 3
-Token: прислонился Head: поставил Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 3
-Token: все Head: припасы Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 3
-Token: своим Head: взлетом Token Pos/Dep: DET/det Head Pos/Dep: NOUN/iobj MoS: 3
-Token: телеги Head: Кругом Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 3
-Token: с Head: трудом Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 3
-Token: французскую Head: кухню Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: резкая Head: разница Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: же Head: тот Token Pos/Dep: PART/advmod Head Pos/Dep: DET/det MoS: 3
-Token: стояло Head: стояло Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 3
-Token: и Head: вымыт Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/conj MoS: 3
-Token: один Head: анекдот Token Pos/Dep: DET/amod Head Pos/Dep: NOUN/obj MoS: 3
-Token: оброчный Head: мужик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: калужский Head: мужик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 3
-Token: и Head: тот Token Pos/Dep: CCONJ/cc Head Pos/Dep: DET/det MoS: 3
-Token: кучером Head: сидел Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 3
-Token: меня Head: пригласил Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: рублев Head: Извольте Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: задворья Head: прибежал Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: к Head: себе Token Pos/Dep: ADP/case Head Pos/Dep: PRON/nmod MoS: 4
-Token: сада Head: произведения Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 4
-Token: он Head: пригласил Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: пруд Head: превращенного Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/acl MoS: 4
-Token: грязный Head: пруд Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 4
-Token: сочинения Head: хвалил Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: Полутыкиным Head: г. Token Pos/Dep: ADJ/appos Head Pos/Dep: NOUN/nmod MoS: 4
-Token: ростом Head: невелик Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/ROOT MoS: 4
-Token: горе Head: доверял Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: знаете Head: знаете Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: в Head: пруд Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: превращенного Head: - Token Pos/Dep: VERB/acl Head Pos/Dep: NOUN/conj MoS: 4
-Token: людей Head: породой Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nmod MoS: 4
-Token: деревца Head: увидишь Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: ним Head: Водились Token Pos/Dep: PRON/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: берез Head: ракит Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 4
-Token: Да Head: недоимок Token Pos/Dep: PART/advmod Head Pos/Dep: NOUN/obl MoS: 4
-Token: породой Head: губернии Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/nmod MoS: 4
-Token: его Head: заиканья Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 4
-Token: никого Head: смешил Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/acl:relcl MoS: 4
-Token: услугам Head: готовых Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/amod MoS: 4
-Token: без Head: недоимок Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: к Head: услугам Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: породой Head: разница Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nsubj MoS: 4
-Token: пустых Head: комнат Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 4
-Token: за Head: ним Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 4
-Token: ракит Head: увидишь Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: небольшой Head: домик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 4
-Token: человеком Head: охотником Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/conj MoS: 4
-Token: того Head: поражала Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/parataxis MoS: 4
-Token: к Head: избе Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: анекдот Head: повторять Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 4
-Token: грибами Head: рыба Token Pos/Dep: NOUN/orphan Head Pos/Dep: NOUN/conj MoS: 4
-Token: за Head: недостатков Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 4
-Token: персики Head: посылать Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 4
-Token: дегтем Head: маслом Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/iobj MoS: 4
-Token: маслом Head: торгует Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/conj MoS: 4
-Token: болоте Head: селиться Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/csubj MoS: 4
-Token: селиться Head: зачем Token Pos/Dep: VERB/csubj Head Pos/Dep: ADV/advmod MoS: 4
-Token: торговлей Head: занимается Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 4
-Token: невест Head: родителям Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/iobj MoS: 4
-Token: сели Head: сели Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: в Head: телегу Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: телегу Head: сели Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: и Head: въезжалина Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/conj MoS: 4
-Token: через Head: полчаса Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: порохом Head: макароны Token Pos/Dep: NOUN/orphan Head Pos/Dep: NOUN/conj MoS: 4
-Token: исключением Head: за Token Pos/Dep: NOUN/fixed Head Pos/Dep: ADP/case MoS: 4
-Token: болоте Head: лесу Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 4
-Token: сердцем Head: доверял Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 4
-Token: кухню Head: завел Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: лицом Head: чист Token Pos/Dep: NOUN/iobj Head Pos/Dep: ADJ/conj MoS: 4
-Token: рыбой Head: отзывалось Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/parataxis MoS: 4
-Token: родителям Head: продолжал Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/conj MoS: 4
-Token: лапти Head: носит Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: кушанья Head: каждою Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nmod MoS: 4
-Token: знакомым Head: друзьям Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/iobj MoS: 4
-Token: отдельно Head: живет Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/parataxis MoS: 4
-Token: ростом Head: высок Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/conj MoS: 4
-Token: вкуса Head: изменении Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 4
-Token: друзьям Head: доверял Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/conj MoS: 4
-Token: изменении Head: состояла Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/acl:relcl MoS: 4
-Token: всем Head: друзьям Token Pos/Dep: DET/det Head Pos/Dep: NOUN/iobj MoS: 4
-Token: восточной Head: части Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 4
-Token: Акима Head: сочинения Token Pos/Dep: PROPN/nmod Head Pos/Dep: NOUN/obj MoS: 4
-Token: какой Head: знаете Token Pos/Dep: DET/obj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: положите Head: зачем Token Pos/Dep: VERB/conj Head Pos/Dep: ADV/advmod MoS: 4
-Token: оброк Head: положите Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: Нахимова Head: Акима Token Pos/Dep: PROPN/flat:name Head Pos/Dep: PROPN/nmod MoS: 4
-Token: повесть Head: сочинения Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obj MoS: 4
-Token: невест Head: сватался Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/parataxis MoS: 4
-Token: мне Head: сказал Token Pos/Dep: PRON/iobj Head Pos/Dep: VERB/parataxis MoS: 4
-Token: Полутыкин Head: сказал Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/parataxis MoS: 4
-Token: это Head: меня Token Pos/Dep: PART/expl Head Pos/Dep: PRON/parataxis MoS: 4
-Token: губернии Head: части Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 4
-Token: Орловской Head: губернии Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 4
-Token: части Head: говорим Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/parataxis MoS: 4
-Token: кое Head: - Token Pos/Dep: PRON/obj Head Pos/Dep: NOUN/conj MoS: 4
-Token: Пинну Head: повесть Token Pos/Dep: PROPN/nmod Head Pos/Dep: NOUN/conj MoS: 4
-Token: произведения Head: персики Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obj MoS: 4
-Token: собаку Head: называл Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: Астрономом Head: называл Token Pos/Dep: PROPN/xcomp Head Pos/Dep: VERB/conj MoS: 4
-Token: о Head: части Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: недостатков Head: человек Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/ROOT MoS: 4
-Token: незначительных Head: немногих Token Pos/Dep: ADJ/conj Head Pos/Dep: NUM/amod MoS: 4
-Token: стакану Head: выпили Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: и Head: незначительных Token Pos/Dep: CCONJ/cc Head Pos/Dep: ADJ/conj MoS: 4
-Token: немногих Head: недостатков Token Pos/Dep: NUM/amod Head Pos/Dep: NOUN/nmod MoS: 4
-Token: этих Head: недостатков Token Pos/Dep: DET/det Head Pos/Dep: NOUN/nmod MoS: 4
-Token: дюжиной Head: квасом Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/iobj MoS: 4
-Token: мы Head: успели Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: успели Head: успели Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: на Head: нас Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 4
-Token: улыбкой Head: поглядывать Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/xcomp MoS: 4
-Token: вошли Head: вошли Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: толчках Head: толчках Token Pos/Dep: NOUN/ROOT Head Pos/Dep: NOUN/ROOT MoS: 4
-Token: к Head: двери Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: в Head: избу Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: эти Head: припасы Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obj MoS: 4
-Token: Он Head: поставил Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: миске Head: дюжиной Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 4
-Token: огурцов Head: дюжиной Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 4
-Token: же Head: Смотри Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/ROOT MoS: 4
-Token: тесом Head: крыты Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/conj MoS: 4
-Token: появился Head: появился Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: да Head: черево Token Pos/Dep: CCONJ/cc Head Pos/Dep: NOUN/obj MoS: 4
-Token: тараканов Head: скрывалось Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 4
-Token: перед Head: образом Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 4
-Token: Хорьки Head: усмехнулись Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: заборами Head: соединенных Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/acl MoS: 4
-Token: Подсадить Head: Подсадить Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: Астронома Head: Подсадить Token Pos/Dep: PROPN/obj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: лесом Head: окружена Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: охотника Head: лучше Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/ROOT MoS: 4
-Token: дети Head: дети Token Pos/Dep: NOUN/ROOT Head Pos/Dep: NOUN/ROOT MoS: 4
-Token: Хоря Head: дети Token Pos/Dep: PROPN/nmod Head Pos/Dep: NOUN/ROOT MoS: 4
-Token: Федю Head: друг Token Pos/Dep: PROPN/conj Head Pos/Dep: PRON/obl MoS: 4
-Token: Полутыкин Head: заметил Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/parataxis MoS: 4
-Token: на Head: друг Token Pos/Dep: ADP/fixed Head Pos/Dep: PRON/obl MoS: 4
-Token: друг Head: похожих Token Pos/Dep: PRON/obl Head Pos/Dep: ADJ/amod MoS: 4
-Token: похожих Head: великанов Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 4
-Token: взлетом Head: веселит Token Pos/Dep: NOUN/iobj Head Pos/Dep: VERB/conj MoS: 4
-Token: очень Head: похожих Token Pos/Dep: ADV/advmod Head Pos/Dep: ADJ/amod MoS: 4
-Token: человек Head: стояло Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: парень Head: встретил Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: стрелка Head: пугает Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: для Head: охотника Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 4
-Token: собаку Head: стрелка Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obj MoS: 4
-Token: сытого Head: жеребца Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 4
-Token: свинью Head: зовет Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 4
-Token: Кому Head: случалось Token Pos/Dep: PRON/iobj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: болот Head: пять Token Pos/Dep: NOUN/conj Head Pos/Dep: NUM/nummod:gov MoS: 4
-Token: застучала Head: успели Token Pos/Dep: VERB/advcl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: квасу Head: принеси Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ROOT MoS: 4
-Token: охотником Head: помещиком Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 4
-Token: вожжи Head: дал Token Pos/Dep: VERB/ccomp Head Pos/Dep: VERB/ROOT MoS: 4
-Token: помещиком Head: познакомился Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 4
-Token: соломой Head: закиданы Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 4
-Token: Полутыкиным Head: охотником Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/conj MoS: 4
-Token: состояла Head: состояла Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 4
-Token: А Head: контора Token Pos/Dep: CCONJ/cc Head Pos/Dep: NOUN/ROOT MoS: 4
-Token: избе Head: лепится Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 4
-Token: большею Head: окружена Token Pos/Dep: ADV/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: частью Head: окружена Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 4
-Token: вот Head: это Token Pos/Dep: PART/advmod Head Pos/Dep: PRON/nsubj MoS: 4
-Token: воскликнул Head: Подсадить Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 4
-Token: снег Head: показывая Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: доме Head: завел Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: зубов Head: снег Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 5
-Token: Кузьмич Head: Николай Token Pos/Dep: PROPN/flat:name Head Pos/Dep: PROPN/conj MoS: 5
-Token: Николай Head: сгорела Token Pos/Dep: PROPN/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: уезда Head: перебираться Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/csubj MoS: 5
-Token: Болховского Head: уезда Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: доме Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: плохо Head: ест Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: себя Head: завел Token Pos/Dep: PRON/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: у Head: себя Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 5
-Token: лет Head: исчезнут Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: через Head: пять Token Pos/Dep: ADP/case Head Pos/Dep: NUM/nummod:gov MoS: 5
-Token: пять Head: лет Token Pos/Dep: NUM/nummod:gov Head Pos/Dep: NOUN/obl MoS: 5
-Token: Тележку Head: заложить Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/xcomp MoS: 5
-Token: прикажете Head: прикажете Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 5
-Token: платить Head: стану Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/ROOT MoS: 5
-Token: хороший Head: платить Token Pos/Dep: ADJ/obj Head Pos/Dep: VERB/xcomp MoS: 5
-Token: теплилась Head: залепляла Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: он Head: мужик Token Pos/Dep: PRON/nsubj Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: и Head: Федю Token Pos/Dep: CCONJ/cc Head Pos/Dep: PROPN/conj MoS: 5
-Token: мужик Head: умный Token Pos/Dep: NOUN/nsubj Head Pos/Dep: ADJ/conj MoS: 5
-Token: избах Head: обитает Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: сосновых Head: избах Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: просторных Head: избах Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: избах Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: из Head: уезда Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: тому Head: Лет Token Pos/Dep: ADV/det Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: на Head: десятки Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: лампадка Head: теплилась Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: у Head: него Token Pos/Dep: ADP/case Head Pos/Dep: PRON/obl MoS: 5
-Token: жеребца Head: удерживал Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/conj MoS: 5
-Token: него Head: сгорела Token Pos/Dep: PRON/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: великанов Head: человек Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: молодых Head: великанов Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 5
-Token: и Head: пришел Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: пришел Head: сгорела Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: он Head: пришел Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: к Head: батюшке Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: моему Head: батюшке Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obl MoS: 5
-Token: батюшке Head: пришел Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: ж Head: пришел Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: без Head: недоимок Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: картина Head: залепляла Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: суздальская Head: картина Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: к Head: достоинствам Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: окон Head: косякам Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 5
-Token: Калужской Head: тянутся Token Pos/Dep: ADJ/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: в Head: Калужской Token Pos/Dep: ADP/case Head Pos/Dep: ADJ/obl MoS: 5
-Token: Известно Head: смотри Token Pos/Dep: ADJ/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: его Head: достоинствам Token Pos/Dep: DET/det Head Pos/Dep: NOUN/nmod MoS: 5
-Token: недоимок Head: Известно Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/parataxis MoS: 5
-Token: двери Head: прислонился Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: и Head: начал Token Pos/Dep: CCONJ/cc Head Pos/Dep: VERB/conj MoS: 5
-Token: Полутыкина Head: уважение Token Pos/Dep: PROPN/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: помине Head: пять Token Pos/Dep: NOUN/conj Head Pos/Dep: NUM/nummod:gov MoS: 5
-Token: в Head: окладе Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 5
-Token: верст Head: десятки Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nmod MoS: 5
-Token: кружкой Head: появился Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: не Head: скиталось Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: на Head: сотни Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: никогда Head: смешил Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/acl:relcl MoS: 5
-Token: достоинствам Head: уважение Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: сотни Head: тянутся Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: в Head: губернии Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: решительно Head: никогда Token Pos/Dep: ADV/advmod Head Pos/Dep: ADV/advmod MoS: 5
-Token: Орловской Head: губернии Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nmod MoS: 5
-Token: образом Head: окладе Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 5
-Token: губернии Head: породой Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nmod MoS: 5
-Token: прусаков Head: скиталось Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: резвых Head: прусаков Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: барщину Head: ходит Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: вы Head: извольте Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: еще Head: благородная Token Pos/Dep: ADV/advmod Head Pos/Dep: ADJ/amod MoS: 5
-Token: тех Head: С Token Pos/Dep: DET/fixed Head Pos/Dep: ADV/advmod MoS: 5
-Token: так Head: зачем Token Pos/Dep: ADV/parataxis Head Pos/Dep: ADV/advmod MoS: 5
-Token: Жиздринский Head: перебираться Token Pos/Dep: ADJ/obl Head Pos/Dep: VERB/csubj MoS: 5
-Token: в Head: Жиздринский Token Pos/Dep: ADP/case Head Pos/Dep: ADJ/obl MoS: 5
-Token: на Head: барщину Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: С Head: прозвали Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/ROOT MoS: 5
-Token: подарок Head: посылать Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/xcomp MoS: 5
-Token: Мальчик Head: сидел Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: в Head: подарок Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: Да Head: зачем Token Pos/Dep: PART/advmod Head Pos/Dep: ADV/advmod MoS: 5
-Token: несмотря Head: уважение Token Pos/Dep: ADV/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: избенках Head: живет Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: осиновых Head: избенках Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: дрянных Head: избенках Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: избенках Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: на Head: несмотря Token Pos/Dep: ADP/fixed Head Pos/Dep: ADV/case MoS: 5
-Token: окладе Head: углу Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: работу Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: Не Head: успели Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/ROOT MoS: 5
-Token: работу Head: употреблять Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/csubj MoS: 5
-Token: липовый Head: стол Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj:pass MoS: 5
-Token: в Head: помине Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 5
-Token: уважение Head: смешил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/acl:relcl MoS: 5
-Token: г Head: уважение Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: тянулся Head: состояла Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: навес Head: тянулся Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: близ Head: оврага Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 5
-Token: оврага Head: полей Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 5
-Token: же Head: первый Token Pos/Dep: PART/advmod Head Pos/Dep: ADJ/amod MoS: 5
-Token: день Head: пригласил Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: моего Head: знакомства Token Pos/Dep: DET/det Head Pos/Dep: NOUN/nmod MoS: 5
-Token: знакомства Head: день Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: с Head: г. Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: г. Head: знакомства Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nmod MoS: 5
-Token: с Head: бутылкой Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: прямей Head: вольней Token Pos/Dep: PROPN/conj Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: вольней Head: стоят Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/conj MoS: 5
-Token: г-н Head: проговорил Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/parataxis MoS: 5
-Token: проговорил Head: Здравствуй Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: себе Head: ночь Token Pos/Dep: PRON/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: пять Head: меня Token Pos/Dep: NUM/nummod:gov Head Pos/Dep: PRON/obl MoS: 5
-Token: духом Head: продолжал Token Pos/Dep: NOUN/parataxis Head Pos/Dep: VERB/parataxis MoS: 5
-Token: сомчи Head: духом Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/parataxis MoS: 5
-Token: губернии Head: невест Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obl MoS: 5
-Token: задворке Head: плетень Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/nsubj:pass MoS: 5
-Token: в Head: губернии Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: поле Head: сошелся Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: на Head: задворке Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: обыкновенно Head: расположена Token Pos/Dep: ADV/advmod Head Pos/Dep: ADJ/ROOT MoS: 5
-Token: всегда Head: готовых Token Pos/Dep: ADV/advmod Head Pos/Dep: ADJ/amod MoS: 5
-Token: смотри Head: то Token Pos/Dep: VERB/conj Head Pos/Dep: PRON/conj MoS: 5
-Token: плотно Head: запираются Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: среди Head: полей Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: распаханных Head: полей Token Pos/Dep: VERB/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: полей Head: расположена Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/ROOT MoS: 5
-Token: на Head: поляне Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 5
-Token: ее Head: положил Token Pos/Dep: PRON/obj Head Pos/Dep: VERB/conj MoS: 5
-Token: на Head: версту Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: версту Head: деревца Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obj MoS: 5
-Token: на Head: дно Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: кругом Head: увидишь Token Pos/Dep: ADV/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: Извольте Head: контора Token Pos/Dep: VERB/parataxis Head Pos/Dep: NOUN/ROOT MoS: 5
-Token: Читатель Head: позволит Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: леса Head: возвышалась Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: лошади Head: вожжи Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ccomp MoS: 5
-Token: Мы Head: покатили Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: низенький Head: домик Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: Посреди Head: леса Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: разработанной Head: расчищенной Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/acl MoS: 5
-Token: будет Head: будет Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 5
-Token: Федя Head: поднял Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: одинокая Head: усадьба Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: возвышалась Head: возвышалась Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 5
-Token: десятки Head: болота Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/conj MoS: 5
-Token: Контора Head: состояла Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: поляне Head: леса Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: поле Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: расчищенной Head: поляне Token Pos/Dep: VERB/acl Head Pos/Dep: NOUN/conj MoS: 5
-Token: сперва Head: зайдемте Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: принужденно Head: улыбавшуюся Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/acl MoS: 5
-Token: улыбавшуюся Head: собаку Token Pos/Dep: VERB/acl Head Pos/Dep: NOUN/obj MoS: 5
-Token: собаку Head: поднял Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: уже Head: въезжалина Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: пожалуйста Head: Скажите Token Pos/Dep: ADV/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: Калужской Head: губернии Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: губернии Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: дому Head: руки Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/nmod MoS: 5
-Token: от Head: дому Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/conj MoS: 5
-Token: въезжалина Head: сели Token Pos/Dep: VERB/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: полчаса Head: въезжалина Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: цену Head: продал Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: выгодную Head: цену Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: да Head: все Token Pos/Dep: CCONJ/cc Head Pos/Dep: PRON/parataxis MoS: 5
-Token: еще Head: все Token Pos/Dep: ADV/advmod Head Pos/Dep: PRON/parataxis MoS: 5
-Token: смело Head: глядит Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: губернии Head: исчезнут Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: прочих Head: мужиков Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: от Head: мужиков Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: Орловской Head: губернии Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obl MoS: 5
-Token: парень Head: отвечал Token Pos/Dep: NOUN/nsubj Head Pos/Dep: VERB/parataxis MoS: 5
-Token: у Head: искусника Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: этого Head: искусника Token Pos/Dep: DET/det Head Pos/Dep: NOUN/obl MoS: 5
-Token: в Head: суп Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: искусника Head: отзывалось Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/parataxis MoS: 5
-Token: В Head: губернии Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: весело Head: смело Token Pos/Dep: ADV/conj Head Pos/Dep: ADV/advmod MoS: 5
-Token: отвечал Head: уехал Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: Полутыкина Head: спросил Token Pos/Dep: PROPN/nsubj Head Pos/Dep: VERB/parataxis MoS: 5
-Token: я Head: спросил Token Pos/Dep: PRON/nsubj Head Pos/Dep: VERB/parataxis MoS: 5
-Token: спросил Head: Скажите Token Pos/Dep: VERB/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: губернии Head: лучше Token Pos/Dep: NOUN/obl Head Pos/Dep: ADJ/ROOT MoS: 5
-Token: в Head: гости Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: руки Head: отказ Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obj MoS: 5
-Token: от Head: руки Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: гости Head: зовет Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: Ну Head: можем Token Pos/Dep: PART/parataxis Head Pos/Dep: VERB/ROOT MoS: 5
-Token: отказ Head: получив Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/advcl MoS: 5
-Token: качестве Head: В Token Pos/Dep: NOUN/fixed Head Pos/Dep: ADP/case MoS: 5
-Token: уехал Head: Потап Token Pos/Dep: VERB/conj Head Pos/Dep: PROPN/parataxis MoS: 5
-Token: со Head: Хорем Token Pos/Dep: ADP/case Head Pos/Dep: PROPN/obl MoS: 5
-Token: В Head: охотника Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: охотника Head: сошелся Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: посещая Head: сошелся Token Pos/Dep: VERB/advcl Head Pos/Dep: VERB/ROOT MoS: 5
-Token: Жиздринский Head: уезд Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/obj MoS: 5
-Token: Вася Head: Смотри Token Pos/Dep: PROPN/conj Head Pos/Dep: VERB/ROOT MoS: 5
-Token: уезд Head: посещая Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/advcl MoS: 5
-Token: получив Head: доверял Token Pos/Dep: VERB/advcl Head Pos/Dep: VERB/conj MoS: 5
-Token: наружу Head: вывалился Token Pos/Dep: ADV/advmod Head Pos/Dep: VERB/conj MoS: 5
-Token: по Head: праздникам Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: не Head: все Token Pos/Dep: PART/advmod Head Pos/Dep: PRON/parataxis MoS: 5
-Token: суп Head: попадала Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: и Head: дому Token Pos/Dep: CCONJ/cc Head Pos/Dep: NOUN/conj MoS: 5
-Token: не Head: приняв Token Pos/Dep: PART/advmod Head Pos/Dep: VERB/advcl MoS: 5
-Token: приняв Head: попадала Token Pos/Dep: VERB/advcl Head Pos/Dep: VERB/conj MoS: 5
-Token: вида Head: приняв Token Pos/Dep: NOUN/obj Head Pos/Dep: VERB/advcl MoS: 5
-Token: в Head: лесу Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/nmod MoS: 5
-Token: ромба Head: вида Token Pos/Dep: NOUN/nmod Head Pos/Dep: NOUN/obj MoS: 5
-Token: А Head: отчего Token Pos/Dep: CCONJ/cc Head Pos/Dep: ADV/ROOT MoS: 5
-Token: новый Head: приятель Token Pos/Dep: ADJ/amod Head Pos/Dep: NOUN/nsubj MoS: 5
-Token: праздникам Head: ходит Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: или Head: трапеции Token Pos/Dep: CCONJ/cc Head Pos/Dep: NOUN/conj MoS: 5
-Token: в Head: сапогах Token Pos/Dep: ADP/case Head Pos/Dep: NOUN/obl MoS: 5
-Token: сапогах Head: ходит Token Pos/Dep: NOUN/obl Head Pos/Dep: VERB/conj MoS: 5
-Token: ехать Head: можем Token Pos/Dep: VERB/xcomp Head Pos/Dep: VERB/ROOT MoS: 5
-Token: можем Head: можем Token Pos/Dep: VERB/ROOT Head Pos/Dep: VERB/ROOT MoS: 5
-Token: трапеции Head: ромба Token Pos/Dep: NOUN/conj Head Pos/Dep: NOUN/nmod MoS: 5
+Кому|случалось|PRON|iobj|VERB|ROOT|4
+случалось|случалось|VERB|ROOT|VERB|ROOT|2
+из|уезда|ADP|case|NOUN|obl|5
+Болховского|уезда|ADJ|amod|NOUN|obl|5
+уезда|перебираться|NOUN|obl|VERB|csubj|5
+перебираться|случалось|VERB|csubj|VERB|ROOT|2
+в|Жиздринский|ADP|case|ADJ|obl|5
+Жиздринский|перебираться|ADJ|obl|VERB|csubj|5
+того|поражала|PRON|obj|VERB|parataxis|4
+поражала|случалось|VERB|parataxis|VERB|ROOT|2
+резкая|разница|ADJ|amod|NOUN|nsubj|3
+разница|поражала|NOUN|nsubj|VERB|parataxis|1
+породой|разница|NOUN|nmod|NOUN|nsubj|4
+людей|породой|NOUN|nmod|NOUN|nmod|4
+в|губернии|ADP|case|NOUN|nmod|5
+Орловской|губернии|ADJ|amod|NOUN|nmod|5
+губернии|породой|NOUN|nmod|NOUN|nmod|5
+калужской|породой|ADJ|amod|NOUN|conj|3
+породой|губернии|NOUN|conj|NOUN|nmod|4
+Орловский|мужик|ADJ|amod|NOUN|nsubj|3
+мужик|невелик|NOUN|nsubj|ADJ|ROOT|1
+невелик|невелик|ADJ|ROOT|ADJ|ROOT|2
+ростом|невелик|NOUN|obl|ADJ|ROOT|4
+сутуловат|невелик|ADJ|conj|ADJ|ROOT|2
+угрюм|невелик|ADJ|conj|ADJ|ROOT|2
+глядит|невелик|VERB|conj|ADJ|ROOT|2
+исподлобья|глядит|ADV|iobj|VERB|conj|2
+живет|невелик|VERB|conj|ADJ|ROOT|2
+в|избенках|ADP|case|NOUN|obl|5
+дрянных|избенках|ADJ|amod|NOUN|obl|5
+осиновых|избенках|ADJ|amod|NOUN|obl|5
+избенках|живет|NOUN|obl|VERB|conj|5
+ходит|невелик|VERB|conj|ADJ|ROOT|2
+на|барщину|ADP|case|NOUN|obl|5
+барщину|ходит|NOUN|obl|VERB|conj|5
+торговлей|занимается|NOUN|obl|VERB|conj|4
+не|занимается|PART|advmod|VERB|conj|2
+занимается|невелик|VERB|conj|ADJ|ROOT|2
+ест|невелик|VERB|conj|ADJ|ROOT|2
+плохо|ест|ADV|advmod|VERB|conj|5
+носит|невелик|VERB|conj|ADJ|ROOT|2
+лапти|носит|NOUN|obj|VERB|conj|4
+калужский|мужик|ADJ|amod|NOUN|nsubj|3
+оброчный|мужик|ADJ|amod|NOUN|nsubj|3
+мужик|обитает|NOUN|nsubj|VERB|conj|1
+обитает|невелик|VERB|conj|ADJ|ROOT|2
+в|избах|ADP|case|NOUN|obl|5
+просторных|избах|ADJ|amod|NOUN|obl|5
+сосновых|избах|ADJ|amod|NOUN|obl|5
+избах|обитает|NOUN|obl|VERB|conj|5
+высок|невелик|ADJ|conj|ADJ|ROOT|2
+ростом|высок|NOUN|obl|ADJ|conj|4
+глядит|невелик|VERB|conj|ADJ|ROOT|2
+смело|глядит|ADV|advmod|VERB|conj|5
+весело|смело|ADV|conj|ADV|advmod|5
+лицом|чист|NOUN|iobj|ADJ|conj|4
+чист|невелик|ADJ|conj|ADJ|ROOT|2
+бел|чист|PROPN|nsubj|ADJ|conj|2
+торгует|невелик|VERB|conj|ADJ|ROOT|2
+маслом|торгует|NOUN|iobj|VERB|conj|4
+дегтем|маслом|NOUN|conj|NOUN|iobj|4
+по|праздникам|ADP|case|NOUN|obl|5
+праздникам|ходит|NOUN|obl|VERB|conj|5
+ходит|невелик|VERB|conj|ADJ|ROOT|2
+в|сапогах|ADP|case|NOUN|obl|5
+сапогах|ходит|NOUN|obl|VERB|conj|5
+Орловская|деревня|ADJ|amod|NOUN|nsubj|3
+деревня|расположена|NOUN|nsubj|ADJ|ROOT|1
+мы|говорим|PRON|nsubj|VERB|parataxis|1
+говорим|деревня|VERB|parataxis|NOUN|nsubj|2
+о|части|ADP|case|NOUN|obl|4
+восточной|части|ADJ|amod|NOUN|obl|4
+части|говорим|NOUN|obl|VERB|parataxis|4
+Орловской|губернии|ADJ|amod|NOUN|nmod|4
+губернии|части|NOUN|nmod|NOUN|obl|4
+обыкновенно|расположена|ADV|advmod|ADJ|ROOT|5
+расположена|расположена|ADJ|ROOT|ADJ|ROOT|2
+среди|полей|ADP|case|NOUN|obl|5
+распаханных|полей|VERB|amod|NOUN|obl|5
+полей|расположена|NOUN|obl|ADJ|ROOT|5
+близ|оврага|ADP|case|NOUN|conj|5
+оврага|полей|NOUN|conj|NOUN|obl|5
+кое|-|PRON|obj|NOUN|conj|4
+превращенного|-|VERB|acl|NOUN|conj|4
+в|пруд|ADP|case|NOUN|obl|4
+грязный|пруд|ADJ|amod|NOUN|obl|4
+пруд|превращенного|NOUN|obl|VERB|acl|4
+немногих|ракит|NUM|nummod|NOUN|obl|3
+ракит|увидишь|NOUN|obl|VERB|ROOT|4
+всегда|готовых|ADV|advmod|ADJ|amod|5
+готовых|ракит|ADJ|amod|NOUN|obl|3
+к|услугам|ADP|case|NOUN|obl|4
+услугам|готовых|NOUN|obl|ADJ|amod|4
+двух|берез|NUM|nummod|NOUN|conj|3
+тощих|берез|ADJ|amod|NOUN|conj|3
+берез|ракит|NOUN|conj|NOUN|obl|4
+деревца|увидишь|NOUN|obj|VERB|ROOT|4
+на|версту|ADP|case|NOUN|nmod|5
+версту|деревца|NOUN|nmod|NOUN|obj|5
+кругом|увидишь|ADV|obl|VERB|ROOT|5
+не|увидишь|PART|advmod|VERB|ROOT|2
+увидишь|увидишь|VERB|ROOT|VERB|ROOT|2
+изба|лепится|NOUN|nsubj|VERB|conj|1
+лепится|увидишь|VERB|conj|VERB|ROOT|2
+к|избе|ADP|case|NOUN|obl|4
+избе|лепится|NOUN|obl|VERB|conj|4
+крыши|закиданы|NOUN|nsubj:pass|VERB|conj|1
+закиданы|увидишь|VERB|conj|VERB|ROOT|2
+гнилой|соломой|ADJ|amod|NOUN|obl|3
+соломой|закиданы|NOUN|obl|VERB|conj|4
+Калужская|деревня|ADJ|amod|NOUN|nsubj:pass|3
+деревня|окружена|NOUN|nsubj:pass|VERB|ROOT|1
+большею|окружена|ADV|obl|VERB|ROOT|4
+частью|окружена|NOUN|obl|VERB|ROOT|4
+окружена|окружена|VERB|ROOT|VERB|ROOT|2
+лесом|окружена|NOUN|obl|VERB|ROOT|4
+избы|стоят|NOUN|nsubj|VERB|conj|1
+стоят|окружена|VERB|conj|VERB|ROOT|2
+вольней|стоят|NOUN|nsubj|VERB|conj|5
+прямей|вольней|PROPN|conj|NOUN|nsubj|5
+крыты|окружена|VERB|conj|VERB|ROOT|2
+тесом|крыты|NOUN|iobj|VERB|conj|4
+ворота|запираются|NOUN|nsubj:pass|VERB|conj|1
+плотно|запираются|ADV|advmod|VERB|conj|5
+запираются|окружена|VERB|conj|VERB|ROOT|2
+плетень|разметан|NOUN|nsubj:pass|VERB|conj|1
+на|задворке|ADP|case|NOUN|nmod|5
+задворке|плетень|NOUN|nmod|NOUN|nsubj:pass|5
+не|разметан|PART|advmod|VERB|conj|2
+разметан|окружена|VERB|conj|VERB|ROOT|2
+не|вывалился|PART|advmod|VERB|conj|2
+вывалился|окружена|VERB|conj|VERB|ROOT|2
+наружу|вывалился|ADV|advmod|VERB|conj|5
+не|зовет|PART|advmod|VERB|conj|2
+зовет|окружена|VERB|conj|VERB|ROOT|2
+в|гости|ADP|case|NOUN|obl|5
+гости|зовет|NOUN|obl|VERB|conj|5
+всякую|свинью|DET|det|NOUN|obj|3
+прохожую|свинью|ADJ|amod|NOUN|obj|3
+свинью|зовет|NOUN|obj|VERB|conj|4
+для|охотника|ADP|case|NOUN|obl|4
+охотника|лучше|NOUN|obl|ADJ|ROOT|4
+в|губернии|ADP|case|NOUN|obl|5
+Калужской|губернии|ADJ|amod|NOUN|obl|5
+губернии|лучше|NOUN|obl|ADJ|ROOT|5
+лучше|лучше|ADJ|ROOT|ADJ|ROOT|2
+В|губернии|ADP|case|NOUN|obl|5
+Орловской|губернии|ADJ|amod|NOUN|obl|5
+губернии|исчезнут|NOUN|obl|VERB|ROOT|5
+последние|леса|ADJ|amod|NOUN|nsubj|3
+леса|исчезнут|NOUN|nsubj|VERB|ROOT|1
+площади|леса|NOUN|conj|NOUN|nsubj|1
+исчезнут|исчезнут|VERB|ROOT|VERB|ROOT|2
+лет|исчезнут|NOUN|obl|VERB|ROOT|5
+через|пять|ADP|case|NUM|nummod:gov|5
+пять|лет|NUM|nummod:gov|NOUN|obl|5
+болот|пять|NOUN|conj|NUM|nummod:gov|4
+в|помине|ADP|case|NOUN|conj|5
+помине|пять|NOUN|conj|NUM|nummod:gov|5
+нет|исчезнут|VERB|conj|VERB|ROOT|2
+в|Калужской|ADP|case|ADJ|obl|5
+Калужской|тянутся|ADJ|obl|VERB|conj|5
+засеки|тянутся|NOUN|nsubj|VERB|conj|1
+тянутся|исчезнут|VERB|conj|VERB|ROOT|2
+на|сотни|ADP|case|NOUN|obl|5
+сотни|тянутся|NOUN|obl|VERB|conj|5
+болота|исчезнут|NOUN|conj|VERB|ROOT|1
+на|десятки|ADP|case|NOUN|nmod|5
+десятки|болота|NOUN|nmod|NOUN|conj|5
+верст|десятки|NOUN|nmod|NOUN|nmod|5
+не|перевелась|PART|advmod|VERB|conj|2
+перевелась|исчезнут|VERB|conj|VERB|ROOT|2
+еще|благородная|ADV|advmod|ADJ|amod|5
+благородная|птица|ADJ|amod|NOUN|nsubj|3
+птица|перевелась|NOUN|nsubj|VERB|conj|1
+тетерев|птица|NOUN|appos|NOUN|nsubj|1
+водится|исчезнут|VERB|conj|VERB|ROOT|2
+добродушный|дупель|ADJ|amod|NOUN|nsubj|3
+дупель|водится|NOUN|nsubj|VERB|conj|1
+хлопотунья|веселит|NOUN|nsubj|VERB|conj|1
+своим|взлетом|DET|det|NOUN|iobj|3
+порывистым|взлетом|ADJ|amod|NOUN|iobj|3
+взлетом|веселит|NOUN|iobj|VERB|conj|4
+веселит|исчезнут|VERB|conj|VERB|ROOT|2
+пугает|исчезнут|VERB|conj|VERB|ROOT|2
+стрелка|пугает|NOUN|obj|VERB|conj|4
+собаку|стрелка|NOUN|conj|NOUN|obj|4
+В|охотника|ADP|case|NOUN|obl|5
+качестве|В|NOUN|fixed|ADP|case|5
+охотника|сошелся|NOUN|obl|VERB|ROOT|5
+посещая|сошелся|VERB|advcl|VERB|ROOT|5
+Жиздринский|уезд|ADJ|amod|NOUN|obj|5
+уезд|посещая|NOUN|obj|VERB|advcl|5
+сошелся|сошелся|VERB|ROOT|VERB|ROOT|2
+я|сошелся|PRON|nsubj|VERB|ROOT|1
+в|поле|ADP|case|NOUN|obl|5
+поле|сошелся|NOUN|obl|VERB|ROOT|5
+познакомился|сошелся|VERB|conj|VERB|ROOT|2
+одним|помещиком|NUM|nummod|NOUN|obl|3
+калужским|помещиком|ADJ|amod|NOUN|obl|3
+мелким|помещиком|ADJ|amod|NOUN|obl|3
+помещиком|познакомился|NOUN|obl|VERB|conj|4
+Полутыкиным|охотником|ADJ|amod|NOUN|conj|4
+страстным|охотником|ADJ|amod|NOUN|conj|3
+охотником|помещиком|NOUN|conj|NOUN|obl|4
+отличным|человеком|ADJ|amod|NOUN|conj|3
+человеком|охотником|NOUN|conj|NOUN|conj|4
+Водились|Водились|VERB|ROOT|VERB|ROOT|2
+за|ним|ADP|case|PRON|obl|4
+ним|Водились|PRON|obl|VERB|ROOT|4
+некоторые|слабости|DET|det|NOUN|conj|3
+слабости|Водились|NOUN|conj|VERB|ROOT|1
+он|сватался|PRON|nsubj|VERB|parataxis|1
+сватался|слабости|VERB|parataxis|NOUN|conj|2
+всех|невест|DET|det|NOUN|obl|3
+богатых|невест|ADJ|amod|NOUN|obl|3
+невест|сватался|NOUN|obl|VERB|parataxis|4
+в|губернии|ADP|case|NOUN|nmod|5
+губернии|невест|NOUN|nmod|NOUN|obl|5
+получив|доверял|VERB|advcl|VERB|conj|5
+отказ|получив|NOUN|obj|VERB|advcl|5
+от|руки|ADP|case|NOUN|nmod|5
+руки|отказ|NOUN|nmod|NOUN|obj|5
+и|дому|CCONJ|cc|NOUN|conj|5
+от|дому|ADP|case|NOUN|conj|5
+дому|руки|NOUN|conj|NOUN|nmod|5
+сокрушенным|сердцем|ADJ|amod|NOUN|obl|3
+сердцем|доверял|NOUN|obl|VERB|conj|4
+доверял|сватался|VERB|conj|VERB|parataxis|2
+свое|горе|DET|det|NOUN|obj|3
+горе|доверял|NOUN|obj|VERB|conj|4
+всем|друзьям|DET|det|NOUN|iobj|4
+друзьям|доверял|NOUN|iobj|VERB|conj|4
+знакомым|друзьям|NOUN|conj|NOUN|iobj|4
+родителям|продолжал|NOUN|iobj|VERB|conj|4
+невест|родителям|NOUN|nmod|NOUN|iobj|4
+продолжал|сватался|VERB|conj|VERB|parataxis|2
+посылать|продолжал|VERB|xcomp|VERB|conj|2
+в|подарок|ADP|case|NOUN|obl|5
+подарок|посылать|NOUN|obl|VERB|xcomp|5
+кислые|персики|ADJ|amod|NOUN|obj|3
+персики|посылать|NOUN|obj|VERB|xcomp|4
+другие|произведения|ADJ|amod|NOUN|conj|3
+сырые|произведения|ADJ|amod|NOUN|conj|3
+произведения|персики|NOUN|conj|NOUN|obj|4
+своего|сада|DET|det|NOUN|nmod|3
+сада|произведения|NOUN|nmod|NOUN|conj|4
+любил|сватался|VERB|conj|VERB|parataxis|2
+повторять|любил|VERB|xcomp|VERB|conj|2
+один|анекдот|DET|amod|NOUN|obj|3
+и|тот|CCONJ|cc|DET|det|3
+тот|один|DET|det|DET|amod|3
+же|тот|PART|advmod|DET|det|3
+анекдот|повторять|NOUN|obj|VERB|xcomp|4
+который|смешил|PRON|nsubj|VERB|acl:relcl|1
+несмотря|уважение|ADV|case|NOUN|obl|5
+на|несмотря|ADP|fixed|ADV|case|5
+уважение|смешил|NOUN|obl|VERB|acl:relcl|5
+г|уважение|NOUN|nmod|NOUN|obl|5
+Полутыкина|уважение|PROPN|nmod|NOUN|obl|5
+к|достоинствам|ADP|case|NOUN|nmod|5
+его|достоинствам|DET|det|NOUN|nmod|5
+достоинствам|уважение|NOUN|nmod|NOUN|obl|5
+решительно|никогда|ADV|advmod|ADV|advmod|5
+никогда|смешил|ADV|advmod|VERB|acl:relcl|5
+никого|смешил|PRON|obj|VERB|acl:relcl|4
+не|смешил|PART|advmod|VERB|acl:relcl|2
+смешил|анекдот|VERB|acl:relcl|NOUN|obj|2
+хвалил|сватался|VERB|conj|VERB|parataxis|2
+сочинения|хвалил|NOUN|obj|VERB|conj|4
+Акима|сочинения|PROPN|nmod|NOUN|obj|4
+Нахимова|Акима|PROPN|flat:name|PROPN|nmod|4
+повесть|сочинения|NOUN|conj|NOUN|obj|4
+Пинну|повесть|PROPN|nmod|NOUN|conj|4
+заикался|сватался|VERB|conj|VERB|parataxis|2
+называл|сватался|VERB|conj|VERB|parataxis|2
+свою|собаку|DET|det|NOUN|obj|3
+собаку|называл|NOUN|obj|VERB|conj|4
+Астрономом|называл|PROPN|xcomp|VERB|conj|4
+говорил|сватался|VERB|conj|VERB|parataxis|2
+завел|сватался|VERB|conj|VERB|parataxis|2
+у|себя|ADP|case|PRON|obl|5
+себя|завел|PRON|obl|VERB|conj|5
+в|доме|ADP|case|NOUN|obl|5
+доме|завел|NOUN|obl|VERB|conj|5
+французскую|кухню|ADJ|amod|NOUN|obj|3
+кухню|завел|NOUN|obj|VERB|conj|4
+тайна|состояла|NOUN|nsubj|VERB|acl:relcl|1
+состояла|кухню|VERB|acl:relcl|NOUN|obj|2
+полном|изменении|ADJ|amod|NOUN|obl|3
+изменении|состояла|NOUN|obl|VERB|acl:relcl|4
+естественного|вкуса|ADJ|amod|NOUN|nmod|3
+вкуса|изменении|NOUN|nmod|NOUN|obl|4
+каждою|изменении|NOUN|nmod|NOUN|obl|3
+кушанья|каждою|NOUN|nmod|NOUN|nmod|4
+мясо|отзывалось|NOUN|nsubj|VERB|parataxis|1
+у|искусника|ADP|case|NOUN|obl|5
+этого|искусника|DET|det|NOUN|obl|5
+искусника|отзывалось|NOUN|obl|VERB|parataxis|5
+отзывалось|состояла|VERB|parataxis|VERB|acl:relcl|2
+рыбой|отзывалось|NOUN|obl|VERB|parataxis|4
+рыба|отзывалось|NOUN|conj|VERB|parataxis|1
+грибами|рыба|NOUN|orphan|NOUN|conj|4
+макароны|отзывалось|NOUN|conj|VERB|parataxis|1
+порохом|макароны|NOUN|orphan|NOUN|conj|4
+ни|одна|PART|advmod|NUM|nummod|3
+одна|морковка|NUM|nummod|NOUN|nsubj|3
+морковка|попадала|NOUN|nsubj|VERB|conj|1
+не|попадала|PART|advmod|VERB|conj|2
+попадала|отзывалось|VERB|conj|VERB|parataxis|2
+в|суп|ADP|case|NOUN|obl|5
+суп|попадала|NOUN|obl|VERB|conj|5
+не|приняв|PART|advmod|VERB|advcl|5
+приняв|попадала|VERB|advcl|VERB|conj|5
+вида|приняв|NOUN|obj|VERB|advcl|5
+ромба|вида|NOUN|nmod|NOUN|obj|5
+или|трапеции|CCONJ|cc|NOUN|conj|5
+трапеции|ромба|NOUN|conj|NOUN|nmod|5
+за|недостатков|ADP|case|NOUN|nmod|4
+исключением|за|NOUN|fixed|ADP|case|4
+этих|недостатков|DET|det|NOUN|nmod|4
+немногих|недостатков|NUM|amod|NOUN|nmod|4
+и|незначительных|CCONJ|cc|ADJ|conj|4
+незначительных|немногих|ADJ|conj|NUM|amod|4
+недостатков|человек|NOUN|nmod|NOUN|ROOT|4
+г-н|недостатков|NOUN|appos|NOUN|nmod|1
+как|сказано|SCONJ|mark|VERB|parataxis|2
+же|первый|PART|advmod|ADJ|amod|5
+день|пригласил|NOUN|obl|VERB|ROOT|5
+моего|знакомства|DET|det|NOUN|nmod|5
+знакомства|день|NOUN|nmod|NOUN|obl|5
+с|г.|ADP|case|NOUN|nmod|5
+г.|знакомства|NOUN|nmod|NOUN|nmod|5
+Полутыкиным|г.|ADJ|appos|NOUN|nmod|4
+он|пригласил|PRON|nsubj|VERB|ROOT|4
+меня|пригласил|PRON|obj|VERB|ROOT|4
+на|ночь|ADP|case|NOUN|obl|1
+ночь|пригласил|NOUN|obl|VERB|ROOT|2
+к|себе|ADP|case|PRON|nmod|4
+себе|ночь|PRON|nmod|NOUN|obl|5
+пять|меня|NUM|nummod:gov|PRON|obl|5
+будет|будет|VERB|ROOT|VERB|ROOT|5
+прибавил|будет|VERB|parataxis|VERB|ROOT|2
+пешком|идти|ADV|advmod|VERB|conj|1
+зайдемте|будет|VERB|conj|VERB|ROOT|2
+сперва|зайдемте|ADV|advmod|VERB|conj|5
+Хорю|зайдемте|PROPN|obl|VERB|conj|2
+Читатель|позволит|NOUN|nsubj|VERB|ROOT|5
+не|передавать|PART|advmod|VERB|xcomp|1
+передавать|позволит|VERB|xcomp|VERB|ROOT|2
+его|заиканья|DET|det|NOUN|obj|4
+заиканья|передавать|NOUN|obj|VERB|xcomp|2
+Он|близехонько|PRON|nsubj|ADV|ROOT|3
+отсюда|близехонько|ADV|advmod|ADV|ROOT|1
+Мы|отправились|PRON|nsubj|VERB|ROOT|2
+нему|отправились|PRON|obl|VERB|ROOT|1
+Посреди|леса|ADP|case|NOUN|obl|5
+леса|возвышалась|NOUN|obl|VERB|ROOT|5
+на|поляне|ADP|case|NOUN|conj|5
+расчищенной|поляне|VERB|acl|NOUN|conj|5
+разработанной|расчищенной|VERB|conj|VERB|acl|5
+поляне|леса|NOUN|conj|NOUN|obl|5
+возвышалась|возвышалась|VERB|ROOT|VERB|ROOT|5
+одинокая|усадьба|ADJ|amod|NOUN|nsubj|5
+Хоря|усадьба|PROPN|appos|NOUN|nsubj|2
+Она|состояла|PRON|nsubj|VERB|ROOT|1
+состояла|состояла|VERB|ROOT|VERB|ROOT|4
+нескольких|срубов|NUM|nummod|NOUN|obl|1
+сосновых|срубов|ADJ|amod|NOUN|obl|2
+соединенных|срубов|VERB|acl|NOUN|obl|3
+заборами|соединенных|NOUN|obl|VERB|acl|4
+перед|избой|ADP|case|NOUN|obl|3
+главной|избой|ADJ|amod|NOUN|obl|3
+тянулся|состояла|VERB|conj|VERB|ROOT|5
+навес|тянулся|NOUN|nsubj|VERB|conj|5
+подпертый|навес|VERB|acl|NOUN|nsubj|2
+тоненькими|столбиками|ADJ|amod|NOUN|obl|1
+Мы|вошли|PRON|nsubj|VERB|ROOT|3
+вошли|вошли|VERB|ROOT|VERB|ROOT|3
+Нас|встретил|PRON|obj|VERB|ROOT|1
+встретил|встретил|VERB|ROOT|VERB|ROOT|2
+парень|встретил|NOUN|nsubj|VERB|ROOT|4
+лет|встретил|NOUN|obl|VERB|ROOT|3
+двадцати|лет|NUM|nummod|NOUN|obl|1
+высокий|встретил|ADJ|conj|VERB|ROOT|3
+и|красивый|CCONJ|cc|ADJ|conj|3
+спросил|Дома|VERB|parataxis|ADV|ROOT|1
+Полутыкин|г-н|PROPN|appos|NOUN|nsubj|2
+уехал|уехал|VERB|ROOT|VERB|ROOT|2
+отвечал|уехал|VERB|parataxis|VERB|ROOT|5
+парень|отвечал|NOUN|nsubj|VERB|parataxis|5
+показывая|улыбаясь|VERB|conj|VERB|advcl|2
+ряд|показывая|NOUN|obj|VERB|conj|1
+снег|показывая|NOUN|obl|VERB|conj|5
+зубов|снег|NOUN|conj|NOUN|obl|5
+Тележку|заложить|NOUN|obj|VERB|xcomp|5
+прикажете|прикажете|VERB|ROOT|VERB|ROOT|5
+Да|брат|PART|parataxis|NOUN|ROOT|2
+квасу|принеси|NOUN|obj|VERB|ROOT|4
+Мы|вошли|PRON|nsubj|VERB|ROOT|2
+вошли|вошли|VERB|ROOT|VERB|ROOT|4
+в|избу|ADP|case|NOUN|obl|4
+Ни|одна|PART|advmod|NUM|nummod|1
+одна|картина|NUM|nummod|NOUN|nsubj|2
+суздальская|картина|ADJ|amod|NOUN|nsubj|5
+картина|залепляла|NOUN|nsubj|VERB|ROOT|5
+залепляла|залепляла|VERB|ROOT|VERB|ROOT|3
+чистых|стен|ADJ|amod|NOUN|obj|3
+бревенчатых|стен|ADJ|amod|NOUN|obj|3
+стен|залепляла|NOUN|obj|VERB|ROOT|1
+в|углу|ADP|case|NOUN|obl|2
+углу|залепляла|NOUN|obl|VERB|ROOT|3
+перед|образом|ADP|case|NOUN|nmod|4
+образом|окладе|NOUN|nmod|NOUN|conj|5
+в|окладе|ADP|case|NOUN|conj|5
+окладе|углу|NOUN|conj|NOUN|obl|5
+теплилась|залепляла|VERB|conj|VERB|ROOT|5
+лампадка|теплилась|NOUN|nsubj|VERB|conj|5
+липовый|стол|ADJ|amod|NOUN|nsubj:pass|5
+недавно|выскоблен|ADV|advmod|VERB|conj|2
+был|выскоблен|AUX|aux:pass|VERB|conj|1
+и|вымыт|CCONJ|cc|VERB|conj|3
+вымыт|выскоблен|VERB|conj|VERB|conj|1
+между|бревнами|ADP|case|NOUN|obl|2
+бревнами|скиталось|NOUN|obl|VERB|conj|2
+по|косякам|ADP|case|NOUN|conj|2
+окон|косякам|NOUN|nmod|NOUN|conj|5
+не|скиталось|PART|advmod|VERB|conj|5
+резвых|прусаков|ADJ|amod|NOUN|nsubj|5
+прусаков|скиталось|NOUN|nsubj|VERB|conj|5
+не|скрывалось|PART|advmod|VERB|conj|2
+скрывалось|залепляла|VERB|conj|VERB|ROOT|2
+задумчивых|тараканов|ADJ|amod|NOUN|nsubj|3
+тараканов|скрывалось|NOUN|nsubj|VERB|conj|4
+Молодой|парень|ADJ|amod|NOUN|nsubj|2
+парень|появился|NOUN|nsubj|VERB|ROOT|2
+скоро|появился|ADV|advmod|VERB|ROOT|3
+появился|появился|VERB|ROOT|VERB|ROOT|4
+большой|кружкой|ADJ|amod|NOUN|obl|3
+белой|кружкой|ADJ|amod|NOUN|obl|1
+кружкой|появился|NOUN|obl|VERB|ROOT|5
+хорошим|квасом|ADJ|amod|NOUN|iobj|3
+квасом|наполненной|NOUN|iobj|VERB|acl|3
+огромным|ломтем|ADJ|amod|NOUN|conj|3
+ломтем|квасом|NOUN|conj|NOUN|iobj|3
+пшеничного|хлеба|ADJ|amod|NOUN|nmod|3
+с|дюжиной|ADP|case|NOUN|conj|3
+дюжиной|квасом|NOUN|conj|NOUN|iobj|4
+соленых|огурцов|ADJ|amod|NOUN|nmod|3
+огурцов|дюжиной|NOUN|nmod|NOUN|conj|4
+миске|дюжиной|NOUN|nmod|NOUN|conj|4
+Он|поставил|PRON|nsubj|VERB|ROOT|4
+все|припасы|DET|det|NOUN|obj|3
+эти|припасы|DET|det|NOUN|obj|4
+на|стол|ADP|case|NOUN|obl|1
+стол|поставил|NOUN|obl|VERB|ROOT|2
+прислонился|поставил|VERB|conj|VERB|ROOT|3
+к|двери|ADP|case|NOUN|obl|4
+двери|прислонился|NOUN|obl|VERB|conj|5
+и|начал|CCONJ|cc|VERB|conj|5
+с|улыбкой|ADP|case|NOUN|obl|2
+улыбкой|поглядывать|NOUN|obl|VERB|xcomp|4
+на|нас|ADP|case|PRON|obl|4
+поглядывать|начал|VERB|xcomp|VERB|conj|2
+Не|успели|PART|advmod|VERB|ROOT|5
+успели|успели|VERB|ROOT|VERB|ROOT|4
+мы|успели|PRON|nsubj|VERB|ROOT|4
+доесть|успели|VERB|xcomp|VERB|ROOT|2
+закуски|доесть|NOUN|obj|VERB|xcomp|2
+как|застучала|SCONJ|mark|VERB|advcl|1
+уже|телега|ADV|advmod|NOUN|nsubj|2
+телега|застучала|NOUN|nsubj|VERB|advcl|3
+застучала|успели|VERB|advcl|VERB|ROOT|4
+Мы|вышли|PRON|nsubj|VERB|ROOT|1
+вышли|вышли|VERB|ROOT|VERB|ROOT|2
+Мальчик|сидел|NOUN|nsubj|VERB|ROOT|5
+пятнадцати|лет|NUM|nummod|NOUN|nmod|1
+и|краснощекий|CCONJ|cc|ADJ|conj|1
+краснощекий|кудрявый|ADJ|conj|ADJ|conj|3
+кучером|сидел|NOUN|obl|VERB|ROOT|3
+с|трудом|ADP|case|NOUN|obl|3
+удерживал|сидел|VERB|conj|VERB|ROOT|2
+сытого|жеребца|ADJ|amod|NOUN|obj|4
+жеребца|удерживал|NOUN|obj|VERB|conj|5
+Кругом|стояло|NOUN|obl|VERB|ROOT|2
+телеги|Кругом|NOUN|nmod|NOUN|obl|3
+стояло|стояло|VERB|ROOT|VERB|ROOT|3
+человек|стояло|NOUN|nsubj|VERB|ROOT|4
+молодых|великанов|ADJ|amod|NOUN|nmod|5
+великанов|человек|NOUN|nmod|NOUN|nsubj|5
+очень|похожих|ADV|advmod|ADJ|amod|4
+похожих|великанов|ADJ|amod|NOUN|nmod|4
+друг|похожих|PRON|obl|ADJ|amod|4
+на|друг|ADP|fixed|PRON|obl|4
+и|Федю|CCONJ|cc|PROPN|conj|5
+на|Федю|ADP|case|PROPN|conj|3
+Федю|друг|PROPN|conj|PRON|obl|4
+дети|дети|NOUN|ROOT|NOUN|ROOT|4
+Хоря|дети|PROPN|nmod|NOUN|ROOT|4
+заметил|дети|VERB|parataxis|NOUN|ROOT|2
+Полутыкин|заметил|PROPN|nsubj|VERB|parataxis|4
+Хорьки|Всё|PROPN|appos|PART|ROOT|2
+Федя|подхватил|PROPN|nsubj|VERB|parataxis|1
+вслед|вышел|ADV|advmod|VERB|acl:relcl|2
+за|нами|ADP|case|PRON|obl|1
+крыльцо|вышел|NOUN|obl|VERB|acl:relcl|2
+да|все|CCONJ|cc|PRON|parataxis|5
+еще|все|ADV|advmod|PRON|parataxis|5
+не|все|PART|advmod|PRON|parataxis|5
+в|лесу|ADP|case|NOUN|nmod|5
+Сидор|уехал|PROPN|nsubj|VERB|conj|1
+уехал|Потап|VERB|conj|PROPN|parataxis|5
+со|Хорем|ADP|case|PROPN|obl|5
+в|город|ADP|case|NOUN|obl|1
+город|уехал|NOUN|obl|VERB|conj|2
+Смотри|Смотри|VERB|ROOT|VERB|ROOT|3
+же|Смотри|PART|advmod|VERB|ROOT|4
+Вася|Смотри|PROPN|conj|VERB|ROOT|5
+кучеру|обращаясь|NOUN|obl|VERB|advcl|2
+духом|продолжал|NOUN|parataxis|VERB|parataxis|5
+сомчи|духом|NOUN|nmod|NOUN|parataxis|5
+Только|толчках|PART|advmod|NOUN|ROOT|2
+толчках|толчках|NOUN|ROOT|NOUN|ROOT|4
+смотри|то|VERB|conj|PRON|conj|5
+телегу|попортишь|NOUN|obj|VERB|parataxis|2
+то|попортишь|PRON|obj|VERB|parataxis|2
+да|черево|CCONJ|cc|NOUN|obj|4
+черево|обеспокоишь|NOUN|obj|VERB|conj|2
+Остальные|Хорьки|ADJ|amod|PROPN|nsubj|3
+Хорьки|усмехнулись|PROPN|nsubj|VERB|ROOT|4
+усмехнулись|усмехнулись|VERB|ROOT|VERB|ROOT|2
+Феди|выходки|PROPN|nmod|NOUN|obl|3
+Подсадить|Подсадить|VERB|ROOT|VERB|ROOT|4
+Астронома|Подсадить|PROPN|obj|VERB|ROOT|4
+торжественно|воскликнул|ADV|advmod|VERB|parataxis|2
+воскликнул|Подсадить|VERB|parataxis|VERB|ROOT|4
+Федя|поднял|PROPN|nsubj|VERB|ROOT|5
+не|удовольствия|PART|advmod|NOUN|conj|1
+на|воздух|ADP|case|NOUN|obl|1
+принужденно|улыбавшуюся|ADV|advmod|VERB|acl|5
+улыбавшуюся|собаку|VERB|acl|NOUN|obj|5
+собаку|поднял|NOUN|obj|VERB|ROOT|5
+положил|поднял|VERB|conj|VERB|ROOT|2
+ее|положил|PRON|obj|VERB|conj|5
+на|дно|ADP|case|NOUN|obl|5
+дно|положил|NOUN|obl|VERB|conj|3
+телеги|дно|NOUN|nmod|NOUN|obl|3
+дал|дал|VERB|ROOT|VERB|ROOT|2
+вожжи|дал|VERB|ccomp|VERB|ROOT|4
+лошади|вожжи|NOUN|obj|VERB|ccomp|5
+Мы|покатили|PRON|nsubj|VERB|ROOT|5
+А|контора|CCONJ|cc|NOUN|ROOT|4
+вот|это|PART|advmod|PRON|nsubj|4
+моя|контора|DET|det|NOUN|ROOT|1
+контора|контора|NOUN|ROOT|NOUN|ROOT|2
+вдруг|сказал|ADV|advmod|VERB|parataxis|1
+г-н|сказал|NOUN|nsubj|VERB|parataxis|3
+Полутыкин|г-н|PROPN|appos|NOUN|nsubj|2
+на|домик|ADP|case|NOUN|obl|2
+небольшой|домик|ADJ|amod|NOUN|obl|4
+низенький|домик|ADJ|amod|NOUN|obl|5
+домик|указывая|NOUN|obl|VERB|advcl|1
+хотите|контора|VERB|parataxis|NOUN|ROOT|1
+Извольте|контора|VERB|parataxis|NOUN|ROOT|5
+а|стоит|CCONJ|cc|VERB|parataxis|2
+стоит|упразднена|VERB|parataxis|VERB|ROOT|2
+Контора|состояла|NOUN|nsubj|VERB|ROOT|5
+пустых|комнат|ADJ|amod|NOUN|obl|4
+комнат|состояла|NOUN|obl|VERB|ROOT|2
+кривой|старик|ADJ|amod|NOUN|appos|1
+старик|Сторож|NOUN|appos|NOUN|nsubj|2
+прибежал|прибежал|VERB|ROOT|VERB|ROOT|3
+с|задворья|ADP|case|NOUN|obl|3
+задворья|прибежал|NOUN|obl|VERB|ROOT|4
+Миняич|Здравствуй|PROPN|parataxis|VERB|ROOT|1
+проговорил|Здравствуй|VERB|parataxis|VERB|ROOT|5
+г-н|проговорил|NOUN|nsubj|VERB|parataxis|5
+исчез|исчез|VERB|ROOT|VERB|ROOT|1
+с|бутылкой|ADP|case|NOUN|obl|5
+воды|бутылкой|NOUN|nmod|NOUN|obl|1
+стаканами|бутылкой|NOUN|conj|NOUN|obl|3
+мне|сказал|PRON|iobj|VERB|parataxis|4
+Полутыкин|сказал|PROPN|nsubj|VERB|parataxis|4
+это|меня|PART|expl|PRON|parataxis|4
+хорошая|вода|ADJ|amod|NOUN|nsubj|2
+вода|меня|NOUN|nsubj|PRON|parataxis|2
+по|стакану|ADP|case|NOUN|obl|1
+стакану|выпили|NOUN|obl|VERB|ROOT|4
+причем|кланялся|CCONJ|cc|VERB|conj|3
+нам|кланялся|PRON|iobj|VERB|conj|3
+кланялся|выпили|VERB|conj|VERB|ROOT|2
+Ну|можем|PART|parataxis|VERB|ROOT|5
+кажется|можем|VERB|parataxis|VERB|ROOT|1
+мы|можем|PRON|nsubj|VERB|ROOT|2
+можем|можем|VERB|ROOT|VERB|ROOT|5
+ехать|можем|VERB|xcomp|VERB|ROOT|5
+новый|приятель|ADJ|amod|NOUN|nsubj|5
+В|конторе|ADP|case|NOUN|obl|1
+этой|конторе|DET|det|NOUN|obl|2
+конторе|продал|NOUN|obl|VERB|ROOT|2
+купцу|продал|NOUN|iobj|VERB|ROOT|2
+Аллилуеву|купцу|PROPN|appos|NOUN|iobj|3
+четыре|десятины|NUM|nummod:gov|NOUN|obj|3
+десятины|продал|NOUN|obj|VERB|ROOT|1
+выгодную|цену|ADJ|amod|NOUN|obl|5
+цену|продал|NOUN|obl|VERB|ROOT|5
+Мы|сели|PRON|nsubj|VERB|ROOT|2
+сели|сели|VERB|ROOT|VERB|ROOT|4
+в|телегу|ADP|case|NOUN|obl|4
+телегу|сели|NOUN|obl|VERB|ROOT|4
+и|въезжалина|CCONJ|cc|VERB|conj|4
+через|полчаса|ADP|case|NOUN|obl|4
+полчаса|въезжалина|NOUN|obl|VERB|conj|5
+уже|въезжалина|ADV|advmod|VERB|conj|5
+въезжалина|сели|VERB|conj|VERB|ROOT|5
+дома|двор|NOUN|nmod|NOUN|obj|1
+пожалуйста|Скажите|ADV|parataxis|VERB|ROOT|5
+спросил|Скажите|VERB|parataxis|VERB|ROOT|5
+я|спросил|PRON|nsubj|VERB|parataxis|5
+Полутыкина|спросил|PROPN|nsubj|VERB|parataxis|5
+Хорь|живет|PROPN|nsubj|VERB|parataxis|2
+живет|спросил|VERB|parataxis|VERB|parataxis|1
+отдельно|живет|ADV|advmod|VERB|parataxis|4
+от|мужиков|ADP|case|NOUN|obl|5
+прочих|мужиков|ADJ|amod|NOUN|obl|5
+А|отчего|CCONJ|cc|ADV|ROOT|5
+вот|отчего|PART|advmod|ADV|ROOT|1
+отчего|отчего|ADV|ROOT|ADV|ROOT|2
+он|мужик|PRON|nsubj|NOUN|nsubj|5
+у|меня|ADP|case|PRON|obl|3
+меня|мужик|PRON|obl|NOUN|nsubj|3
+мужик|умный|NOUN|nsubj|ADJ|conj|5
+тому|Лет|ADV|det|NOUN|nsubj|5
+изба|сгорела|NOUN|nsubj|VERB|ROOT|1
+у|него|ADP|case|PRON|obl|5
+него|сгорела|PRON|obl|VERB|ROOT|5
+сгорела|сгорела|VERB|ROOT|VERB|ROOT|2
+и|пришел|PART|advmod|VERB|conj|5
+пришел|сгорела|VERB|conj|VERB|ROOT|5
+он|пришел|PRON|nsubj|VERB|conj|5
+к|батюшке|ADP|case|NOUN|obl|5
+моему|батюшке|DET|det|NOUN|obl|5
+покойному|батюшке|ADJ|amod|NOUN|obl|1
+батюшке|пришел|NOUN|obl|VERB|conj|5
+ж|пришел|PART|advmod|VERB|conj|5
+говорит|сгорела|VERB|conj|VERB|ROOT|2
+позвольте|говорит|VERB|parataxis|VERB|conj|2
+мне|позвольте|PRON|iobj|VERB|parataxis|1
+Николай|сгорела|PROPN|conj|VERB|ROOT|5
+Кузьмич|Николай|PROPN|flat:name|PROPN|conj|5
+у|вас|ADP|case|PRON|obl|2
+на|болоте|ADP|case|NOUN|nmod|2
+болоте|лесу|NOUN|nmod|NOUN|obl|4
+оброк|платить|NOUN|obj|VERB|xcomp|2
+платить|стану|VERB|xcomp|VERB|ROOT|5
+хороший|платить|ADJ|obj|VERB|xcomp|5
+Да|зачем|PART|advmod|ADV|advmod|5
+тебе|селиться|PRON|iobj|VERB|csubj|1
+селиться|зачем|VERB|csubj|ADV|advmod|4
+на|болоте|ADP|case|NOUN|obl|2
+болоте|селиться|NOUN|obl|VERB|csubj|4
+так|зачем|ADV|parataxis|ADV|advmod|5
+только|вы|PART|advmod|PRON|nsubj|2
+вы|извольте|PRON|nsubj|VERB|conj|5
+в|работу|ADP|case|NOUN|obl|5
+работу|употреблять|NOUN|obl|VERB|csubj|5
+употреблять|извольте|VERB|csubj|VERB|conj|1
+оброк|положите|NOUN|obj|VERB|conj|4
+положите|зачем|VERB|conj|ADV|advmod|4
+какой|знаете|DET|obj|VERB|ROOT|4
+сами|знаете|ADJ|acl|VERB|ROOT|2
+знаете|знаете|VERB|ROOT|VERB|ROOT|4
+рублев|Извольте|PROPN|nsubj|VERB|ROOT|4
+в|год|ADP|case|NOUN|nmod|2
+Да|недоимок|PART|advmod|NOUN|obl|4
+без|недоимок|ADP|case|NOUN|obl|4
+смотри|смотри|VERB|ROOT|VERB|ROOT|2
+Известно|смотри|ADJ|parataxis|VERB|ROOT|5
+без|недоимок|ADP|case|NOUN|obl|5
+недоимок|Известно|NOUN|obl|ADJ|parataxis|5
+Вот|поселился|PART|advmod|VERB|ROOT|2
+болоте|поселился|NOUN|obl|VERB|ROOT|2
+С|прозвали|ADV|advmod|VERB|ROOT|5
+тех|С|DET|fixed|ADV|advmod|5
+и|прозвали|CCONJ|cc|VERB|ROOT|1

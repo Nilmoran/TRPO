@@ -8,7 +8,8 @@
         "iosfwd": "cpp",
         "atomic": "cpp",
         "string": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "cctype": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }

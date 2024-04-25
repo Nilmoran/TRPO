@@ -24,9 +24,10 @@ auto nlp = spacy.load("ru_core_news_lg");
 struct Word {
     string word; // Слово
     string sentence; // Предложение в котором встречается слово
+    string MoS; // Член предложения 
     int count; // Счетчик того сколько раз встретилось слово
 
-    Word(string& w, string& s) : word(w), sentence(s), count(1) {} // Стандартный конструктор для структуры
+    Word(string& w, string& s, string& m) : word(w), sentence(s),MoS(m), count(1) {} // Стандартный конструктор для структуры
 };
 
 // Функция, которая отвечает за вывод меню
@@ -85,35 +86,6 @@ void printMenu() {
          << "2: сохранить результаты анализа текста в файл" << endl
          << "3: вывести результат анализа в консоль" << endl
          << "4: выйти" << endl;
-}
-
-// Функция, которая выделяет найденное слово в предложении
-// Возвращает предложение с выделенным словом
-string highlightWord(string& targetSentence, string& targetWord) {
-    // Найти индекс начала и конца слова в тексте
-    size_t wordStart = targetSentence.find(targetWord);
-    size_t wordEnd = wordStart + targetWord.length();
-
-    // Определить границы предложения, в котором находится слово
-    size_t sentenceStart = targetSentence.rfind('.', wordStart);
-    size_t sentenceEnd = targetSentence.find('.', wordEnd);
-
-    // Обработать случай, когда нет точек перед/после слова
-    if (sentenceStart == string::npos) {
-        sentenceStart = 0;
-    } else {
-        sentenceStart++;
-    }
-
-    // Если конец предложения не найден, задать его длиной предложения
-    if (sentenceEnd == string::npos) {
-        sentenceEnd = targetSentence.length();
-    }
-
-    // Предложение с учетом слова в квадратных скобках
-    string sentence = "[" + targetSentence.substr(sentenceStart, sentenceEnd - sentenceStart) + "]";
-
-    return sentence;
 }
 
 // Функция для поиска слова в векторе words
@@ -358,18 +330,23 @@ void parceText(vector<Word>& words, ifstream& input, string str)
             for (auto& token : doc.tokens()) // Перебор предложения по словам
             {
                 auto head = token.head(); // Главное слово в словосочетании
+                string sentence;
                 
-                // Проверка является ли слово доплнением
-                if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.dep_(), head.dep_()) &&
-                isNotSubject(token.dep_(), head.dep_())) 
+                // Проверка является ли слово подлежащим
+                if (((token.pos_() == "NOUN" && token.dep_() == "nsubj") || (token.pos_() == "PRON" && token.dep_() == "nsubj") 
+                || (token.pos_() == "VERB" && token.dep_() == "parataxis") || (token.pos_() == "NOUN" && token.dep_() == "nsubj:pass"))
+                && ((head.pos_() == "VERB" && head.dep_() == "conj") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
+                || (head.pos_() == "VERB" && head.dep_() == "parataxis") || (head.pos_() == "NOUN" && head.dep_() == "obl"))
+                && (token.pos_() != "PUNCT")) 
                 {
-                    string word = token.text(); // Дополнение
+                    string word = token.text(); // подлежащие
                     // Выделение слова в предложении, добавив квадратные скобки
                     size_t wordStart = str.find(word);
                     size_t wordEnd = wordStart + word.length();
-                    string sentence = str;
-                    sentence = sentence.replace(wordStart, word.length(), "[" + word + "]");
+                    sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "(" + word + ")");
                     int index = findWordIndex(words, word);
+                    string MoS = "Подлежащие";
                     if (index != -1) 
                     {
                         // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
@@ -382,9 +359,135 @@ void parceText(vector<Word>& words, ifstream& input, string str)
                     else 
                     {
                         // Слово встречается впервые, добавить его в массив
-                        words.push_back(Word(word, sentence));
+                        words.push_back(Word(word, sentence, MoS));
                     }
+                    continue;
                 }
+
+                // Проверка является ли слово сказуемым
+                if (((token.pos_() == "VERB" && token.dep_() == "conj") || (token.pos_() == "VERB" && token.dep_() == "ROOT") 
+                || (token.pos_() == "PART" && token.dep_() == "advmod") || (token.pos_() == "NOUN" && token.dep_() == "obl"))
+                && ((head.pos_() == "VERB" && head.dep_() == "ROOT") || (head.pos_() == "VERB" && head.dep_() == "conj")
+                || (head.pos_() == "ADJ" && head.dep_() == "conj") || (head.pos_() == "VERB" && head.dep_() == "parataxis"))
+                && (token.pos_() != "PUNCT")) 
+                {
+                    string word = token.text(); // сказуемое
+                    // Выделение слова в предложении, добавив квадратные скобки
+                    size_t wordStart = str.find(word);
+                    size_t wordEnd = wordStart + word.length();
+                    sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "{" + word + "}");
+                    int index = findWordIndex(words, word);
+                    string MoS = "Сказуемое";
+                    if (index != -1) 
+                    {
+                        // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
+                        words[index].count++;
+                        if (sentence != words[index].sentence) 
+                        {
+                            words[index].sentence += sentence;
+                        }
+                    } 
+                    else 
+                    {
+                        // Слово встречается впервые, добавить его в массив
+                        words.push_back(Word(word, sentence, MoS));
+                    }
+                    continue;
+                }
+
+                // Проверка является ли слово определением
+                if (((token.pos_() == "ADJ" && token.dep_() == "amod") || (token.pos_() == "DET" && token.dep_() == "det"))
+                && ((head.pos_() == "NOUN" && head.dep_() == "obl") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
+                || (head.pos_() == "NOUN" && head.dep_() == "nsubj") || (head.pos_() == "NOUN" && head.dep_() == "conj"))
+                && (token.pos_() != "PUNCT")) 
+                {
+                    string word = token.text(); // определение
+                    // Выделение слова в предложении, добавив квадратные скобки
+                    size_t wordStart = str.find(word);
+                    size_t wordEnd = wordStart + word.length();
+                    sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "*" + word + "*");
+                    int index = findWordIndex(words, word);
+                    string MoS = "Определение";
+                    if (index != -1) 
+                    {
+                        // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
+                        words[index].count++;
+                        if (sentence != words[index].sentence) 
+                        {
+                            words[index].sentence += sentence;
+                        }
+                    } 
+                    else 
+                    {
+                        // Слово встречается впервые, добавить его в массив
+                        words.push_back(Word(word, sentence, MoS));
+                    }
+                    continue;
+                }
+
+                // Проверка является ли слово доплнением
+                if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.dep_(), head.dep_()) &&
+                isNotSubject(token.dep_(), head.dep_())) 
+                {
+                    string word = token.text(); // Дополнение
+                    // Выделение слова в предложении, добавив квадратные скобки
+                    size_t wordStart = str.find(word);
+                    size_t wordEnd = wordStart + word.length();
+                    sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "[" + word + "]");
+                    int index = findWordIndex(words, word);
+                    string MoS = "Дополнение";  
+                    if (index != -1) 
+                    {
+                        // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
+                        words[index].count++;
+                        if (sentence != words[index].sentence) 
+                        {
+                            words[index].sentence += sentence;
+                        }
+                    } 
+                    else 
+                    {
+                        // Слово встречается впервые, добавить его в массив
+                        words.push_back(Word(word, sentence,MoS));
+                    }
+                    continue;
+                }
+                // Проверка является ли слово обстоятельство
+                if (((token.pos_() == "ADV" && token.dep_() == "case") || (token.pos_() == "NOUN" && token.dep_() == "obl") 
+                || (token.pos_() == "ADJ" && token.dep_() == "amod") || (token.pos_() == "ADV" && token.dep_() == "advmod"))
+                && ((head.pos_() == "NOUN" && head.dep_() == "obl") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
+                || (head.pos_() == "VERB" && head.dep_() == "conj") || (head.pos_() == "NOUN" && head.dep_() == "nmod"))
+                && (token.pos_() != "PUNCT"))  
+                {
+                    string word = token.text(); // обстоятельство
+                    // Выделение слова в предложении, добавив квадратные скобки
+                    size_t wordStart = str.find(word);
+                    size_t wordEnd = wordStart + word.length();
+                    sentence = str;
+                    sentence = sentence.replace(wordStart, word.length(), "#" + word + "#");
+                    int index = findWordIndex(words, word);
+                    string MoS = "Обстоятельство";  
+                    if (index != -1) 
+                    {
+                        // Слово уже встречалось, увеличить счетчик и обновить предложение, если оно новое
+                        words[index].count++;
+                        if (sentence != words[index].sentence) 
+                        {
+                            words[index].sentence += sentence;
+                        }
+                    } 
+                    else 
+                    {
+                        // Слово встречается впервые, добавить его в массив
+                        words.push_back(Word(word, sentence,MoS));
+                    }
+                    continue;
+                }
+
+
             }
         }
 }
@@ -422,6 +525,7 @@ void printResults(std::vector<Word>& words) {
         std::cout << "Слово: " << word.word << std::endl;
         std::cout << "Предложение: " << word.sentence << std::endl;
         std::cout << "Количество: " << word.count << std::endl;
+        std::cout << "Член предложения: " << word.MoS << std::endl;
         std::cout << "---------------------" << std::endl;
     }
     std::cin.get();
@@ -445,6 +549,7 @@ bool saveToFile(vector<Word>& words, string& fileName) {
         output << "Слово: " << word.word << endl;
         output << "Предложение: " << word.sentence << endl;
         output << "Количество: " << word.count << endl;
+        output << "Член предложения: " << word.MoS << endl;
         output << "---------------------" << endl;
     }
 
@@ -509,7 +614,7 @@ int main() {
                 cout << "Нет данных для сохранения в файл." << endl;
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
-                cin.ignore(1000, '\n'); // Очистка потоко cin
+                cin.ignore(1000, '\n'); // Очистка потока cin
                 cin.get();
                 system("clear");
                 printMenu(); // Вывод меню

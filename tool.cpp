@@ -8,6 +8,7 @@
 #include <cstdio>
 #include <cctype>
 
+
 using namespace std;
 namespace fs = filesystem;
 
@@ -49,6 +50,11 @@ void parceText(vector<toolWord>& words, fstream& input, string str)
             // Безполезные поля?
             words[index].token = word; // Заполняем поля структуры в векторе
             words[index].head = head;
+
+            if (!isdigit(word[0]) || head == "PUNCT")
+            {
+                words[index].member = 0;
+            } 
 
             if (word[0] == '1')
             {
@@ -135,7 +141,7 @@ void saveToFile(vector<toolWord>& words, string fileName)
     }
 
     // Выполняем сортировку по полю member
-    sort(words.begin(), words.end(), compareWords);
+    //sort(words.begin(), words.end(), compareWords);
 
     // Выводим информацию о каждом слове в векторе words 
     for (auto& word : words) 
@@ -143,12 +149,18 @@ void saveToFile(vector<toolWord>& words, string fileName)
         // Пропускаем исключительные моменты, когда модель определяет пунктуацию в качестве токена
         // или когда модель не присваивает никаких зависимостей токену.
         if (word.member != 0 && word.tokenPos != "PUNCT" && word.tokenPos != "SPACE" 
-        && word.tokenPos != "" && word.tokenDep != "punct") 
+        && word.tokenPos != "" && word.tokenDep != "punct")
         {
-            output << "Token: " << word.token << " Head: " << word.head 
-            << " Token Pos/Dep: " << word.tokenPos << "/" << word.tokenDep
+            /*output << "Token: " << word.token << " Head: " << word.head 
+            << " Token Pos/Dep: " << word.tokenPos << "/" << word.t//okenDep
             << " Head Pos/Dep: " << word.headPos << "/" << word.headDep 
-            << " MoS: " << word.member << endl;
+            << " MoS: " << word.member << endl;*/
+
+            output << word.token << "|" << word.head 
+            << "|" << word.tokenPos << "|" << word.tokenDep
+            << "|" << word.headPos << "|" << word.headDep 
+            << "|" << word.member << endl;
+
         }
         
     }

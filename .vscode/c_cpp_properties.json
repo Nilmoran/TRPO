@@ -8,7 +8,8 @@
                 "/usr/include/python3.10/cpython",
                 "/usr/include/python3.10/",
                 "/usr/include/c++/11/",
-                "/home/lopeto/Desktop/Spacy-cpp/"
+                "/home/lopeto/Desktop/Spacy-cpp/",
+                "/usr/local/include/"
             ],
             "defines": [],
             "cStandard": "c17",
