@@ -36,29 +36,8 @@ struct Word {
 // Функция, которая отвечает за вывод меню
 void printMenu();
 
-// Функция, которая выделяет найденное слово в предложении
-string highlightWord(string&, string&);
-
-// Функция, которая выполняет поиска слова в векторе words
-int findWordIndex(vector<Word>&, string&);
-
 // Функция, которая отвечает за проверку названия файла на запрещенные символы
 string checkingFileName(int);
-
-// Функция, которая проверяет является ли слово существительным или местоимением
-bool isNounOrPron(string);
-
-// Функция, которая проверяет является ли слово дополнением
-bool isObject(string);
-
-// Функция, которая проверяет не является ли слово обстоятельством
-bool isNotAdverbial(string, string);
-
-// Функция, которая проверяет не является ли слово подлежащим
-bool isNotSubject(string, string);
-
-// Функция, которая отвечает за определения символа конца предложения
-bool isSentenceEnd(char ch);
 
 // Функция, которая разделяет текст на предложения
 vector<string> splitSentences(string&);
@@ -90,21 +69,6 @@ void printMenu() {
          << "3: вывести результат анализа в консоль" << endl
          << "4: выйти" << endl;
 }
-
-/*
-// Функция для поиска слова в векторе words
-// Возвращает индекс слова в векторе
-int findWordIndex(vector<Word>& words, string& word) {
-    // Перебор вектора words в поисках нужного слова
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (words[i].word == word) {
-            // Вернуть индекс слова в векторе, если оно найдено
-            return static_cast<int>(i);
-        }
-    }
-    // Вернуть индекс -1, означающий, что слова нет в векторе
-    return -1;
-}*/
 
 // Функция, которая отвечает за проверку названия файла на запрещенные символы
 // Также функция выполняет проверку на наличие файла с таким же названием
@@ -266,64 +230,6 @@ string processFile(string& inputFileName) {
     return outputFileName;
 }
 
-// Функция, которая проверяет является ли слово существительным или местоимением
-// Возвращает истину, если ли слово является существительным или местоимением
-bool isNounOrPron(string tokenPos) {
-    if (tokenPos == "NOUN" || tokenPos == "PRON" || tokenPos == "PROPN") {
-        return true; // Если слово являет существительным или местоимением
-    } else {
-        return false;
-    }
-}
-
-// Функция, которая проверяет является ли слово дополнением
-// Возвращает истину, если ли слово является дополнением
-bool isObject(string tokenDep) 
-{
-    if ((tokenDep == "obl" || tokenDep == "obj" || tokenDep == "nmod" || tokenDep == "iobj" || tokenDep == "conj")) 
-    {
-        return true;
-    } 
-
-    else 
-    {
-        return false;
-    }
-}
-
-// Функция, которая проверяет не является ли слово обстоятельством
-// Возвращает истину, если ли слово не явялется обстоятельством
-bool isNotAdverbial(string tokenDep, string headDep) 
-{
-    if (!(tokenDep == "obl" && headDep == "ROOT") && !(tokenDep == "obj" && headDep == "xcomp") &&
-    !(tokenDep == "obl" && headDep == "xcomp") && !(tokenDep == "obl" && headDep == "acl") && 
-    !(tokenDep == "obl" && headDep == "advcl")) 
-    {
-        return true;
-    } 
-
-    else 
-    {
-        return false;
-    }
-}
-
-// Функция, которая проверяет не является ли слово подлежащим
-// Возвращает истину, если слово не ялвялется подлежащим
-bool isNotSubject(string tokenDep, string headDep) 
-{
-    if (!(tokenDep == "conj" && headDep == "obl")  && !(tokenDep == "conj" && headDep == "nsubj") && 
-    !(tokenDep== "conj" && headDep == "obl") && !(tokenDep == "conj" && headDep == "obj")) 
-    {
-        return true;
-    } 
-
-    else 
-    {
-        return false;
-    }
-}
-
 // Функция, которая анализирует предложения по словам
 void parceText(vector<Word>& words, ifstream& input, string str)
 {
@@ -337,72 +243,72 @@ void parceText(vector<Word>& words, ifstream& input, string str)
             for (auto& token : doc.tokens()) // Перебор предложения по словам
             {
                 auto head = token.head(); // Главное слово в словосочетании
-
-                // Проверка является ли слово подлежащим
-                if (((token.pos_() == "NOUN" && token.dep_() == "nsubj") || (token.pos_() == "PRON" && token.dep_() == "nsubj") 
-                || (token.pos_() == "VERB" && token.dep_() == "parataxis") || (token.pos_() == "NOUN" && token.dep_() == "nsubj:pass"))
-                && ((head.pos_() == "VERB" && head.dep_() == "conj") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
-                || (head.pos_() == "VERB" && head.dep_() == "parataxis") || (head.pos_() == "NOUN" && head.dep_() == "obl"))
-                && (token.pos_() != "PUNCT")) 
-                {
-                    string subjectBuf = token.text();
-                    subject += " " + token.text(); // подлежащие
-                    // Выделение слова в предложении, добавив квадратные скобки
-                    size_t wordStart = sentence.find(subjectBuf);
-                    sentence = sentence.replace(wordStart, subjectBuf.length(), "(" + subjectBuf + ")");
-                }
-
                 // Проверка является ли слово сказуемым
-                else if (((token.pos_() == "VERB" && token.dep_() == "conj") || (token.pos_() == "VERB" && token.dep_() == "ROOT") 
-                || (token.pos_() == "PART" && token.dep_() == "advmod") || (token.pos_() == "NOUN" && token.dep_() == "obl"))
-                && ((head.pos_() == "VERB" && head.dep_() == "ROOT") || (head.pos_() == "VERB" && head.dep_() == "conj")
-                || (head.pos_() == "ADJ" && head.dep_() == "conj") || (head.pos_() == "VERB" && head.dep_() == "parataxis"))
-                && (token.pos_() != "PUNCT")) 
+                if (((token.pos_() == "VERB" && (token.dep_() == "ROOT" || token.dep_() == "conj" 
+                || token.dep_() == "parataxis" || token.dep_() == "xcomp")) || (token.pos_() == "PART" && token.dep_() == "advmod"))
+                && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj")) || (head.pos_() == "ADJ" && head.dep_() == "ROOT"))) 
                 {
                     string pronounBuf = token.text();
-                    pronoun += " " + token.text(); // подлежащие
+                    pronoun += token.text()  + ", "; // подлежащие
                     // Выделение слова в предложении, добавив квадратные скобки
                     size_t wordStart = sentence.find(pronounBuf);
-                    sentence = sentence.replace(wordStart, pronounBuf.length(), "[" + pronounBuf + "]");
+                    sentence = sentence.replace(wordStart, pronounBuf.length(), "[" + pronounBuf + "]");                    
                 }
-
 
                 // Проверка является ли слово определением
                 else if (((token.pos_() == "ADJ" && token.dep_() == "amod") || (token.pos_() == "DET" && token.dep_() == "det"))
-                && ((head.pos_() == "NOUN" && head.dep_() == "obl") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
-                || (head.pos_() == "NOUN" && head.dep_() == "nsubj") || (head.pos_() == "NOUN" && head.dep_() == "conj"))
-                && (token.pos_() != "PUNCT")) 
+                && (head.pos_() == "NOUN" && (head.dep_() == "nsubj" || head.dep_() == "obl" || head.dep_() == "obj" || head.dep_() == "conj")))
                 {
                     string modifierBuf = token.text();
-                    modifier += " " + token.text(); // определение
+                    modifier += token.text() + ", "; // определение
                     // Выделение слова в предложении, добавив квадратные скобки
                     size_t wordStart = sentence.find(modifierBuf);
                     sentence = sentence.replace(wordStart, modifierBuf.length(), "{" + modifierBuf + "}");
                 }
 
-                // Проверка является ли слово доплнением
-                else if (isNounOrPron(token.pos_()) && isObject(token.dep_()) && isNotAdverbial(token.dep_(), head.dep_()) &&
-                isNotSubject(token.dep_(), head.dep_())) 
+                // Проверка является ли слово подлежащие
+                else if (((token.pos_() == "NOUN" && (token.dep_() == "nsubj" || token.dep_() == "nsubj:pass")) 
+                || (token.pos_() == "PRON" && token.dep_() == "nsubj") || (token.pos_() == "PROPN" && token.dep_() == "nsubj")) 
+                && (head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "parataxis" || head.dep_() == "conj")
+                || (head.pos_() == "ADJ" && head.dep_() == "ROOT")))
                 {
-                    string objectBuf = token.text();
-                    object += " " + token.text(); // определение
+                    string subjectBuf = token.text();
+                    subject += token.text() + ", "; // подлежащие
                     // Выделение слова в предложении, добавив квадратные скобки
-                    size_t wordStart = sentence.find(objectBuf);
-                    sentence = sentence.replace(wordStart, objectBuf.length(), "*" + objectBuf + "*");
+                    size_t wordStart = sentence.find(subjectBuf);
+                    sentence = sentence.replace(wordStart, subjectBuf.length(), "(" + subjectBuf + ")");
                 }
 
-                // Проверка является ли слово обстоятельство
-                else if (((token.pos_() == "ADV" && token.dep_() == "case") || (token.pos_() == "NOUN" && token.dep_() == "obl") 
-                || (token.pos_() == "ADJ" && token.dep_() == "amod") || (token.pos_() == "ADV" && token.dep_() == "advmod"))
-                && ((head.pos_() == "NOUN" && head.dep_() == "obl") || (head.pos_() == "VERB" && head.dep_() == "ROOT")
-                || (head.pos_() == "VERB" && head.dep_() == "conj") || (head.pos_() == "NOUN" && head.dep_() == "nmod"))
-                && (token.pos_() != "PUNCT"))  
+                // Проверка является ли слово обстоятельством
+                else if (((token.pos_() == "NOUN" && (token.dep_() == "obl" || token.dep_() == "nmod")) 
+                || (token.pos_() == "ADP" && token.dep_() == "case")
+                || (token.pos_() == "ADV" && token.dep_() == "advmod")
+                || (token.pos_() == "ADJ" && token.dep_() == "amod")) 
+                && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "advcl")) 
+                || (head.pos_() == "NOUN" && (head.dep_() == "obl" || head.dep_() == "nmod" || head.dep_() == "conj"))))
                 {
                     string adverbialBuf = token.text();
-                    adverbial += " " + token.text(); // определение
+                    adverbial += token.text() + ", "; // определение
                     // Выделение слова в предложении, добавив квадратные скобки
                     size_t wordStart = sentence.find(adverbialBuf);
                     sentence = sentence.replace(wordStart, adverbialBuf.length(), "/" + adverbialBuf + "/");
+                }
+
+                // Проверка является ли слово дополнением
+                else if (((token.pos_() == "NOUN" && (token.dep_() == "obl" || token.dep_() == "obj" 
+                || token.dep_() == "nmod" || token.dep_() == "conj")) 
+                || (token.pos_() == "ADP" && token.dep_() == "case")
+                || (token.pos_() == "PRON" && (token.dep_() == "obj" || token.dep_() == "obl"))) 
+                && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "advcl")) 
+                || (head.pos_() == "NOUN" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "obl" 
+                || head.dep_() == "obj" || head.dep_() == "nmod" || head.dep_() == "nsubj"))
+                || (head.pos_() == "ADJ" && head.dep_() == "ROOT")))
+                {
+                    string objectBuf = token.text();
+                    object += token.text() + ", "; // определение
+                    // Выделение слова в предложении, добавив квадратные скобки
+                    size_t wordStart = sentence.find(objectBuf);
+                    sentence = sentence.replace(wordStart, objectBuf.length(), "*" + objectBuf + "*");
                 }
 
                 else
@@ -433,26 +339,19 @@ void fileMain(vector<Word>& words) {
     input.close();
 }
 
-/*// Функция для сравнения двух объектов Word для сортировки
-bool compareWords(const Word& a, const Word& b) {
-    return a.word < b.word;
-}*/
 
-void printResults(std::vector<Word>& words) {
-    // Сортировка вектора по полю word.word
-    //std::sort(words.begin(), words.end(), compareWords);
-
-    // Отобразить информацию о каждом слове в отсортированном векторе words
+void printResults(vector<Word>& words) {
+    // Отобразить информацию о каждом предложении в векторе words
     for (const auto& word : words) {
-        std::cout << "Подлежащие: " << word.subject << std::endl;
-        std::cout << "Сказуемое: " << word.pronoun << std::endl;
-        std::cout << "Определение: " << word.modifier << std::endl;
-        std::cout << "Дополнение: " << word.object << std::endl;
-        std::cout << "Обстоятельство: " << word.adverbial << std::endl;
-        std::cout << "Предложение: " << word.sentence << std::endl;
-        std::cout << "---------------------" << std::endl;
+        cout << "(Подлежащие): " << word.subject << endl;
+        cout << "[Сказуемое]: " << word.pronoun << endl;
+        cout << "{Определение}: " << word.modifier << endl;
+        cout << "*Дополнение*: " << word.object << endl;
+        cout << "/Обстоятельство/: " << word.adverbial << endl;
+        cout << "Предложение: " << word.sentence << endl;
+        cout << "---------------------" << endl;
     }
-    std::cin.get();
+    cin.get();
 }
 
 // Функция, которая отвечает за сохранение данных в текстовый файл
@@ -465,12 +364,13 @@ bool saveToFile(vector<Word>& words, string& fileName) {
         return false;
     }
 
-    // Сортировка вектора по полю word.word
-    //std::sort(words.begin(), words.end(), compareWords);
-
-    // Отобразить информацию о каждом слове в векторе words 
+    // Отобразить информацию о каждом предложении в векторе words 
     for (auto& word : words) {
-        output << "Слово: " << word.subject << endl;
+        output << "(Подлежащие): " << word.subject << endl;
+        output << "[Сказуемое]: " << word.pronoun << endl;
+        output << "{Определение}: " << word.modifier << endl;
+        output << "*Дополнение*: " << word.object << endl;
+        output << "/Обстоятельство/: " << word.adverbial << endl;
         output << "Предложение: " << word.sentence << endl;
         output << "---------------------" << endl;
     }

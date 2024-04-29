@@ -8,7 +8,6 @@
 #include <cstdio>
 #include <cctype>
 
-
 using namespace std;
 namespace fs = filesystem;
 

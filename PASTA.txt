@@ -6,6 +6,3 @@ g++ tool.cpp -I/usr/include/python3.10 -L/usr/lib/python3.10/config-3.10-x86_64-
 gdb ./tool
 
 x86_64-w64-mingw32-g++ spacytest.cpp -o spacytest.exe -I/usr/include/python3.10 -L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu -L/usr/lib -lpython3.10 -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions -static-libgcc -static-libstdc++
-
-
-if ()
