@@ -12,8 +12,8 @@
                 "/usr/local/include/"
             ],
             "defines": [],
-            "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cStandard": "c23",
+            "cppStandard": "c++23",
             "intelliSenseMode": "linux-gcc-x64",
             "compilerPath": "/usr/bin/g++-11"
         }
