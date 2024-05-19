@@ -1,26 +1,21 @@
 #define SPACY_HEADER_ONLY
 #include "spacy/spacy"
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <filesystem>
 #include <sstream>
+#include <filesystem>
 #include <cstdio>
+#include <map>
 
 using namespace std;
 namespace fs = filesystem;
-// Флаг для отслеживания несохраненных изменений 
-bool hasUnsavedChanges = false;
-// Флаг для отслеживания был ли загружен файл
-bool uploadFromFile = false;
-// Флаг для отслеживания первого открытия файла
-bool flagFirstOpen = false;
 
 // Загрузка предобученной модели SpaCy
 Spacy::Spacy spacy;
 auto nlp = spacy.load("ru_core_news_lg");
 
-// Структура для хранения слова и его атрибутов
 struct Word 
 {
     string subject; // Вектор для хранения всех подлежащих из предложения
@@ -33,7 +28,6 @@ struct Word
     Word(string& sub, string& pron, string& mod, string& obj, string& adv, string sent) 
     : subject(sub), pronoun(pron), modifier(mod), object(obj), adverbial(adv), sentence(sent) {} // Стандартный конструктор для структуры
 };
-
 // Функция, которая отвечает за вывод меню
 void printMenu();
 
@@ -53,24 +47,16 @@ void parceText(vector<Word>&, ifstream&, string);
 void fileMain(vector<Word>&);
 
 // Функция, которая отвечает за отображение результатов анализа
-void printResults(vector<Word>&);
+void printResults(vector<Word>&, int);
 
 // Функция, которая отвечает за сохранение данных в текстовый файл
-bool saveToFile(vector<Word>&, string&);
+bool saveToFile(vector<Word>&, int);
 
 // Функция, которая отвеает за сохранение данных перед выходом из программы
 bool exitSave(vector<Word>&);
 
-// Функция, которая отвечает за вывод меню
-void printMenu() 
-{
-    cout << "Данная программа предназначена для поиска дополнений в тексте!" << endl;
-    cout << "Выберите операцию: " << endl
-         << "1: загрузить из файла текст для анализа " << endl
-         << "2: сохранить результаты анализа текста в файл" << endl
-         << "3: вывести результат анализа в консоль" << endl
-         << "4: выйти" << endl;
-}
+// Флаг для отслеживания несохраненных изменений 
+bool hasUnsavedChanges = false;
 
 // Функция, которая отвечает за проверку названия файла на запрещенные символы
 // Также функция выполняет проверку на наличие файла с таким же названием
@@ -87,9 +73,9 @@ string checkingFileName(int mode)
         flag = true;
         system("clear");
         if (mode == 1) // Если проверяется название входного файла
-            cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия входного файла и вернуться в главное меню." << endl;
+            cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия входного файла и вернуться в меню." << endl;
         else // Если проверяется название выходного файла
-            cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия выходного файла и вернуться в главное меню." << endl;
+            cout << "Введите символ ‘=’, для того чтобы прекратить ввод названия выходного файла и вернуться в меню." << endl;
 
         getline(cin, fileName);
         if (fileName == "=") 
@@ -132,6 +118,7 @@ string checkingFileName(int mode)
                     flag = false;
                 }
             }
+            
             if (mode == 2) {
                 // Добавить расширение к названию файла, если оно отсутствует
                 if (fileName.find(".txt") == string::npos) 
@@ -252,20 +239,55 @@ string processFile(string& inputFileName)
 
 void prepareToVector(auto token, auto head, string& word, string& sentence, char c)
 {
-    word += token.text() + "; "; 
+    word += token.text() + "; ";
     string sentenceBuf = sentence;
     string wordBuf;
+    bool flagHighlight = true;
     sentence = "";
     stringstream iss(sentenceBuf);
 
+    // Функция, которая проверяет, является ли символ знаком пунктуации
+    auto isPunctuation = [](char ch) {
+        return ispunct(static_cast<unsigned char>(ch));
+    };
+
     while (iss >> wordBuf)
     {
-        if (wordBuf == token.text())
+        // Сохраняем пунктуацию в отдельной строке
+        string punctuation = "";
+        for (int i = wordBuf.size() - 1; i >= 0; --i)
         {
-            sentence += c + wordBuf + c + " ";
+            if (isPunctuation(wordBuf[i]))
+            {
+                punctuation = wordBuf[i] + punctuation;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        // Убираем пунктуацию из слова
+        string cleanWord = "";
+        for (char ch : wordBuf)
+        {
+            if (!isPunctuation(ch))
+            {
+                cleanWord += ch;
+            }
+        }
+
+        // Проверяем, является ли очищенное слово токеном
+        if (cleanWord == token.text() && flagHighlight == true)
+        {
+            // Если слово является токеном, добавляем его с обрамлением символами и сохраненной пунктуацией
+            sentence += c + cleanWord + c + punctuation + " ";
+            flagHighlight = false;
         }
         else
+        {
             sentence += wordBuf + " ";
+        }
     }
 }
 
@@ -275,7 +297,8 @@ bool isPronoun(auto token, auto head, string& word, string& sentence, char c)
     || token.dep_() == "parataxis" || token.dep_() == "xcomp")) 
     || (token.pos_() == "PART" && token.dep_() == "advmod"))
     && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj")) 
-    || (head.pos_() == "ADJ" && head.dep_() == "ROOT"))) 
+    || (head.pos_() == "ADJ" && head.dep_() == "ROOT") || (head.pos_() == "NOUN" && (head.dep_() == "ROOT" 
+    || head.dep_() == "nsubj")))) 
     {
         prepareToVector(token, head, word, sentence, c); 
         return true;              
@@ -286,8 +309,9 @@ bool isPronoun(auto token, auto head, string& word, string& sentence, char c)
 
 bool isModifier(auto token, auto head, string& word, string& sentence, char c)
 {
-    if (((token.pos_() == "ADJ" && token.dep_() == "amod") || (token.pos_() == "DET" && token.dep_() == "det"))
-    && (head.pos_() == "NOUN" && (head.dep_() == "nsubj" || head.dep_() == "obl" || head.dep_() == "obj" || head.dep_() == "conj")))
+    if (((token.pos_() == "ADJ" && (token.dep_() == "amod" || token.dep_() == "conj")) || (token.pos_() == "DET" && token.dep_() == "det"))
+    && (head.pos_() == "NOUN" && (head.dep_() == "nsubj" || head.dep_() == "obl" || head.dep_() == "obj" || head.dep_() == "conj" 
+	|| head.dep_() == "nmod" || head.dep_() == "iobj" || head.dep_() == "ROOT")))
     {
         prepareToVector(token, head, word, sentence, c);
         return true;  
@@ -299,9 +323,10 @@ bool isModifier(auto token, auto head, string& word, string& sentence, char c)
 bool isSubject(auto token, auto head, string& word, string& sentence, char c)
 {
     if (((token.pos_() == "NOUN" && (token.dep_() == "nsubj" || token.dep_() == "nsubj:pass")) 
-    || (token.pos_() == "PRON" && token.dep_() == "nsubj") || (token.pos_() == "PROPN" && token.dep_() == "nsubj")) 
-    && (head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "parataxis" || head.dep_() == "conj")
-    || (head.pos_() == "ADJ" && head.dep_() == "ROOT")))
+    || (token.pos_() == "PRON" && token.dep_() == "nsubj") || (token.pos_() == "PROPN" && token.dep_() == "nsubj")
+	|| (token.pos_() == "NOUN" && token.dep_() == "conj") || (token.pos_() == "PROPN" && token.dep_() == "appos")) 
+    && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "parataxis" || head.dep_() == "conj"))
+    || (head.pos_() == "NOUN" && head.dep_() == "ROOT") || (head.pos_() == "NOUN" && head.dep_() == "nsubj")))
     {
         prepareToVector(token, head, word, sentence, c);
         return true;
@@ -329,13 +354,13 @@ bool isAdverbial(auto token, auto head, string& word, string& sentence, char c)
 bool isObject(auto token, auto head, string& word, string& sentence, char c)
 {
     if (((token.pos_() == "NOUN" && (token.dep_() == "obl" || token.dep_() == "obj" 
-    || token.dep_() == "nmod" || token.dep_() == "conj")) 
+    || token.dep_() == "nmod" || token.dep_() == "conj" || token.dep_() == "iobj")) 
     || (token.pos_() == "ADP" && token.dep_() == "case")
-    || (token.pos_() == "PRON" && (token.dep_() == "obj" || token.dep_() == "obl"))) 
-    && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "advcl")) 
+    || (token.pos_() == "PRON" && (token.dep_() == "obj" || token.dep_() == "obl" || token.dep_() == "iobj"))) 
+    && ((head.pos_() == "VERB" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "advcl" 
+	|| head.dep_() == "xcomp" || head.dep_() == "parataxis")) 
     || (head.pos_() == "NOUN" && (head.dep_() == "ROOT" || head.dep_() == "conj" || head.dep_() == "obl" 
-    || head.dep_() == "obj" || head.dep_() == "nmod" || head.dep_() == "nsubj"))
-    || (head.pos_() == "ADJ" && head.dep_() == "ROOT")))
+    || head.dep_() == "obj" || head.dep_() == "nmod" || head.dep_() == "nsubj"))))
     {
         prepareToVector(token, head, word, sentence, c);
         return true;
@@ -344,36 +369,79 @@ bool isObject(auto token, auto head, string& word, string& sentence, char c)
         return false;
 }
 
-// Функция, которая анализирует предложения по словам
+// Функция, которая анализирует предложения из текстового файла  
 void parceText(vector<Word>& words, ifstream& input, string str)
 {
+    
     // Перебор всех предложений из файла
     while (getline(input, str)) 
     {
+        if (str == "\r")
+            continue;
         auto doc = nlp.parse(str); // Парсер предобученной модели SpaCy
         string sentence = str;
         string subject, pronoun, modifier, object, adverbial = "";
         for (auto& token : doc.tokens()) // Перебор предложения по словам
         {
             auto head = token.head(); // Главное слово в словосочетании
-            // Проверка является ли слово сказуемым
-            if(isPronoun(token, head, pronoun, sentence, '#'))
-                continue;
-            // Проверка является ли слово определением
-            if(isModifier (token, head, modifier, sentence, '$'))
-                continue;
-            // Проверка является ли слово подлежащие
-            if(isSubject(token, head, subject, sentence, '%'))
+
+            // Проверка является ли слово дополнением
+            if(isObject(token, head, object, sentence, '/'))
                 continue;
             // Проверка является ли слово обстоятельством
             if(isAdverbial(token, head, adverbial, sentence, '*'))
                 continue;
-            // Проверка является ли слово дополнением
-            if(isObject(token, head, object, sentence, '/'))
+            // Проверка является ли слово подлежащие
+            if(isSubject(token, head, subject, sentence, '%'))
                 continue;
+            // Проверка является ли слово сказуемым
+            if(isPronoun(token, head, pronoun, sentence, '#'))
+                continue;
+            // Проверка является ли слово определением
+            if(isModifier(token, head, modifier, sentence, '$'))
+                continue;
+
         }
         words.push_back(Word(subject, pronoun, modifier, object, adverbial, sentence));
     }
+}
+
+// Функция, которая анализирует предложения введенные с клавиатуры
+void parceText(vector<Word>& words)
+{
+    string str = "";
+    cout << "Введите символ ‘=’, для того чтобы вернуться в главное меню." << endl;
+    // Перебор всех предложений, которые введет пользователь
+    do 
+    {
+        if (str == "=")
+            break;
+        auto doc = nlp.parse(str); // Парсер предобученной модели SpaCy
+        string sentence = str;
+        string subject, pronoun, modifier, object, adverbial = "";
+        for (auto& token : doc.tokens()) // Перебор предложения по словам
+        {
+            auto head = token.head(); // Главное слово в словосочетании
+
+            // Проверка является ли слово дополнением
+            if(isObject(token, head, object, sentence, '/'))
+                continue;
+            // Проверка является ли слово обстоятельством
+            if(isAdverbial(token, head, adverbial, sentence, '*'))
+                continue;
+            // Проверка является ли слово подлежащие
+            if(isSubject(token, head, subject, sentence, '%'))
+                continue;
+            // Проверка является ли слово сказуемым
+            if(isPronoun(token, head, pronoun, sentence, '#'))
+                continue;
+            // Проверка является ли слово определением
+            if(isModifier(token, head, modifier, sentence, '$'))
+                continue;
+
+        }
+        words.push_back(Word(subject, pronoun, modifier, object, adverbial, sentence));
+    }while (getline(cin, str));
 }
 
 // Функция, которая обеспечивает взаимодействие с текстовым файлом
@@ -392,34 +460,132 @@ void fileMain(vector<Word>& words)
     ifstream input(fileName); // Открытие и дальнейшая работа с буферным файлом
     if (input.is_open()) 
     {
-        uploadFromFile = true;
         parceText(words, input, str); // Анализирование слов в буферном файле 
     }
+
     input.close();
+    remove(fileName.c_str());
 }
 
-
-void printResults(vector<Word>& words) 
+void printResults(vector<Word>& words, int mode) 
 {
+    system("clear");
     // Отобразить информацию о каждом предложении в векторе words
-    for (const auto& word : words)
+    for (auto& word : words) 
     {
-        cout << "%Подлежащие%: " << word.subject << endl;
-        cout << "#Сказуемое#: " << word.pronoun << endl;
-        cout << "$Определение$: " << word.modifier << endl;
-        cout << "/Дополнение/: " << word.object << endl;
-        cout << "*Обстоятельство*: " << word.adverbial << endl;
-        cout << "Предложение: " << word.sentence << endl;
-        cout << "---------------------" << endl;
+        if(word.sentence.empty())
+            continue;
+        string str ="";
+        switch (mode)
+        {
+        case 1:
+            cout << "%Подлежащие%: " << word.subject << endl;
+            cout << "#Сказуемое#: " << word.pronoun << endl;
+            cout << "$Определение$: " << word.modifier << endl;
+            cout << "/Дополнение/: " << word.object << endl;
+            cout << "*Обстоятельство*: " << word.adverbial << endl;
+            cout << "Предложение: " << word.sentence << endl;
+            cout << "---------------------" << endl;
+            break;
+        case 2:
+            if (word.subject.empty())
+                continue;
+            cout << "%Подлежащие%: " << word.subject << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            cout << "Предложение: " << str << endl;
+            cout << "---------------------" << endl;
+            break;        
+        case 3:
+            if (word.pronoun.empty())
+                continue;
+            cout << "#Сказуемое#: " << word.pronoun << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '%' || str[i] == '$' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            cout << "Предложение: " << str << endl;
+            cout << "---------------------" << endl;
+            break;
+        case 4:
+            if (word.modifier.empty())
+                continue;
+            cout << "$Определение$: " << word.modifier << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '%' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            cout << "Предложение: " << str << endl;
+            cout << "---------------------" << endl;
+            break;
+        case 5:
+            if (word.object.empty())
+                continue;
+            cout << "/Дополнение/: " << word.object << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '%'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            cout << "Предложение: " << str << endl;
+            cout << "---------------------" << endl;
+            break;
+        case 6:
+            if (word.adverbial.empty())
+                continue;
+            cout << "*Обстоятельство*: " << word.adverbial << endl;           
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '/'|| str[i] == '%')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            cout << "Предложение: " << str << endl;
+            cout << "---------------------" << endl;
+            break;
+        default:
+            break;
+        }
     }
+    cout << "Нажмите клавишу Enter для продолжения." << endl;
+    cin.clear();
+    cin.ignore(1000, '\n'); // Очистка потока cin    
     cin.get();
 }
 
 // Функция, которая отвечает за сохранение данных в текстовый файл
 // Возвращает истину после сохрананения данных в текстовый файл
-bool saveToFile(vector<Word>& words, string& fileName) 
+bool saveToFile(vector<Word>& words, int mode) 
 {
     system("clear");
+    string fileName = checkingFileName(2); // Ввод названия выходного файла
+    if (fileName == "=") {
+        return false; // Если пользователь ввел хотел вернуться в главное меню
+    }
     ofstream output(fileName);
     if (!output.is_open()) {
         cout << "Ошибка при открытии файла для записи." << endl;
@@ -429,21 +595,113 @@ bool saveToFile(vector<Word>& words, string& fileName)
     // Отобразить информацию о каждом предложении в векторе words 
     for (auto& word : words) 
     {
-        output << "%Подлежащие%: " << word.subject << endl;
-        output << "#Сказуемое#: " << word.pronoun << endl;
-        output << "$Определение$: " << word.modifier << endl;
-        output << "/Дополнение/: " << word.object << endl;
-        output << "*Обстоятельство*: " << word.adverbial << endl;
-        output << "Предложение: " << word.sentence << endl;
-        output << "---------------------" << endl;
+        if(word.sentence.empty())
+            continue;
+        string str = "";
+        switch (mode)
+        {
+        case 1:
+            output << "%Подлежащие%: " << word.subject << endl;
+            output << "#Сказуемое#: " << word.pronoun << endl;
+            output << "$Определение$: " << word.modifier << endl;
+            output << "/Дополнение/: " << word.object << endl;
+            output << "*Обстоятельство*: " << word.adverbial << endl;
+            output << "Предложение: " << word.sentence << endl;
+            output << "---------------------" << endl;
+            break;
+        case 2:
+            if (word.subject.empty())
+                continue;
+            output << "%Подлежащие%: " << word.subject << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            output << "Предложение: " << str << endl;
+            output << "---------------------" << endl;
+            break;        
+        case 3:
+            if (word.pronoun.empty())
+                continue;        
+            output << "#Сказуемое#: " << word.pronoun << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '%' || str[i] == '$' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            output << "Предложение: " << str << endl;
+            output << "---------------------" << endl;
+            break;
+        case 4:
+            if (word.modifier.empty())
+                continue;        
+            output << "$Определение$: " << word.modifier << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '%' || str[i] == '/'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            output << "Предложение: " << str << endl;
+            output << "---------------------" << endl;
+            break;
+        case 5:
+            if (word.object.empty())
+                continue;
+            output << "/Дополнение/: " << word.object << endl;
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '%'|| str[i] == '*')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            output << "Предложение: " << str << endl;
+            output << "---------------------" << endl;
+            break;
+        case 6:
+            if (word.adverbial.empty())
+                continue;
+            output << "*Обстоятельство*: " << word.adverbial << endl;           
+            str = word.sentence;
+            for(size_t i = 0; i < str.length(); ++i)
+            {
+                if(str[i] == '#' || str[i] == '$' || str[i] == '/'|| str[i] == '%')
+                {
+                    str.erase(i, 1);
+                    --i; // Уменьшаем i, чтобы не пропустить следующий символ
+                }
+            }
+            output << "Предложение: " << str << endl;
+            output << "---------------------" << endl;
+            break;
+        default:
+            break;
+        }
     }
-
+    hasUnsavedChanges = false;
     cout << "Результаты сохранены в файл: " << fileName << endl;
+    cout << "Нажмите клавишу Enter для продолжения." << endl;
+    cin.get();
     output.close();
     return true;
 }
 
-// Функция, которая отвеает за сохранение данных перед выходом из программы
+// Функция, которая отвечает за сохранение данных перед выходом из программы
 // Возвращает истину при выходе из программы
 bool exitSave(vector<Word>& words) {
     bool validInput = false; // Флаг корректного ввода 
@@ -455,11 +713,7 @@ bool exitSave(vector<Word>& words) {
     while (!validInput) {
         input = getchar();
         if (input == 'y' || input == 'Y') { 
-            string saveFileName = checkingFileName(2); // Проверка названия выходного файла
-            if (saveFileName == "=") {
-                return false; // Возврат в главное меню
-            }
-            bool exit = saveToFile(words, saveFileName);
+            bool exit = saveToFile(words, 1);
             if (!exit) {
                 return false; // Возврат в главное меню
             }
@@ -473,99 +727,288 @@ bool exitSave(vector<Word>& words) {
     return true; // Завершение программы
 }
 
+// Функция, которая отвечает за вывод основного меню
+void printMenu() {
+    cout << "Данная программа предназначена для поиска членов предложений в тексте!" << endl;
+    cout << "Выберите операцию: " << endl
+         << "1: загрузить из файла текст для анализа" << endl
+         << "2: ввести текст для анализа с клавиатуры" << endl
+         << "3: выполнить дополнительный анализ о числе слов в определенной роли" << endl
+         << "4: сохранить результаты анализа текста в файл" << endl
+         << "5: вывести результат анализа в консоль" << endl
+         << "6: выйти" << endl;
+}
+
+// Функция, которая отвечает за вывод подменю
+void printSubMenu() {
+    cout << "Подменю: " << endl
+        << "Для возвращения в основное меню введите символ '='" << endl
+         << "1: Выделение в тексте всех членов предложения" << endl
+         << "2: Выделение в тексте только подлежащих" << endl
+         << "3: Выделение в тексте только сказуемых" << endl
+         << "4: Выделение в тексте только определений" << endl
+         << "5: Выделение в тексте только дополнение" << endl
+         << "6: Выделение в тексте только обстоятельств" << endl;
+}
+
+// Функция обработки подменю
+void subMenuForSaveFile(vector<Word>& words) {
+    char subInput;
+    bool subMenuActive = true; // Флаг для зацикливания подменю
+    while (subMenuActive) {
+        system("clear");
+        printSubMenu();
+        subInput = getchar();
+        // Вызов функции сохранения в файл с разными режимами,
+        // которые зависят от выбора пользователя
+        switch (subInput) {
+            case '1':
+                saveToFile(words, 1); // Сохранение всех членов предложения в файл
+                break;
+            case '2':
+                saveToFile(words, 2); // Сохранение только подлежащих
+                break;
+            case '3':
+                saveToFile(words, 3); // Сохранение только сказуемых
+                break;
+            case '4':
+                saveToFile(words, 4); // Сохранение только определений
+                break;
+            case '5':
+                saveToFile(words, 5); // Сохранение только дополнение
+                break;
+            case '6':
+                saveToFile(words, 6); // Сохранение только обстоятельств
+                break;
+            case '=':
+                subMenuActive = false;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+// Функция обработки подменю
+void subMenuForPrintResult(vector<Word>& words) {
+    char subInput;
+    bool subMenuActive = true;
+    while (subMenuActive) {
+        system("clear");
+        printSubMenu();
+        subInput = getchar();
+        switch (subInput) {
+            case '1':
+                printResults(words, 1);
+                break;
+            case '2':
+                printResults(words, 2);
+                break;
+            case '3':
+                printResults(words, 3);
+                break;
+            case '4':
+                printResults(words, 4);
+                break;
+            case '5':
+                printResults(words, 5);
+                break;
+            case '6':
+                printResults(words, 6);
+                break;
+            case '=':
+                subMenuActive = false;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+// Функция для разделения строки на слова
+vector<string> split( string& s) {
+    vector<string> tokens;
+    istringstream iss(s);
+    string token;
+    while (iss >> token) {
+        tokens.push_back(token);
+    }
+    return tokens;
+}
+
+// Функция для подсчета числа появлений каждого слова в каждой роли
+void countWordRoles(vector<Word>& sentences) {
+    map<string, map<string, int>> wordRoleCounts;
+
+    string fileName = checkingFileName(2); // Ввод названия выходного файла
+    if (fileName == "=") {
+        return; // Если пользователь ввел хотел вернуться в главное меню
+    }
+    ofstream output(fileName);
+    if (!output.is_open()) {
+        cout << "Ошибка при открытии файла для записи." << endl;
+        return;
+    }
+
+    for (auto& sentence : sentences) {
+        vector<pair<string, string>> roles = {
+            {sentence.subject, "подлежащее"},
+            {sentence.pronoun, "сказуемое"},
+            {sentence.modifier, "определение"},
+            {sentence.object, "дополнение"},
+            {sentence.adverbial, "обстоятельство"}
+        };
+
+        for (auto& role : roles) {
+            if (!role.first.empty()) {
+                vector<string> words = split(role.first);
+                for ( auto& word : words) {
+                    wordRoleCounts[word][role.second]++;
+                }
+            }
+        }
+    }
+
+    // Вывод результатов
+    for (auto& wordEntry : wordRoleCounts) {
+        output << "Слово: " << wordEntry.first << endl;
+        
+        auto subj = wordEntry.second.find("подлежащее");
+        output << "В роли \"подлежащего\" - " << (subj != wordEntry.second.end() ? subj->second : 0) << endl;
+
+        auto pred = wordEntry.second.find("сказуемое");
+        output << "В роли \"сказуемого\" - " << (pred != wordEntry.second.end() ? pred->second : 0) << endl;
+
+        auto mod = wordEntry.second.find("определение");
+        output << "В роли \"определения\" - " << (mod != wordEntry.second.end() ? mod->second : 0) << endl;
+
+        auto obj = wordEntry.second.find("дополнение");
+        output << "В роли \"дополнения\" - " << (obj != wordEntry.second.end() ? obj->second : 0) << endl;
+
+        auto adv = wordEntry.second.find("обстоятельство");
+        output << "В роли \"обстоятельства\" - " << (adv != wordEntry.second.end() ? adv->second : 0) << endl;
+
+        output << endl;
+    }
+
+}
+
 int main() 
 {
-    vector<Word> words; // Вектор в котором хранятся дополнения
+    vector<Word> words; // Вектор в котором хранятся все члены предложений и само предложение
     bool validInput = false; // Флаг корректного ввода
-    char input;
+    char input; 
     setlocale(LC_ALL, "ru_RU.UTF-8"); // Установка кодировки utf-8 для консоли
     system("clear"); // Очистка консоли
     printMenu(); // Вывод меню
-    while (!validInput) {
+    while (!validInput) 
+    {
         input = getchar();
-        if (input == '1') {
-            words.clear(); // Очистка ветора дополнений
-            fileMain(words); // Обработка входного текстового файла
-            hasUnsavedChanges = true; // Установить несохранненные изменения
-            cout << "Нажмите клавишу Enter для продолжения." << endl;
-            cin.get();
-            system("clear"); // Очистка консоли
-            printMenu(); // Вывод меню
-            continue;
-        }
-        if (input == '2') {
-            if (words.empty() == 1) // Если вектор дополнений пустой
-            {
-                system("clear"); // Очистка консоли
-                cout << "Нет данных для сохранения в файл." << endl;
+        switch (input) 
+        {
+            case '1':
+                words.clear(); // Очистка вектора
+                fileMain(words); // Обработка входного текстового файла
+                hasUnsavedChanges = true; // Установить несохраненные изменения
                 cout << "Нажмите клавишу Enter для продолжения." << endl;
                 cin.clear();
                 cin.ignore(1000, '\n'); // Очистка потока cin
-                cin.get();
-                system("clear");
+                system("clear"); // Очистка консоли
                 printMenu(); // Вывод меню
-                continue;
-            }
-            else
-            {
-                string saveFileName = checkingFileName(2); // Ввод названия выходного файла
-                if (saveFileName == "=") { // Если пользователь ввел хотел вернуться в главное меню
+                break;
+            case '2':
+                words.clear(); // Очистка вектора
+                system("clear");
+                parceText(words);
+                hasUnsavedChanges = true; // Установить несохраненные изменения
+                cout << "Нажмите клавишу Enter для продолжения." << endl;
+                cin.clear();
+                cin.ignore(1000, '\n'); // Очистка потока cin
+                system("clear"); // Очистка консоли
+                printMenu(); // Вывод меню
+                break;
+            case '3':
+                if (words.empty())
+                {
+                    system("clear"); // Очистка консоли
+                    cout << "Нет данных для дополнительного анализа." << endl;
+                    cout << "Нажмите клавишу Enter для продолжения." << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n'); // Очистка потока cin
+                    cin.get();
                     system("clear");
                     printMenu(); // Вывод меню
-                    continue;
                 }
-
-                if (saveToFile(words, saveFileName)) {
-                    hasUnsavedChanges = false; // Снимаем флаг несохраненных изменений
+                else
+                {
+                    system("clear");
+                    countWordRoles(words);
+                    cout << "Нажмите клавишу Enter для продолжения." << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n'); // Очистка потока cin
+                    system("clear");
+                    printMenu(); // Вывод меню
                 }
-                cout << "Нажмите клавишу Enter для продолжения." << endl;
-                cin.get();
-                system("clear"); // Очистка консоли
-                printMenu(); // Вывод меню
-                continue;
-            }
-
-        }
-        if (input == '3') {
-            if (words.empty() == 1) // Если вектор дополнений пустой
-            {
-                system("clear"); // Очистка консоли
-                cout << "Нет данных для отображения." << endl;
-                cout << "Нажмите клавишу Enter для продолжения." << endl;
-                cin.clear();
-                cin.ignore(1000, '\n'); // Очистка потока cin
-                cin.get();
-                system("clear");
-                printMenu(); // Вывод меню
-                continue;
-            }
-            printResults(words); // Отобразить дополнения
-            cout << "Нажмите клавишу Enter для продолжения." << endl;
-            cin.get();
-            system("clear"); // Очистка консоли
-            printMenu(); // Вывод меню
-            continue;
-        }
-        if (input == '4') {
-            if (uploadFromFile == false) { // Если не было загрузки из файла
                 break;
-            } else {
-                if (hasUnsavedChanges == true) { // Если есть несохраненные изменения
+            case '4':
+                if (words.empty()) 
+                { // Если вектор дополнений пустой
+                    system("clear"); // Очистка консоли
+                    cout << "Нет данных для сохранения в файл." << endl;
+                    cout << "Нажмите клавишу Enter для продолжения." << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n'); // Очистка потока cin
+                    cin.get();
+                    system("clear");
+                    printMenu(); // Вывод меню
+                } 
+                else 
+                {
+                    subMenuForSaveFile(words);
+                    system("clear"); // Очистка консоли
+                    printMenu(); // Вывод меню
+                }
+                break;
+            case '5':
+                if (words.empty()) { // Если вектор дополнений пустой
+                    system("clear"); // Очистка консоли
+                    cout << "Нет данных для отображения." << endl;
+                    cout << "Нажмите клавишу Enter для продолжения." << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n'); // Очистка потока cin
+                    cin.get();
+                    system("clear");
+                    printMenu(); // Вывод меню
+                } 
+                else 
+                {
+                    subMenuForPrintResult(words); // Вызов подменю
+                    system("clear"); // Очистка консоли
+                    printMenu(); // Вывод меню
+                }
+                break;
+            case '6':
+                if (hasUnsavedChanges == true) 
+                { // Если есть несохраненные изменения
                     system("clear"); // Очистка консоли
                     bool exit = exitSave(words); // Сохранение данных перед выходом из программы
-                    if (exit) {
+                    if (exit)
+                    {
                         validInput = true;
-                        break;
-                    } else {
+                    } 
+                    else 
+                    {
                         system("clear");
                         printMenu(); // Вывод меню
-                        continue;
                     }
-                } else {
+                } 
+                else 
+                {
                     validInput = true;
-                    break;
                 }
-            }
+                break;
+            default:
+                break; 
         }
     }
     return 0;

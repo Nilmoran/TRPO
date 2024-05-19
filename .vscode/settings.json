@@ -9,7 +9,9 @@
         "atomic": "cpp",
         "string": "cpp",
         "chrono": "cpp",
-        "cctype": "cpp"
+        "cctype": "cpp",
+        "spacy": "cpp",
+        "sstream": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }

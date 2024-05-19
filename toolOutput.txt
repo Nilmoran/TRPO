@@ -1,2 +1,0 @@
-Владимир|увидел|PROPN|nsubj|VERB|ROOT|1
-валунов|сутолочь|NOUN|nmod|NOUN|obj|1
